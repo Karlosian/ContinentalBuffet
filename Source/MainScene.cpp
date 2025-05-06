@@ -55,7 +55,7 @@ bool MainScene::init()
 
     /////////////////////////////
     // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
+    /*    you may modify it.
 
     // add a "close" icon to exit the progress. it's an autorelease object
     auto closeItem = MenuItemImage::create("CloseNormal.png", "CloseSelected.png",
@@ -76,6 +76,12 @@ bool MainScene::init()
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
+    */
+
+    // Test
+    auto background = Sprite::create("Wardle.png");
+    background->setPosition(origin.x + visibleSize.x / 2, origin.y + visibleSize.y / 2);
+    this->addChild(background);
 
     /////////////////////////////
     // 3. add your codes below...
@@ -100,8 +106,7 @@ bool MainScene::init()
     _eventDispatcher->addEventListenerWithFixedPriority(_keyboardListener, 11);
 
     // add a label shows "Hello World"
-    // create and initialize a label
-
+    /* create and initialize a label
     auto label = Label::createWithTTF("Testing Build Stuff", "fonts/Marker Felt.ttf", 24);
     if (label == nullptr)
     {
@@ -116,6 +121,7 @@ bool MainScene::init()
         // add the label as a child to this layer
         this->addChild(label, 1);
     }
+
     // add "HelloWorld" splash screen"
     auto sprite = Sprite::create("HelloWorld.png"sv);
     if (sprite == nullptr)
@@ -134,7 +140,7 @@ bool MainScene::init()
         addChild(drawNode);
 
         drawNode->drawRect(safeArea.origin + Vec2(1, 1), safeArea.origin + safeArea.size, Color4F::BLUE);
-    }
+    }*/
 
     // scheduleUpdate() is required to ensure update(float) is called on every loop
     scheduleUpdate();
