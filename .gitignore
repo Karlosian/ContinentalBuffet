@@ -1,0 +1,18 @@
+# Build artifacts
+/build/
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+
+.vscode/
+
+# macOS/Linux system files
+.DS_Store
+*.swp
+
+# Axmol auto-generated (if applicable)
+bin/
