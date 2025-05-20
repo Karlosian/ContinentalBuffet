@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1280,720">
+  <displayList>
+    <image id="n1_e0zl" name="n1" src="e0zl1" fileName="Grandma Shooting A Gun.jpg" xy="86,17" size="731,508"/>
+    <text id="n2_e0zl" name="n2" xy="223,294" size="30,19" fontSize="12" color="#33ff66" text="BUM"/>
+  </displayList>
+</component>
