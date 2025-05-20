@@ -28,6 +28,8 @@
 #include "UIPackage.h"
 #include "GComponent.h"
 
+#include "Classes/Ingredient.h"
+
 using namespace ax;
 
 static int s_sceneID = 1000;
@@ -58,12 +60,15 @@ bool MainScene::init()
     background->setPosition(origin.x + visibleSize.x / 2, origin.y + visibleSize.y / 2);
     this->addChild(background);
 
+    // Test
 	fairygui::GRoot* root = fairygui::GRoot::create(this);
     root->retain();
     fairygui::UIPackage::addPackage("UI/Package1");
     fairygui::GComponent* myComponent = fairygui::UIPackage::createObject("Package1", "Component1")->as<fairygui::GComponent>();
     myComponent->setPosition(0, 0);
     root->addChild(myComponent);
+
+    Ingredient* ingredient = new Ingredient();
 
     /////////////////////////////
     // 3. add your codes below...
