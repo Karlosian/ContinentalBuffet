@@ -63,6 +63,8 @@ bool MainScene::init()
     // Test
 	fairygui::GRoot* root = fairygui::GRoot::create(this);
     root->retain();
+
+
     fairygui::UIPackage::addPackage("UI/Package1");
     fairygui::GComponent* myComponent = fairygui::UIPackage::createObject("Package1", "Component1")->as<fairygui::GComponent>();
     myComponent->setPosition(0, 0);
