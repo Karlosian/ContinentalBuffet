@@ -70,6 +70,8 @@ bool MainScene::init()
 
     Ingredient* ingredient = new Ingredient();
 
+    //askljdasd
+
     /////////////////////////////
     // 3. add your codes below...
     _keyboardListener                = EventListenerKeyboard::create();
