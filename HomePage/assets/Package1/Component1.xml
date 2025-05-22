@@ -2,6 +2,7 @@
 <component size="1280,720">
   <displayList>
     <image id="n1_s5at" name="n1" src="s5at2" fileName="Untitled-1.png" xy="-1,-53" size="1280,800"/>
-    <component id="n2_s5at" name="n2" src="s5atc" fileName="start.xml" xy="-320,-254"/>
+    <component id="n4_s5at" name="n4" src="s5atj" fileName="start2.xml" xy="416,369" size="423,147"/>
+    <image id="n6_s5at" name="n6" src="s5atl" fileName="_Con (1).png" xy="27,31" size="1207,679"/>
   </displayList>
 </component>
