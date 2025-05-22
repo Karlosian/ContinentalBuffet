@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1280,720">
-  <displayList/>
+  <displayList>
+    <image id="n1_s5at" name="n1" src="s5at2" fileName="Untitled-1.png" xy="-1,-53" size="1280,800"/>
+    <component id="n2_s5at" name="n2" src="s5atc" fileName="start.xml" xy="-320,-254"/>
+  </displayList>
 </component>
