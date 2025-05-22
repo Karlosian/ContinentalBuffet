@@ -68,6 +68,11 @@ bool MainScene::init()
     myComponent->setPosition(0, 0);
     root->addChild(myComponent);
 
+    fairygui::UIPackage::addPackage("UI/Package2");
+    fairygui::GComponent* myComponent2 = fairygui::UIPackage::createObject("Package2", "Component1")->as<fairygui::GComponent>();
+    myComponent2->setPosition(0, 0);
+    root->addChild(myComponent2);
+
     Ingredient* ingredient = new Ingredient();
 
     //askljdasd
