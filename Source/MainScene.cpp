@@ -59,11 +59,8 @@ bool MainScene::init()
     auto safeOrigin  = safeArea.origin;
 
     // Load JSON file
-    Ingredient ingredient;
-    double a = ingredient.getCost();
-    Ingredient::getIngredients();
-    Ingredient neighbour = Ingredient::ingredients[0];
-    a = neighbour.getCost();
+    Ingredient::getIngredientList();
+    Recipe::getRecipeList();
 
     // Test
     auto background = Sprite::create("Wardle.png");

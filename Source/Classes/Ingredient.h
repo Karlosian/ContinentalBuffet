@@ -9,19 +9,22 @@ private:
     std::string name, unit;
     int amount, quantity, type;
     double cost;
+    static std::vector<Ingredient> ingredients;
 
 public:
-    //lololol
-    static std::vector<Ingredient> ingredients;
 
     // Constructors
     Ingredient();
+    Ingredient(std::string n, int a, std::string u);
     Ingredient(std::string n, std::string u, double c, int a, int t);
 
     // Getters
+    std::string getName();
     double getCost();
     int getQuantity();
-    static void getIngredients();
+
+    static std::vector<Ingredient> getIngredients();
+    static void getIngredientList(); // Extracting the ingredients from ingredients.json
 
     // Setters
     void setQuantity(int q);
