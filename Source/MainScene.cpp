@@ -29,6 +29,7 @@
 #include "GComponent.h"
 
 #include "Classes/Ingredient.h"
+#include "Classes/Recipe.h"
 
 using namespace ax;
 
@@ -55,6 +56,9 @@ bool MainScene::init()
     auto safeArea    = _director->getSafeAreaRect();
     auto safeOrigin  = safeArea.origin;
 
+    // Load JSON file
+    Ingredient ingredient;
+
     // Test
     auto background = Sprite::create("Wardle.png");
     background->setPosition(origin.x + visibleSize.x / 2, origin.y + visibleSize.y / 2);
@@ -64,7 +68,6 @@ bool MainScene::init()
 	fairygui::GRoot* root = fairygui::GRoot::create(this);
     root->retain();
 
-
     fairygui::UIPackage::addPackage("UI/Package1");
     fairygui::GComponent* myComponent = fairygui::UIPackage::createObject("Package1", "Component1")->as<fairygui::GComponent>();
     myComponent->setPosition(0, 0);
@@ -73,11 +76,7 @@ bool MainScene::init()
     fairygui::UIPackage::addPackage("UI/Package2");
     fairygui::GComponent* myComponent2 = fairygui::UIPackage::createObject("Package2", "Component1")->as<fairygui::GComponent>();
     myComponent2->setPosition(0, 0);
-    root->addChild(myComponent2);
-
-    Ingredient* ingredient = new Ingredient();
-
-    //askljdasd
+    //root->addChild(myComponent2);
 
     /////////////////////////////
     // 3. add your codes below...
