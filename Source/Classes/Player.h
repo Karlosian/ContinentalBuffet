@@ -1,4 +1,4 @@
-#ifndef PLAYER_H_
+/*#ifndef PLAYER_H_
 #define PLAYER_H_
 
 #include <vector>
@@ -7,11 +7,14 @@
 
 class Player {
 private:
-    Player();
-    static Player* instance;
+    
 public:
+
+Player();
+    //static Player* instance;
     static Player* getInstance();
     std::vector<Ingredient*> inventory;
 };
 
 #endif
+*/

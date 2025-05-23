@@ -9,9 +9,11 @@ private:
     std::string name, unit;
     int amount, quantity, type;
     double cost;
-    static std::vector<Ingredient> ingredients;
 
 public:
+    //lololol
+    static std::vector<Ingredient> ingredients;
+
     // Constructors
     Ingredient();
     Ingredient(std::string n, std::string u, double c, int a, int t);

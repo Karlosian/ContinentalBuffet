@@ -1,4 +1,4 @@
-#include "Player.h"
+/*#include "Player.h"
 
 Player::instance == nullptr;
 
@@ -8,3 +8,4 @@ Player* Player::getInstance() {
     }
     return instance;
 }
+*/

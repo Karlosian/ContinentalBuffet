@@ -1,8 +1,12 @@
 #include <vector>
 #include <fstream>
+#include <iostream>
+#include <filesystem>
 
 #include "Ingredient.h"
+#define JSON_HAS_CPP_20 0
 #include "json.hpp"
+#include "axmol.h"
 
 std::vector<Ingredient> Ingredient::ingredients;
 
@@ -17,6 +21,7 @@ Ingredient::Ingredient(std::string n, std::string u, double c, int a, int t) {
 
 double Ingredient::getCost() {
     return cost;
+    
 }
 
 int Ingredient::getQuantity() {

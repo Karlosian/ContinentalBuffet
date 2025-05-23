@@ -31,6 +31,8 @@
 #include "Classes/Ingredient.h"
 #include "Classes/Recipe.h"
 
+#include <iostream>
+#include <string>
 using namespace ax;
 
 static int s_sceneID = 1000;
@@ -58,6 +60,10 @@ bool MainScene::init()
 
     // Load JSON file
     Ingredient ingredient;
+    double a = ingredient.getCost();
+    Ingredient::getIngredients();
+    Ingredient neighbour = Ingredient::ingredients[0];
+    a = neighbour.getCost();
 
     // Test
     auto background = Sprite::create("Wardle.png");
