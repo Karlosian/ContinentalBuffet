@@ -2,7 +2,25 @@
 <packageDescription id="8j0ektec">
   <resources>
     <component id="v23b0" name="Component1.xml" path="/" exported="true"/>
-    <image id="jy7h1" name="Anne Collodi dans un desert.png" path="/"/>
+    <image id="leu52" name="Shop.png" path="/Assets/"/>
+    <image id="leu55" name="Buy.png" path="/Assets/"/>
+    <image id="leu56" name="Buy Hover.png" path="/Assets/"/>
+    <image id="leu57" name="Buy Click.png" path="/Assets/"/>
+    <component id="leu58" name="Buy.xml" path="/Interactables/"/>
+    <image id="leu59" name="Clear Hover.png" path="/Assets/"/>
+    <image id="leu5a" name="Clear Click.png" path="/Assets/"/>
+    <image id="leu5b" name="Clear.png" path="/Assets/"/>
+    <component id="leu5c" name="Clear.xml" path="/Interactables/"/>
+    <image id="leu5d" name="Back Hover.png" path="/Assets/"/>
+    <image id="leu5e" name="Back Click.png" path="/Assets/"/>
+    <image id="leu5f" name="Back.png" path="/Assets/"/>
+    <component id="leu5g" name="Back.xml" path="/Interactables/"/>
+    <image id="leu5h" name="Cost.png" path="/Assets/"/>
+    <image id="leu5i" name="Balance.png" path="/Assets/"/>
+    <image id="leu5j" name="Scroll Bg 1.png" path="/Assets/"/>
+    <component id="leu5k" name="Scroll1.xml" path="/Components/"/>
+    <component id="leu5l" name="Scroll2.xml" path="/Components/"/>
+    <image id="leu5m" name="Untitled design.png" path="/Assets/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

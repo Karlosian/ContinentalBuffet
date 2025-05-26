@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="800,600">
+<component size="1280,720">
   <displayList>
-    <image id="n0_jy7h" name="n0" src="jy7h1" fileName="Anne Collodi dans un desert.png" xy="152,77"/>
+    <image id="n1_leu5" name="n1" src="leu52" fileName="Shop.png" xy="0,0" size="1280,719"/>
   </displayList>
 </component>
