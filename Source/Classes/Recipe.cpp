@@ -12,18 +12,32 @@
 
 std::vector<Recipe> Recipe::recipes;  // Definition for static member
 
+// Default constructor
 Recipe::Recipe() {}
 
-Recipe::Recipe(std::string n, std::string d, std::vector<Ingredient> i, std::vector<CookingProcess> s)
-{
+// Constructor to initialize a Recipe object with name, description, ingredients, and steps
+Recipe::Recipe(std::string n, std::string d, std::vector<Ingredient> i, std::vector<CookingProcess> s) {
     name              = n;
     description       = d;
     recipeIngredients = i;
     steps             = s;
 }
 
-void Recipe::getRecipeList()
-{
+// Getter for recipe variables
+std::string Recipe::getRecipeName() {
+    return name;
+}
+
+std::vector<Ingredient> Recipe::getRecipeIngredients() {
+    return recipeIngredients;
+}
+
+std::vector<CookingProcess> Recipe::getRecipeSteps() {
+    return steps;
+}
+
+// Function to extract all the recipes from the JSON file and store them in the static vector
+void Recipe::getRecipeList() {
     std::ifstream file("recipes.json");
     std::cout << "Current working directory: " << std::filesystem::current_path() << std::endl;
 
@@ -35,60 +49,43 @@ void Recipe::getRecipeList()
 
     std::cout << "Reading recipes from JSON file..." << std::endl;
 
-    try
-    {
+    try {
         nlohmann::json json_data;
         file >> json_data;
 
-        for (const auto& recipe : json_data)
-        {
+        for (const auto& recipe : json_data) {
             std::vector<Ingredient> recipeIngredients;
-            // Populating recipeIngredients from the top-level "ingredients" array
-            for (const auto& ingredient_item : recipe["ingredients"])
-            {
+
+            for (const auto& ingredient_item : recipe["ingredients"]) {
                 recipeIngredients.push_back(
-                    Ingredient(ingredient_item["name"], ingredient_item["amount"], ingredient_item["unit"]));
+                    Ingredient(ingredient_item["name"], ingredient_item["amount"], ingredient_item["unit"])
+                );
             }
 
             std::vector<CookingProcess> steps;
-            for (const auto& step : recipe["steps"])
-            {
-                std::vector<Ingredient> ingredients_for_step;  // Renamed for clarity
+            for (const auto& step : recipe["steps"]) {
+                std::vector<Ingredient> ingredients_for_step;
 
-                // FIX: Remove incorrect line and explicitly get string value for comparison
-                // std::string name = step["name"]; // This line was incorrect and removed.
+                for (const auto& ingredient_json_value : step["ingredients"]) {
+                    std::string ingredient_name_from_step = ingredient_json_value.get<std::string>();
 
-                // FIX: Explicitly convert the JSON value to a std::string for comparison
-                for (const auto& ingredient_json_value : step["ingredients"])
-                {
-                    std::string ingredient_name_from_step =
-                        ingredient_json_value.get<std::string>();  // Get the string value
-
-                    for (Ingredient& foundIngredient : recipeIngredients)
-                    {
-                        // FIX: Compare std::string with std::string
-                        if (foundIngredient.getName() == ingredient_name_from_step)
-                        {
+                    for (Ingredient& foundIngredient : recipeIngredients) {
+                        if (foundIngredient.getName() == ingredient_name_from_step) {
                             ingredients_for_step.push_back(foundIngredient);
-                            break;  // Found the ingredient, no need to check further in recipeIngredients
+                            break;
                         }
                     }
                 }
 
-                // FIX: Use "process" key for CookingProcess instead of "action"
                 steps.push_back(CookingProcess(step["process"], ingredients_for_step));
             }
 
             recipes.push_back(Recipe(recipe["name"], recipe["description"], recipeIngredients, steps));
             std::cout << "Recipe Name: " << recipe["name"] << std::endl;
         }
-    }
-    catch (const nlohmann::json::parse_error& e)
-    {
+    } catch (const nlohmann::json::parse_error& e) {
         std::cerr << "JSON parse error: " << e.what() << std::endl;
-    }
-    catch (const std::exception& e)
-    {
+    } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }
 }

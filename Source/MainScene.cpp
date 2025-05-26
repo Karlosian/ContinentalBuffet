@@ -30,6 +30,8 @@
 
 #include "Classes/Ingredient.h"
 #include "Classes/Recipe.h"
+#include "Classes/CookingProcess.h"
+#include "Classes/Meal.h"
 
 #include <iostream>
 #include <string>
@@ -61,6 +63,14 @@ bool MainScene::init()
     // Load JSON file
     Ingredient::getIngredientList();
     Recipe::getRecipeList();
+
+    std::vector<Ingredient> ingredients = Recipe::recipes[0].getRecipeIngredients();
+    std::vector<CookingProcess> cookingProcesses = Recipe::recipes[0].getRecipeSteps();
+
+    Meal mealTest(ingredients, cookingProcesses);
+    Recipe recipeTest = mealTest.findMatchingRecipe();
+
+    std::cout << recipeTest.getRecipeName() << std::endl;
 
     // Test
     auto background = Sprite::create("Wardle.png");
