@@ -20,6 +20,7 @@ private:
 public:
     // Default constructor
     CookingProcess(std::string n, std::vector<Ingredient> i);
-};
 
+    bool operator==(const CookingProcess& other) const;
+};
 #endif  // !COOKINGPROCESS_H_

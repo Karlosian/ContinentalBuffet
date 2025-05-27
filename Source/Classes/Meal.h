@@ -13,7 +13,7 @@ private:
 
 public:
     Meal();
-    Meal(std::vector<Ingredient> i, std::vector<CookingProcess>);
+    Meal(std::vector<Ingredient> i, std::vector<CookingProcess> cp);
     
     Recipe findMatchingRecipe();
 };

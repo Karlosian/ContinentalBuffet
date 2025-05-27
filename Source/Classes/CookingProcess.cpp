@@ -15,3 +15,14 @@ CookingProcess::CookingProcess(std::string n, std::vector<Ingredient> i) {
     name = n;
     ingredients = i;
 }
+
+bool CookingProcess::operator==(const CookingProcess& other) const {
+    if (name != other.name || CookingProcesses.size() != other.CookingProcesses.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < CookingProcesses.size(); ++i) {
+        if (CookingProcesses[i] != other.CookingProcesses[i]) return false;
+    }
+    return true;
+}

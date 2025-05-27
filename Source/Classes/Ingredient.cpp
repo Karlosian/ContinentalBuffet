@@ -46,6 +46,10 @@ int Ingredient::getQuantity() {
     return quantity;
 }
 
+int Ingredient::getAmount() {
+    return amount;
+}
+
 std::vector<Ingredient> Ingredient::getIngredients() {
     return ingredients;
 }

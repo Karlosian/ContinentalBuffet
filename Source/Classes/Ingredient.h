@@ -21,6 +21,7 @@ public:
     // Getters
     std::string getName();
     double getCost();
+    int getAmount();
     int getQuantity();
 
     static std::vector<Ingredient> getIngredients();
