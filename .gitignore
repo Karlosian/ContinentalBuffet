@@ -9,7 +9,8 @@ compile_commands.json
 
 
 .vscode/
-
+.vs/
+    
 # macOS/Linux system files
 .DS_Store
 *.swp

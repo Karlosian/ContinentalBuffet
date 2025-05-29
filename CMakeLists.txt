@@ -52,6 +52,21 @@ file(GLOB_RECURSE GAME_SOURCE
     Source/*.cpp Source/*.c
 )
 
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY CMAKE_CONFIGURE_DEPENDS
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/*.h"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Content/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Content/*.h"
+)
+
+# Automatically reconfigure when source files change
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY CMAKE_CONFIGURE_DEPENDS
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/*.h"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Content/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Content/*.h"
+)
+
 set(GAME_INC_DIRS
     "${CMAKE_CURRENT_SOURCE_DIR}/Source"
 )
