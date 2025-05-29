@@ -12,7 +12,6 @@ private:
     static std::vector<Ingredient> ingredients;
 
 public:
-
     // Constructors
     Ingredient();
     Ingredient(std::string n, int a, std::string u);
@@ -30,10 +29,6 @@ public:
     // Setters
     void setQuantity(int q);
     void changeQuantityBy(int q);
-
-    // Find
-    std::string* findRecipes();
-
 };
 
 #endif

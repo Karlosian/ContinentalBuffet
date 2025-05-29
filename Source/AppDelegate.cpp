@@ -25,6 +25,8 @@
 
 #include "AppDelegate.h"
 #include "MainScene.h"
+#include "Scenes/Homepage.h"
+#include "Scenes/CookingScene.h"
 
 #define USE_AUDIO_ENGINE 1
 
@@ -78,7 +80,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     glView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::SHOW_ALL);
 
     // create a scene. it's an autorelease object
-    auto scene = utils::createInstance<MainScene>();
+    //auto scene = utils::createInstance<MainScene>();
+    auto scene = utils::createInstance<Homepage>();
 
     // run
     director->runWithScene(scene);
