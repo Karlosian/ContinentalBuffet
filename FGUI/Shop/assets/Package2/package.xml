@@ -19,8 +19,61 @@
     <image id="leu5i" name="Balance.png" path="/Assets/"/>
     <image id="leu5j" name="Scroll Bg 1.png" path="/Assets/"/>
     <component id="leu5k" name="Scroll1.xml" path="/Components/"/>
-    <component id="leu5l" name="Scroll2.xml" path="/Components/"/>
     <image id="leu5m" name="Untitled design.png" path="/Assets/"/>
+    <image id="cwzbn" name="55.png" path="/Ingredients/"/>
+    <image id="cwzbo" name="30.png" path="/Ingredients/"/>
+    <image id="cwzbp" name="31.png" path="/Ingredients/"/>
+    <image id="cwzbq" name="32.png" path="/Ingredients/"/>
+    <image id="cwzbr" name="33.png" path="/Ingredients/"/>
+    <image id="cwzbs" name="34.png" path="/Ingredients/"/>
+    <image id="cwzbt" name="35.png" path="/Ingredients/"/>
+    <image id="cwzbu" name="36.png" path="/Ingredients/"/>
+    <image id="cwzbv" name="37.png" path="/Ingredients/"/>
+    <image id="cwzbw" name="38.png" path="/Ingredients/"/>
+    <image id="cwzbx" name="39.png" path="/Ingredients/"/>
+    <image id="cwzby" name="40.png" path="/Ingredients/"/>
+    <image id="cwzbz" name="41.png" path="/Ingredients/"/>
+    <image id="cwzb10" name="42.png" path="/Ingredients/"/>
+    <image id="cwzb11" name="43.png" path="/Ingredients/"/>
+    <image id="cwzb12" name="44.png" path="/Ingredients/"/>
+    <image id="cwzb13" name="45.png" path="/Ingredients/"/>
+    <image id="cwzb14" name="46.png" path="/Ingredients/"/>
+    <image id="cwzb15" name="47.png" path="/Ingredients/"/>
+    <image id="cwzb16" name="48.png" path="/Ingredients/"/>
+    <image id="cwzb17" name="49.png" path="/Ingredients/"/>
+    <image id="cwzb18" name="50.png" path="/Ingredients/"/>
+    <image id="cwzb19" name="51.png" path="/Ingredients/"/>
+    <image id="cwzb1a" name="52.png" path="/Ingredients/"/>
+    <image id="cwzb1b" name="29.png" path="/Ingredients/"/>
+    <image id="cwzb1c" name="53.png" path="/Ingredients/"/>
+    <image id="cwzb1d" name="28.png" path="/Ingredients/"/>
+    <image id="cwzb1e" name="26.png" path="/Ingredients/"/>
+    <image id="cwzb1f" name="3.png" path="/Ingredients/"/>
+    <image id="cwzb1g" name="4.png" path="/Ingredients/"/>
+    <image id="cwzb1h" name="5.png" path="/Ingredients/"/>
+    <image id="cwzb1i" name="6.png" path="/Ingredients/"/>
+    <image id="cwzb1j" name="7.png" path="/Ingredients/"/>
+    <image id="cwzb1k" name="8.png" path="/Ingredients/"/>
+    <image id="cwzb1l" name="9.png" path="/Ingredients/"/>
+    <image id="cwzb1m" name="10.png" path="/Ingredients/"/>
+    <image id="cwzb1n" name="11.png" path="/Ingredients/"/>
+    <image id="cwzb1o" name="12.png" path="/Ingredients/"/>
+    <image id="cwzb1p" name="13.png" path="/Ingredients/"/>
+    <image id="cwzb1q" name="14.png" path="/Ingredients/"/>
+    <image id="cwzb1r" name="15.png" path="/Ingredients/"/>
+    <image id="cwzb1s" name="16.png" path="/Ingredients/"/>
+    <image id="cwzb1t" name="17.png" path="/Ingredients/"/>
+    <image id="cwzb1u" name="18.png" path="/Ingredients/"/>
+    <image id="cwzb1v" name="19.png" path="/Ingredients/"/>
+    <image id="cwzb1w" name="20.png" path="/Ingredients/"/>
+    <image id="cwzb1x" name="21.png" path="/Ingredients/"/>
+    <image id="cwzb1y" name="22.png" path="/Ingredients/"/>
+    <image id="cwzb1z" name="23.png" path="/Ingredients/"/>
+    <image id="cwzb20" name="24.png" path="/Ingredients/"/>
+    <image id="cwzb21" name="25.png" path="/Ingredients/"/>
+    <image id="cwzb22" name="27.png" path="/Ingredients/"/>
+    <image id="cwzb23" name="54.png" path="/Ingredients/"/>
+    <component id="cwzb28" name="Scroll2.xml" path="/Components/"/>
   </resources>
-  <publish name=""/>
+  <publish name="Shop"/>
 </packageDescription>

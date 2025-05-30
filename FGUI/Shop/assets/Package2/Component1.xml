@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1280,720">
   <displayList>
-    <image id="n1_leu5" name="n1" src="leu52" fileName="Shop.png" xy="0,0" size="1280,719"/>
+    <image id="n1_leu5" name="n1" src="leu52" fileName="Assets/Shop.png" xy="0,0" size="1280,719"/>
+    <component id="n11_cwzb" name="n11" src="cwzb28" fileName="Components/Scroll2.xml" xy="32,23" size="650,578"/>
+    <image id="n13_cwzb" name="n13" src="leu5h" fileName="Assets/Cost.png" xy="32,611" size="319,94"/>
+    <image id="n14_cwzb" name="n14" src="leu5i" fileName="Assets/Balance.png" xy="362,611" size="319,94"/>
+    <text id="n15_cwzb" name="n15" xy="41,630" size="291,64" font="Impact" fontSize="48" autoSize="none" text="0000.00$"/>
+    <text id="n16_cwzb" name="n16" xy="370,630" size="291,64" font="Impact" fontSize="48" autoSize="none" text="0000.00$"/>
+    <component id="n17_cwzb" name="n17" src="leu58" fileName="Interactables/Buy.xml" xy="726,480" size="246,109"/>
+    <component id="n18_cwzb" name="n18" src="leu5c" fileName="Interactables/Clear.xml" xy="1003,480" size="246,109"/>
+    <component id="n19_cwzb" name="n19" src="leu5g" fileName="Interactables/Back.xml" xy="976,609" size="273,83"/>
+    <image id="n20_cwzb" name="n20" src="leu5m" fileName="Assets/Untitled design.png" xy="724,20" size="526,434"/>
+    <list id="n12_cwzb" name="n12" xy="726,23" size="524,431" overflow="scroll"/>
   </displayList>
 </component>

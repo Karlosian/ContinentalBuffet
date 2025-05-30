@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="800,600"/>
+<component size="800,600" designImageAlpha="94">
+  <displayList>
+    <image id="n3_leu5" name="n3" src="leu5m" fileName="Assets/Untitled design.png" xy="-2,-1" size="803,4338"/>
+  </displayList>
+</component>
