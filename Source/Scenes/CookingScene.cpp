@@ -32,19 +32,29 @@ void CookingScene::loadStartScreen() {
         return;
     }
 
-    fairygui::GList* processList = processListObject->as<fairygui::GList>();
+    processList = processListObject->as<fairygui::GList>();
 
-    processList->setVirtual();
+    //processList->setVirtual();
 
-    processList->getScrollPane()->scrollRight(50, true);
+    processList->getScrollPane()->setScrollStep(666);
     
     fairygui::GObject* leftArrowObject = cookingSceneComponent->getChild("n4");
 
     if (leftArrowObject != nullptr && leftArrowObject->as<fairygui::GButton>() != nullptr)
     {
         fairygui::GButton* leftArrow = leftArrowObject->as<fairygui::GButton>();
-        leftArrow->addClickListener([](fairygui::EventContext* context) {
+        leftArrow->addClickListener([this](fairygui::EventContext* context) {
+            this->processList->getScrollPane()->scrollLeft(1, true);
+        });
+    }
 
+    fairygui::GObject* rightArrowObject = cookingSceneComponent->getChild("n5");
+
+    if (rightArrowObject != nullptr && rightArrowObject->as<fairygui::GButton>() != nullptr)
+    {
+        fairygui::GButton* rightArrow = rightArrowObject->as<fairygui::GButton>();
+        rightArrow->addClickListener([this](fairygui::EventContext* context) {
+            this->processList->getScrollPane()->scrollRight(1, true);
         });
     }
 }

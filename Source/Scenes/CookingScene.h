@@ -36,6 +36,8 @@ public:
 
     void menuCloseCallback(ax::Object* sender);
 
+    fairygui::GList* processList;
+
     CookingScene();
     ~CookingScene() override;
 };
