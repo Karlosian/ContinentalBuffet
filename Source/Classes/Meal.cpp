@@ -1,16 +1,22 @@
 #include <vector>
 #include "Meal.h"
 
+// Parameratized Constructor
 Meal::Meal(std::vector<Ingredient> i, std::vector<CookingProcess> cp) {
     recipeIngredients = i;
-    steps = cp;
+    steps             = cp;
+    recipeAccuracy    = -1;
 }
 
+// This method searches through all the recipes stored in the JSON file and assigns a percentage
+// to each recipe based on how similar it is to the user's concocted meal
 Recipe Meal::findMatchingRecipe() {
+    // Vector to store the score given to each recipe
     std::vector<double>recipeAccuracyArray;
 
-    // Give a score to each recipe based on how similar it is to the ingredients and cooking process of the meal
+    // Loop through the recipes in the JSON file
     for (int i = 0; i < recipes.size(); i++) {
+        // Give a score to each recipe based on how similar it is to the ingredients used in the meal
         double ingredientScore = 0;
         int amountOfIngredients = recipes[i].getRecipeIngredients().size();
 
@@ -24,9 +30,9 @@ Recipe Meal::findMatchingRecipe() {
                 }
             }
         }
+        ingredientScore *= 0.3; // Give this score a weight of 30% of the final score
 
-        ingredientScore *= 0.3;
-
+        // Give a score to each recipe based on how similar it is to the cooking processes used in the meal
         double cookingProcessScore = 0;
         int minStepsSize = std::min(steps.size(), recipes[i].getRecipeSteps().size());
         for (int j = 0; j < minStepsSize; j++) {
@@ -34,7 +40,9 @@ Recipe Meal::findMatchingRecipe() {
                 cookingProcessScore += 1.0 / recipes[i].getRecipeSteps().size();
             }
         }
-        cookingProcessScore *= 0.7;
+        cookingProcessScore *= 0.7; // Give this score a weight of 70% of the final score
+
+        // Add the score to the vector array (at the same index as the recipe in the recipes vector)
         recipeAccuracyArray.push_back(ingredientScore + cookingProcessScore);
     }
 

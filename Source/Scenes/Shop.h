@@ -35,7 +35,7 @@ public:
 
     void menuCloseCallback(ax::Object* sender);
 
-    // Add your method declaration here (ex. calculate cost or something)
+    // Vacy, add your method declaration here (ex. calculate cost or something)
 
     Shop();
     ~Shop() override;

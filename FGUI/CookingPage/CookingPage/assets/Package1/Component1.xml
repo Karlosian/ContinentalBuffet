@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1280,720">
+  <displayList>
+    <image id="n1_jarb" name="n1" src="jarb2" fileName="Assets/background.jpg" xy="1,-65" size="1277,851"/>
+    <component id="n2_jarb" name="n2" src="jarb3" fileName="ScrollProcesses.xml" xy="97,-17" aspect="true"/>
+    <component id="n4_jarb" name="n4" src="jarbx" fileName="LeftArrow.xml" xy="174,183" size="99,180"/>
+    <component id="n5_jarb" name="n5" src="jarby" fileName="Right Arrow.xml" xy="971,181" size="99,180" aspect="true"/>
+  </displayList>
+</component>

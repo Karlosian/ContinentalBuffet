@@ -10,27 +10,40 @@
 
 std::vector<Ingredient> Ingredient::ingredients;
 
-// Constructor for Ingredient class
+// Constructors for Ingredient class
 Ingredient::Ingredient() {
-    name = "";
-    cost = 0;
+    name     = "";
+    amount   = 0;
+    cost     = 0;
     quantity = 0;
+    type     = -1;
 }
 
 Ingredient::Ingredient(std::string n, int a, std::string u) {
-    name = n;
-    amount = a;
-    unit = u;
-    cost = 0;
+    name     = n;
+    amount   = a;
+    unit     = u;
+    cost     = 0;
     quantity = 0;
+    type     = -1;
 }
 
 Ingredient::Ingredient(std::string n, std::string u, double c, int a, int t) {
-    name = n;
-    cost = c;
-    amount = a;
-    type = t;
-    unit = u;
+    name     = n;
+    cost     = c;
+    amount   = a;
+    type     = t;
+    quantity = 0;
+    unit     = u;
+}
+
+Ingredient::Ingredient(Ingredient &i, int q) {
+    name = i.name;
+    cost = i.cost;
+    amount = i.amount;
+    type = i.type;
+    unit = i.unit;
+    quantity = q;
 }
 
 // Getters for Ingredient class

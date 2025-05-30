@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1024,576" overflow="scroll" scroll="horizontal">
+  <displayList>
+    <list id="n13_jarb" name="n13" xy="179,99" size="666,375" layout="row" selectionMode="multiple" overflow="scroll" scroll="horizontal">
+      <item url="ui://9ah5ij39jarbn"/>
+      <item url="ui://9ah5ij39jarbh"/>
+      <item url="ui://9ah5ij39jarbi"/>
+      <item url="ui://9ah5ij39jarbj"/>
+      <item url="ui://9ah5ij39jarbo"/>
+      <item url="ui://9ah5ij39jarbp"/>
+      <item url="ui://9ah5ij39jarbk"/>
+      <item url="ui://9ah5ij39jarbq"/>
+      <item url="ui://9ah5ij39jarbl"/>
+      <item url="ui://9ah5ij39jarbm"/>
+      <item url="ui://9ah5ij39jarbr"/>
+      <item url="ui://9ah5ij39jarbg"/>
+    </list>
+  </displayList>
+</component>

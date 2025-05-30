@@ -6,11 +6,12 @@
 
 class Player {
 private:
-    static Player *instance;             // Singleton instance
-    std::vector<Ingredient*> inventory;  // Player's inventory
-    double money;                        // Player's money
+    static Player *instance;                    // Singleton instance
+    static std::vector<Ingredient*> inventory;  // Player's inventory
+    double money;                               // Player's money
 public:
     static Player* getInstance();
+    static void addIngredient(Ingredient *ingredient);
 };
 
 #endif

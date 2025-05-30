@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="9ah5ij39">
+  <resources>
+    <component id="f7n20" name="Component1.xml" path="/" exported="true"/>
+    <image id="jarb2" name="background.jpg" path="/Assets/"/>
+    <component id="jarb3" name="ScrollProcesses.xml" path="/"/>
+    <image id="jarbg" name="Whisk.png" path="/Assets/Processes/"/>
+    <image id="jarbh" name="Boil.png" path="/Assets/Processes/"/>
+    <image id="jarbi" name="Chopping.png" path="/Assets/Processes/"/>
+    <image id="jarbj" name="Fry.png" path="/Assets/Processes/"/>
+    <image id="jarbk" name="Layer.png" path="/Assets/Processes/"/>
+    <image id="jarbl" name="Simmer.png" path="/Assets/Processes/"/>
+    <image id="jarbm" name="Stir-fry.png" path="/Assets/Processes/"/>
+    <image id="jarbn" name="Bake.png" path="/Assets/Processes/"/>
+    <image id="jarbo" name="Grate.png" path="/Assets/Processes/"/>
+    <image id="jarbp" name="Grill.png" path="/Assets/Processes/"/>
+    <image id="jarbq" name="Mix.png" path="/Assets/Processes/"/>
+    <image id="jarbr" name="Stuff.png" path="/Assets/Processes/"/>
+    <image id="jarbt" name="LeftArrow.png" path="/Assets/"/>
+    <image id="jarbu" name="RightArrow.png" path="/Assets/"/>
+    <image id="jarbv" name="LeftArrowClicked.png" path="/Assets/"/>
+    <image id="jarbw" name="RightArrowClicked.png" path="/Assets/"/>
+    <component id="jarbx" name="LeftArrow.xml" path="/"/>
+    <component id="jarby" name="Right Arrow.xml" path="/"/>
+    <component id="jarbz" name="ProcessComponent.xml" path="/"/>
+  </resources>
+  <publish name="CookingPackage"/>
+</packageDescription>
