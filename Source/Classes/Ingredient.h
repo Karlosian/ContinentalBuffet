@@ -10,6 +10,8 @@ private:
     int amount, type;   // Amount refers to how many of the ingredient is included for every 1 purchase of that ingredient
     int quantity;       // Quantity refers to how many of these bundles of "Amount" were purchased (so in total, there are Amount x Quantity of that ingredient)
     double cost;
+
+    // Vector to hold all ingredients from ingredients.json
     static std::vector<Ingredient> ingredients;
 
 public:

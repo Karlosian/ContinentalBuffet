@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1280,720">
   <displayList>
-    <image id="n1_jarb" name="n1" src="jarb2" fileName="Assets/background.jpg" xy="1,-65" size="1277,851"/>
-    <component id="n2_jarb" name="n2" src="jarb3" fileName="ScrollProcesses.xml" xy="97,-17" aspect="true"/>
-    <component id="n4_jarb" name="n4" src="jarbx" fileName="LeftArrow.xml" xy="174,183" size="99,180"/>
-    <component id="n5_jarb" name="n5" src="jarby" fileName="Right Arrow.xml" xy="971,181" size="99,180" aspect="true"/>
+    <image id="n1_jarb" name="n1" src="jarb2" fileName="Assets/background.jpg" xy="0,0" size="1280,720"/>
+    <component id="n2_jarb" name="n2" src="jarb3" fileName="ScrollProcesses.xml" xy="-300,1" aspect="true" scale="1.25,1.25"/>
+    <component id="n4_jarb" name="n4" src="jarbx" fileName="LeftArrow.xml" xy="418,14" size="99,180" rotation="90"/>
+    <component id="n5_jarb" name="n5" src="jarby" fileName="Right Arrow.xml" xy="418,606" size="99,180" aspect="true" rotation="90"/>
+    <image id="n6_w20x" name="n6" src="jarb14" fileName="Assets/RecipeBackground.png" xy="609,353" size="845,556" rotation="-10"/>
+    <text id="n7_w20x" name="n7" xy="821,491" size="234,64" rotation="-15" fontSize="48" autoSize="none" shadowColor="#000000" shadowOffset="1,1" text="RECIPES&#xA;"/>
+    <text id="n8_w20x" name="n8" xy="843,565" size="495,228" rotation="-15" fontSize="18" autoSize="none" text="Mix : Flour, Water, Salt&#xA;Chop : Tomatoes&#xA;Grate : Cheese&#xA;Layer : Dough, Tomato, Cheese, Basil&#xA;Bake: Everything"/>
+    <list id="n9_w20x" name="n9" xy="669,121" size="555,244" layout="row" overflow="scroll" scroll="horizontal"/>
+    <text id="n10_w20x" name="n10" xy="670,55" size="319,64" fontSize="48" text="INGREDIENTS"/>
   </displayList>
 </component>

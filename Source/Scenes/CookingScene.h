@@ -7,6 +7,9 @@
 #include "UIPackage.h"
 #include "GComponent.h"
 
+#include "GList.h"
+#include "GObject.h"
+
 class CookingScene : public ax::Scene
 {
     enum class GameState
@@ -27,6 +30,7 @@ private:
     int _sceneID                                    = 0;
 
     fairygui::GRoot* root;
+    fairygui::GList* processList;
 
 public:
     void loadStartScreen();
@@ -35,8 +39,6 @@ public:
     void update(float delta) override;
 
     void menuCloseCallback(ax::Object* sender);
-
-    fairygui::GList* processList;
 
     CookingScene();
     ~CookingScene() override;
