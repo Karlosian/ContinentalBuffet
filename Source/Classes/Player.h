@@ -12,6 +12,7 @@ private:
 public:
     static Player* getInstance();
     static void addIngredient(Ingredient *ingredient);
+    static void sortInventory();
 };
 
 #endif

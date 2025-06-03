@@ -39,6 +39,7 @@ public:
     void update(float delta) override;
 
     void menuCloseCallback(ax::Object* sender);
+    void renderListItems(int index, fairygui::GObject* obj, const std::vector<std::string>& labels);
 
     CookingScene();
     ~CookingScene() override;

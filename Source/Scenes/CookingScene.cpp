@@ -9,6 +9,7 @@
 #include "GList.h"
 #include "GGraph.h"
 #include "GLabel.h"
+#include "GLoader.h"
 #include "GTextField.h"
 
 #include <iostream>
@@ -78,51 +79,42 @@ void CookingScene::loadStartScreen() {
     Ingredient::getIngredientList();
     std::vector<Ingredient> ingredients = Ingredient::getIngredients();
 
-    fairygui::GButton* item = fairygui::GButton::create();
-    //std::cout << item << std::endl;
-
-    for (int i = 0; i < ingredients.size(); i++) {
-        // Create a GButton instance
-        fairygui::GButton* button = fairygui::GButton::create();
-
-        // --- Customize the button's appearance ---
-        // By default, GButton::create() is very basic.
-        // You need to add children to it to make it visually appealing.
-
-        // Add a background image/shape (e.g., a simple colored rectangle)
-        fairygui::GGraph* buttonBg = fairygui::GGraph::create();
-        buttonBg->drawRect(150, 150,                               // width, height
-                           2,                                     // border size
-                           ax::Color4F::WHITE,                    // border color
-                           ax::Color4F(0.0f, 0.5f, i * 0.1f, 1.0f));  // fill color (blue)
-        
-        //button->addChild(buttonBg);                               // Add the background to the button
-
-        fairygui::GLabel* text = fairygui::GLabel::create();
-        text->setTitle("ASDADAD");
-        text->setTitleFontSize(20);  // Set the font size for the text
-        text->setAlpha(1.0f);        // Set the text opacity
-        text->setTitleColor(ax::Color3B::WHITE);  // Set the text color
-        button->addChild(text);
-
-        // Set the button's size to match its content
-        button->setSize(200, 50);  // Set the button's actual size
-
-        // Set a name for identification in the click handler
-        button->name = ax::StringUtils::format("button_%d", i + 1);
-
-        button->setTitle("Ingredient 1");  // Set the button's title
-        button->addClickListener([this, button, i](fairygui::EventContext* context) {
-            // Handle button click
-            std::cout << "Button " << i + 1 << " clicked!" << std::endl;
-            button->setAlpha(0.5f);  // Example action: change button opacity
-        });
-
-        // Add the button to the GList
-        ingredientList->addChild(button);
+    std::vector<std::string> labels;
+    for (Ingredient ingredient : ingredients) {
+        labels.push_back(ingredient.getName());
     }
 
+    // Add render here
+    //ingredientList->setDefaultItem("ui://UI/MyButtonListItem");
+    ingredientList->itemRenderer = CC_CALLBACK_2(CookingScene::renderListItems, this, labels);
+    ingredientList->setNumItems(ingredients.size());
+
     root->addChild(cookingSceneComponent);
+}
+
+void CookingScene::renderListItems(int index, fairygui::GObject* obj, const std::vector<std::string>& labels) {
+    if (index >= 0 && index < labels.size()) {
+        fairygui::GComponent* itemComponent = obj->as<fairygui::GComponent>();
+        if (itemComponent) {
+            fairygui::GTextField* label = itemComponent->getChild("n1")->as<fairygui::GTextField>();
+            if (label) {
+                label->setText(labels[index]);
+            }
+            fairygui::GButton* button = itemComponent->getChild("n2")->as<fairygui::GButton>();
+            if (button) {
+                button->addClickListener([index](fairygui::EventContext* context) {
+                    std::vector<Ingredient> ingredients = Ingredient::getIngredients();
+                    std::cout << ingredients[index].getName() << std::endl;
+                    // Handle button click for the specific ingredient
+                });
+            }
+            fairygui::GLoader* imgLoader = itemComponent->getChild("n0")->as<fairygui::GLoader>();
+            if (imgLoader) {
+                imgLoader->setURL("UI/Assets/" + std::to_string(index + 3) + ".png");
+
+            }
+        }
+    }
 }
 
 bool CookingScene::init() {

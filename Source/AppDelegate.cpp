@@ -27,6 +27,7 @@
 #include "MainScene.h"
 #include "Scenes/Homepage.h"
 #include "Scenes/CookingScene.h"
+#include "Scenes/Shop.h"
 
 #define USE_AUDIO_ENGINE 1
 

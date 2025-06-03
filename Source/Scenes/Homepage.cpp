@@ -3,6 +3,7 @@
 #include "Shop.h"
 
 #include "../Classes/Ingredient.h"
+#include "../AppDelegate.h"
 
 #include "GRoot.h"
 #include "UIPackage.h"
@@ -26,8 +27,7 @@ void Homepage::loadStartScreen() {
     if (startButtonObject != nullptr && startButtonObject->as<fairygui::GButton>() != nullptr) {
         fairygui::GButton* startButton = startButtonObject->as<fairygui::GButton>();
         startButton->addClickListener([](fairygui::EventContext* context) {
-            auto scene = utils::createInstance<Shop>();
-            Director::getInstance()->replaceScene(scene);
+            Director::getInstance()->replaceScene(utils::createInstance<CookingScene>());
         });
     }
 }
