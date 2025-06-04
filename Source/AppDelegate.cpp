@@ -41,7 +41,12 @@ static ax::Size designResolutionSize = ax::Size(1280, 720);
 
 AppDelegate::AppDelegate() {}
 
-AppDelegate::~AppDelegate() {}
+AppDelegate::~AppDelegate() {
+// kill audio engine when application is killed
+#if USE_AUDIO_ENGINE
+    ax::AudioEngine::end();
+#endif
+}
 
 // if you want a different context, modify the value of glContextAttrs
 // it will affect all platforms
@@ -60,6 +65,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     // initialize director
     auto director = Director::getInstance();
     auto glView   = director->getGLView();
+    AudioEngine::setEnabled(true);
+
     if (!glView)
     {
 #if (AX_TARGET_PLATFORM == AX_PLATFORM_WIN32) || (AX_TARGET_PLATFORM == AX_PLATFORM_MAC) || (AX_TARGET_PLATFORM == AX_PLATFORM_LINUX)
@@ -79,6 +86,9 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     // Set the design resolution
     glView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::SHOW_ALL);
+
+
+
 
     // create a scene. it's an autorelease object
     //auto scene = utils::createInstance<MainScene>();

@@ -11,6 +11,7 @@
 #include "GLabel.h"
 #include "GLoader.h"
 #include "GTextField.h"
+#include "AudioEngine.h"
 
 #include <iostream>
 #include <functional>
@@ -18,7 +19,7 @@
 using namespace ax;
 
 static int s_sceneID = 2000;
-
+//sfx from https://jdwasabi.itch.io/8-bit-16-bit-sound-effects-pack
 void CookingScene::loadStartScreen() {
     // Load the cooking scene UI package and add it to the scene
     fairygui::UIPackage::addPackage("UI/CookingPackage");
@@ -48,6 +49,16 @@ void CookingScene::loadStartScreen() {
         fairygui::GButton* upArrow = upArrowObject->as<fairygui::GButton>();
         upArrow->addClickListener([this](fairygui::EventContext* context) {
             this->processList->getScrollPane()->scrollUp(1, true);
+            std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/Select.wav");
+            if (!FileUtils::getInstance()->isFileExist(fullPath))
+            {
+                AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
+            }
+            else
+            {
+                // AXLOGD("Audio file found at: %s", fullPath.c_str());
+                int soundId = AudioEngine::play2d("sound/Select.wav", false, 1.0f);
+            }
         });
     }
 
@@ -57,6 +68,16 @@ void CookingScene::loadStartScreen() {
         fairygui::GButton* downArrow = downArrowObject->as<fairygui::GButton>();
         downArrow->addClickListener([this](fairygui::EventContext* context) {
             this->processList->getScrollPane()->scrollDown(1, true);
+            std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/Select.wav");
+            if (!FileUtils::getInstance()->isFileExist(fullPath))
+            {
+                AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
+            }
+            else
+            {
+                //AXLOGD("Audio file found at: %s", fullPath.c_str());
+                int soundId = AudioEngine::play2d("sound/Select.wav", false, 1.0f);
+            }
         });
     }
 
