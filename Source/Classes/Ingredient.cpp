@@ -78,8 +78,9 @@ void Ingredient::changeQuantityBy(int q) {
 
 // Extracting the ingredient list from the ingredients.json file
 void Ingredient::getIngredientList() {
-    // Load the file from the current working directory
-    std::ifstream file("ingredients.json");
+    // Load the file from the current working directory, using Axmol's resource system
+    std::string fullPath = ax::FileUtils::getInstance()->fullPathForFilename("ingredients.json");
+    std::ifstream file(fullPath);
     std::cout << "Current working directory: " << std::filesystem::current_path() << std::endl;
 
     // Send error message if the file cannot be opened/found
