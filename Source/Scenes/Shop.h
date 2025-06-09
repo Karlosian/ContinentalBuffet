@@ -27,6 +27,8 @@ private:
 
     fairygui::GRoot* root;
 
+    fairygui::GList* ingredientsList;
+
 public:
     void loadStartScreen();
 
@@ -34,6 +36,8 @@ public:
     void update(float delta) override;
 
     void menuCloseCallback(ax::Object* sender);
+
+    void print();
 
     // Vacy, add your method declaration here (ex. calculate cost or something)
 
