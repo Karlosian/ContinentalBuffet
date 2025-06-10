@@ -132,7 +132,6 @@ void CookingScene::renderListItems(int index, fairygui::GObject* obj, const std:
             fairygui::GLoader* imgLoader = itemComponent->getChild("n0")->as<fairygui::GLoader>();
             if (imgLoader) {
                 imgLoader->setURL("UI/Assets/" + std::to_string(index + 3) + ".png");
-
             }
         }
     }
