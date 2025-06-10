@@ -26,16 +26,16 @@ void Homepage::loadStartScreen() {
 
     fairygui::GObject* startButtonObject = homepageComponent->getChild("n4");
 
+    Ingredient::getIngredientList();
+    Recipe::getRecipeList();
+    Player::initalizeTestInventory();
+
     if (startButtonObject != nullptr && startButtonObject->as<fairygui::GButton>() != nullptr) {
         fairygui::GButton* startButton = startButtonObject->as<fairygui::GButton>();
         startButton->addClickListener([](fairygui::EventContext* context) {
-            Director::getInstance()->replaceScene(utils::createInstance<Shop>());
+            Director::getInstance()->replaceScene(utils::createInstance<CookingScene>());
         });
     }
-
-    Ingredient::getIngredientList();
-    Player::initalizeTestInventory();
-    Player::sortInventory();
 }
 
 bool Homepage::init() {

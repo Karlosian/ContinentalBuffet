@@ -39,6 +39,15 @@ void CookingProcess::addIngredient(Ingredient i) {
     ingredients.push_back(i);
 }
 
+void CookingProcess::removeIngredient(Ingredient i) {
+    for (auto it = ingredients.begin(); it != ingredients.end(); ++it) {
+        if (it->getName() == i.getName()) {
+            ingredients.erase(it);
+            return;
+        }
+    }
+}
+
 bool CookingProcess::operator==(const CookingProcess& other) const {
     if (name != other.name || CookingProcesses.size() != other.CookingProcesses.size())
     {

@@ -43,7 +43,7 @@ void CookingScene::loadStartScreen() {
     }
 
     processList = processListObject->as<fairygui::GList>();
-    processList->getScrollPane()->setScrollStep(415); // Set 1 scroll to go 666 pixels
+    processList->getScrollPane()->setScrollStep(415); // Set 1 scroll to go 415 pixels
 
     // Set to bake by default
     actionIndex = 0;
@@ -51,11 +51,14 @@ void CookingScene::loadStartScreen() {
     // Add the up button
     fairygui::GObject* upArrowObject = cookingSceneComponent->getChild("n4");
     if (upArrowObject != nullptr && upArrowObject->as<fairygui::GButton>() != nullptr) {
-        fairygui::GButton* upArrow = upArrowObject->as<fairygui::GButton>();
+        upArrow = upArrowObject->as<fairygui::GButton>();
         upArrow->addClickListener([this](fairygui::EventContext* context) {
             this->processList->getScrollPane()->scrollUp(1, true);
             std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/Select.wav");
             actionIndex          = std::max(actionIndex - 1, 0);
+            if (actionIndex == 0) upArrow->setVisible(false);
+            if (actionIndex != 11) downArrow->setVisible(true);
+
             if (!FileUtils::getInstance()->isFileExist(fullPath))
             {
                 AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
@@ -66,16 +69,20 @@ void CookingScene::loadStartScreen() {
                 int soundId = AudioEngine::play2d("sound/Select.wav", false, 1.0f);
             }
         });
+        upArrow->setVisible(false);  // Hide the up arrow initially
     }
 
     //Add the down button
     fairygui::GObject* downArrowObject = cookingSceneComponent->getChild("n5");
     if (downArrowObject != nullptr && downArrowObject->as<fairygui::GButton>() != nullptr) {
-        fairygui::GButton* downArrow = downArrowObject->as<fairygui::GButton>();
+        downArrow = downArrowObject->as<fairygui::GButton>();
         downArrow->addClickListener([this](fairygui::EventContext* context) {
             this->processList->getScrollPane()->scrollDown(1, true);
             std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/Select.wav");
             actionIndex          = std::min(actionIndex + 1, 11);
+            if (actionIndex == 11) downArrow->setVisible(false);
+            if (actionIndex != 0)  upArrow->setVisible(true);
+
             if (!FileUtils::getInstance()->isFileExist(fullPath))
             {
                 AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
@@ -107,8 +114,8 @@ void CookingScene::loadStartScreen() {
         std::cerr << "Error: ingredientListObject is null." << std::endl;
         return;
     }
-    fairygui::GList* ingredientList = ingredientListObject->as<fairygui::GList>();
 
+    fairygui::GList* ingredientList = ingredientListObject->as<fairygui::GList>();
     std::vector<Ingredient> ingredients = Player::getInventory();
 
     std::vector<std::string> labels;
@@ -117,7 +124,6 @@ void CookingScene::loadStartScreen() {
     }
 
     // Add render here
-    //ingredientList->setDefaultItem("ui://UI/MyButtonListItem");
     ingredientList->itemRenderer = CC_CALLBACK_2(CookingScene::renderListItems, this, labels);
     ingredientList->setNumItems(ingredients.size());
 
@@ -126,9 +132,19 @@ void CookingScene::loadStartScreen() {
         std::cerr << "Error: processTextObject is null." << std::endl;
         return;
     }
-
     processText = processTextObject->as<fairygui::GTextField>();
     processText->setText("Your actions will appear here");
+
+    fairygui::GObject* serveButtonObject = cookingSceneComponent->getChild("n13");
+    if (serveButtonObject == nullptr || serveButtonObject->as<fairygui::GButton>() == nullptr) {
+        std::cerr << "Error: serveButtonObject is null." << std::endl;
+        return;
+    }
+    serveButton = serveButtonObject->as<fairygui::GButton>();
+    serveButton->addClickListener([this](fairygui::EventContext* context) {
+        Recipe recipe = currentMeal->findMatchingRecipe();
+        std::cout << recipe.name << " " << currentMeal->getRecipeAccuracy() << std::endl;
+    });
 
     currentMeal = new Meal();
 
@@ -145,17 +161,32 @@ void CookingScene::renderListItems(int index, fairygui::GObject* obj, const std:
             }
             fairygui::GButton* button = itemComponent->getChild("n2")->as<fairygui::GButton>();
             if (button) {
-                button->addClickListener([index, this](fairygui::EventContext* context) {
+                button->addClickListener([index, this, button](fairygui::EventContext* context) {
                     std::vector<Ingredient> ingredients = Player::getInventory();
+
                     std::cout << ingredients[index].getName() << std::endl;
-                    currentMeal->addIngredientToCurrentStep(ingredients[index]);
-                    updateElementOnActionList();
+                    if (!Player::getIngredientsChosen()[index]) {
+                        currentMeal->addIngredientToCurrentStep(ingredients[index]);
+                        button->setAlpha(0.0f);  // Set button to semi-transparent
+                        Player::setIngredientsChosen(index, true);
+                        std::cout << "Added ingredient: " << ingredients[index].getName() << std::endl;
+                    }
+
+                    else {
+                        currentMeal->removeIngredientFromCurrentStep(ingredients[index]);
+                        button->setAlpha(0.5f);  // Set button to fully opaque
+                        Player::setIngredientsChosen(index, false);
+                        std::cout << "Removed ingredient: " << ingredients[index].getName() << std::endl;
+                    }
+                    //updateElementOnActionList();
                 });
+                buttons.push_back(button);
             }
             fairygui::GLoader* imgLoader = itemComponent->getChild("n0")->as<fairygui::GLoader>();
             if (imgLoader) {
                 std::vector<Ingredient> inventory = Player::getInventory();
                 imgLoader->setURL("UI/Assets/" + std::to_string(inventory[index].getNameIndex() + 3) + ".png");
+                std::cout << ("UI/Assets/" + std::to_string(inventory[index].getNameIndex() + 3) + ".png") << std::endl;
             }
         }
     }
@@ -170,8 +201,16 @@ void CookingScene::updateElementOnActionList() {
         }
         textToDisplay += "\n";
     }
+
     std::cout << "Current Meal Steps: " << textToDisplay << std::endl;
-    processText->setText(textToDisplay);
+
+    if (textToDisplay != "") {
+        processText->setText(textToDisplay);
+        for (int i = 0; i < buttons.size(); i++) {
+            Player::setIngredientsChosen(i, false);  // Reset the selection state for all ingredients
+            buttons[i]->setAlpha(0.5f);
+        }
+    }
 }
 
 bool CookingScene::init() {

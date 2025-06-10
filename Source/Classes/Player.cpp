@@ -8,7 +8,7 @@ Player* Player::instance = nullptr;
 
 // Player constructor initializes the player with default values
 std::vector<Ingredient> Player::inventory; 
-
+std::vector<bool> Player::ingredientsChosen;
 
 // Returns the player instance (information) necessary when a new scene is loaded
 Player* Player::getInstance() {
@@ -24,6 +24,15 @@ std::vector<Ingredient> Player::getInventory() {
     return Player::inventory;
 }
 
+std::vector<bool> Player::getIngredientsChosen() {
+    return Player::ingredientsChosen;
+}
+
+// Setter for the player inventory
+void Player::setIngredientsChosen(int index, bool isChosen) {
+    Player::ingredientsChosen[index] = isChosen;
+}
+
 // Add ingredients to the player inventory during shopping
 void Player::addIngredient(Ingredient ingredient) {
     // Finds if the user already has that ingredient in their inventory (in which case it just adds to the quantity)
@@ -36,6 +45,7 @@ void Player::addIngredient(Ingredient ingredient) {
     // Otherwise, adds a new ingredient object to the inventory
     Ingredient newIngredient = ingredient;
     inventory.push_back(newIngredient);
+    ingredientsChosen.push_back(false);
 }
 
 void Player::sortInventory(int low, int high) {
@@ -83,11 +93,6 @@ void Player::sortInventory(int low, int high) {
             }
         }
 
-        for (int i = 0; i < inventory.size(); i++) {
-            std::cout << inventory[i].getName() << " ";
-        }
-        std::cout << std::endl;
-
         // Sets the pivot point at its intended position
         inventory[left] = pivot;
 
@@ -106,9 +111,25 @@ void Player::sortInventory() {
 void Player::initalizeTestInventory() {
     std::vector<Ingredient> allIngredients = Ingredient::getIngredients();
     srand(time(0));
+
+    /*
+    std::vector<int> randomIndices;
     for (int i = 0; i < 10; i++) {
         int randomItem = rand() % allIngredients.size();
+
+        while (std::find(randomIndices.begin(), randomIndices.end(), randomItem) != randomIndices.end()) {
+            randomItem = rand() % allIngredients.size();
+        }
+
         Ingredient ingredient = allIngredients[randomItem];
         inventory.push_back(ingredient);
+        std::cout << "Adding " << ingredient.getName() << " to inventory with indexNum " << ingredient.getNameIndex() << std::endl;
+        ingredientsChosen.push_back(false);
     }
+    */
+    for (auto i : allIngredients) {
+        inventory.push_back(i);
+        ingredientsChosen.push_back(false);
+    }
+    sortInventory();
 }

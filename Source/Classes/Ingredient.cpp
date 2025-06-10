@@ -84,6 +84,10 @@ void Ingredient::changeQuantityBy(int q) {
     quantity += q;
 }
 
+void Ingredient::setNameIndex(int i) {
+    nameIndex = i;
+}
+
 // Overloaded operators for Ingredient class
 void Ingredient::operator=(const Ingredient& i) {
     name     = i.name;
@@ -92,6 +96,7 @@ void Ingredient::operator=(const Ingredient& i) {
     type     = i.type;
     unit     = i.unit;
     quantity = i.quantity;
+    nameIndex = i.nameIndex;
 }
 
 // Extracting the ingredient list from the ingredients.json file

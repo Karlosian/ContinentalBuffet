@@ -7,13 +7,18 @@
 class Player {
 private:
     static Player *instance;                    // Singleton instance
-    static std::vector<Ingredient> inventory;  // Player's inventory
+    static std::vector<Ingredient> inventory;   // Player's inventory
+    static std::vector<bool> ingredientsChosen; 
     double money;                               // Player's money
 public:
     static Player* getInstance();
 
     // Getters
     static std::vector<Ingredient> getInventory();
+    static std::vector<bool> getIngredientsChosen();
+
+    // Setters
+    static void setIngredientsChosen(int index, bool isChosen);
 
     // Methods
     static void addIngredient(Ingredient ingredient);
