@@ -19,6 +19,7 @@ public:
     Recipe findMatchingRecipe();
 
     // Getters
+    double getRecipeAccuracy();
     CookingProcess* getCurrentStep();
 
     // Methods

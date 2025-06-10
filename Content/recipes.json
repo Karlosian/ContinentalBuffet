@@ -67,7 +67,7 @@
                 "unit": "g"
             },
             {
-                "name": "Bacon or pancetta",
+                "name": "Bacon",
                 "amount": 100,
                 "unit": "g"
             },
@@ -94,11 +94,11 @@
             },
             {
                 "process": "Chop",
-                "ingredients": [ "Bacon or pancetta" ]
+                "ingredients": [ "Bacon" ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Bacon or pancetta" ]
+                "ingredients": [ "Bacon" ]
             },
             {
                 "process": "Whisk",
@@ -106,7 +106,7 @@
             },
             {
                 "process": "Mix",
-                "ingredients": [ "cooked Pasta (spaghetti)", "Bacon or pancetta", "egg mixture", "pasta water" ]
+                "ingredients": [ "Pasta (spaghetti)", "Bacon or pancetta", "egg mixture", "pasta water" ]
             }
         ]
     },
