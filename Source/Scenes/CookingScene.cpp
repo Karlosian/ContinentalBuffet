@@ -43,7 +43,7 @@ void CookingScene::loadStartScreen() {
     }
 
     processList = processListObject->as<fairygui::GList>();
-    processList->getScrollPane()->setScrollStep(415); // Set 1 scroll to go 415 pixels
+    processList->getScrollPane()->setScrollStep(667); // Set 1 scroll to go 415 pixels
 
     // Set to bake by default
     actionIndex = 0;
@@ -53,7 +53,7 @@ void CookingScene::loadStartScreen() {
     if (upArrowObject != nullptr && upArrowObject->as<fairygui::GButton>() != nullptr) {
         upArrow = upArrowObject->as<fairygui::GButton>();
         upArrow->addClickListener([this](fairygui::EventContext* context) {
-            this->processList->getScrollPane()->scrollUp(1, true);
+            this->processList->getScrollPane()->scrollLeft(1, true);
             std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/Select.wav");
             actionIndex          = std::max(actionIndex - 1, 0);
             if (actionIndex == 0) upArrow->setVisible(false);
@@ -77,7 +77,7 @@ void CookingScene::loadStartScreen() {
     if (downArrowObject != nullptr && downArrowObject->as<fairygui::GButton>() != nullptr) {
         downArrow = downArrowObject->as<fairygui::GButton>();
         downArrow->addClickListener([this](fairygui::EventContext* context) {
-            this->processList->getScrollPane()->scrollDown(1, true);
+            this->processList->getScrollPane()->scrollRight(1, true);
             std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/Select.wav");
             actionIndex          = std::min(actionIndex + 1, 11);
             if (actionIndex == 11) downArrow->setVisible(false);
@@ -167,14 +167,14 @@ void CookingScene::renderListItems(int index, fairygui::GObject* obj, const std:
                     std::cout << ingredients[index].getName() << std::endl;
                     if (!Player::getIngredientsChosen()[index]) {
                         currentMeal->addIngredientToCurrentStep(ingredients[index]);
-                        button->setAlpha(0.0f);  // Set button to semi-transparent
+                        button->setAlpha(0.5f);  // Set button to semi-transparent
                         Player::setIngredientsChosen(index, true);
                         std::cout << "Added ingredient: " << ingredients[index].getName() << std::endl;
                     }
 
                     else {
                         currentMeal->removeIngredientFromCurrentStep(ingredients[index]);
-                        button->setAlpha(0.5f);  // Set button to fully opaque
+                        button->setAlpha(0.0f);  // Set button to fully opaque
                         Player::setIngredientsChosen(index, false);
                         std::cout << "Removed ingredient: " << ingredients[index].getName() << std::endl;
                     }
@@ -208,7 +208,7 @@ void CookingScene::updateElementOnActionList() {
         processText->setText(textToDisplay);
         for (int i = 0; i < buttons.size(); i++) {
             Player::setIngredientsChosen(i, false);  // Reset the selection state for all ingredients
-            buttons[i]->setAlpha(0.5f);
+            buttons[i]->setAlpha(0.0f);
         }
     }
 }

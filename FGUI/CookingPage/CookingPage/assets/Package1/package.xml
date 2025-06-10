@@ -89,6 +89,10 @@
     <image id="7eqo2s" name="button_serve-meal.png" path="/Assets/Button/"/>
     <image id="7eqo2t" name="button_serve-meal-pressed.png" path="/Assets/Button/"/>
     <component id="7eqo2u" name="ServeButton.xml" path="/"/>
+    <image id="7eqo2v" name="CookingScene Background.png" path="/Assets/"/>
+    <image id="7eqo2y" name="Pantry Button.png" path="/Assets/Button/"/>
+    <component id="7eqo2z" name="PantryButton.xml" path="/Assets/Button/"/>
+    <image id="7eqo30" name="emptyPantry.png" path="/Assets/Button/"/>
   </resources>
   <publish name="CookingPackage"/>
 </packageDescription>

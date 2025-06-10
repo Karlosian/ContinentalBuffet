@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1280,720">
   <displayList>
-    <image id="n1_jarb" name="n1" src="jarb2" fileName="Assets/background.jpg" xy="0,0" size="1280,720"/>
-    <component id="n2_jarb" name="n2" src="jarb3" fileName="ComponentTemplates/ScrollProcesses.xml" xy="-295,-3" size="1024,576" aspect="true" scale="1.25,1.25"/>
-    <component id="n4_jarb" name="n4" src="jarbx" fileName="ButtonComponents/LeftArrow.xml" xy="418,14" size="99,180" rotation="90"/>
-    <component id="n5_jarb" name="n5" src="jarby" fileName="ButtonComponents/Right Arrow.xml" xy="418,606" size="99,180" aspect="true" rotation="90"/>
-    <image id="n6_w20x" name="n6" src="jarb14" fileName="Assets/RecipeBackground.png" xy="589,347" size="845,556" rotation="-10"/>
-    <text id="n7_w20x" name="n7" xy="821,490" size="234,64" rotation="-15" fontSize="48" autoSize="none" shadowColor="#000000" shadowOffset="1,1" text="ACTIONS"/>
-    <text id="n8_w20x" name="n8" xy="843,565" size="495,228" rotation="-15" fontSize="18" autoSize="none" text="Mix : Flour, Water, Salt&#xA;Chop : Tomatoes&#xA;Grate : Cheese&#xA;Layer : Dough, Tomato, Cheese, Basil&#xA;Bake: Everything"/>
-    <list id="n9_w20x" name="n9" xy="669,121" size="555,244" layout="row" overflow="scroll" scroll="horizontal" margin="0,0,0,20" defaultItem="ui://9ah5ij39w20x2o"/>
-    <text id="n10_w20x" name="n10" xy="670,55" size="319,64" fontSize="48" text="INGREDIENTS"/>
-    <component id="n11_7eqo" name="n11" src="7eqo2q" fileName="Button1.xml" xy="64,159" size="560,389" alpha="0.1"/>
-    <component id="n13_7eqo" name="n13" src="7eqo2u" fileName="ServeButton.xml" xy="523,603"/>
+    <image id="n14_7eqo" name="n14" src="7eqo2v" fileName="Assets/CookingScene Background.png" xy="0,0"/>
+    <component id="n2_jarb" name="n2" src="jarb3" fileName="ComponentTemplates/ScrollProcesses.xml" xy="256,289" size="1024,576" aspect="true" scale="0.75,0.75"/>
+    <component id="n4_jarb" name="n4" src="jarbx" fileName="ButtonComponents/LeftArrow.xml" xy="355,471" size="55,100"/>
+    <component id="n5_jarb" name="n5" src="jarby" fileName="ButtonComponents/Right Arrow.xml" xy="866,473" size="55,100" aspect="true"/>
+    <image id="n6_w20x" name="n6" src="jarb14" fileName="Assets/RecipeBackground.png" xy="556,-196" size="982,646"/>
+    <text id="n7_w20x" name="n7" xy="797,11" size="234,64" fontSize="48" autoSize="none" shadowColor="#000000" shadowOffset="1,1" text="ACTIONS"/>
+    <text id="n8_w20x" name="n8" xy="797,86" size="480,228" fontSize="18" autoSize="none" text="Mix : Flour, Water, Salt&#xA;Chop : Tomatoes&#xA;Grate : Cheese&#xA;Layer : Dough, Tomato, Cheese, Basil&#xA;Bake: Everything"/>
+    <component id="n11_7eqo" name="n11" src="7eqo2q" fileName="Button1.xml" xy="428,346" size="418,339" alpha="0.1"/>
+    <component id="n13_7eqo" name="n13" src="7eqo2u" fileName="ServeButton.xml" xy="18,568"/>
+    <image id="n15_7eqo" name="n15" src="7eqo30" fileName="Assets/Button/emptyPantry.png" xy="-461,-445" size="1248,701"/>
+    <text id="n10_w20x" name="n10" xy="402,91" size="187,64" rotation="7" fontSize="48" color="#ffffff" text="PANTRY"/>
+    <list id="n9_w20x" name="n9" xy="-10,18" size="369,142" layout="row" overflow="scroll" scroll="horizontal" colGap="30" defaultItem="ui://9ah5ij39w20x2o"/>
   </displayList>
 </component>
