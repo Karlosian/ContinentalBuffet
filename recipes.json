@@ -1,0 +1,1704 @@
+[
+    {
+        "name": "Pizza Margherita",
+        "description": "A classic Neapolitan pizza, simple yet flavorful.",
+        "ingredients": [
+            {
+                "name": "Flour",
+                "amount": 300,
+                "unit": "g"
+            },
+            {
+                "name": "Tomatoes (fresh)",
+                "amount": 200,
+                "unit": "g"
+            },
+            {
+                "name": "Cheese (mozzarella)",
+                "amount": 150,
+                "unit": "g"
+            },
+            {
+                "name": "Basil",
+                "amount": 10,
+                "unit": "g"
+            },
+            {
+                "name": "Olive oil",
+                "amount": 15,
+                "unit": "ml"
+            },
+            {
+                "name": "Salt",
+                "amount": 5,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Mix",
+                "ingredients": [ "Flour", "water", "Salt" ]
+            },
+            {
+                "process": "Chop",
+                "ingredients": [ "Tomatoes (fresh)" ]
+            },
+            {
+                "process": "Grate",
+                "ingredients": [ "Cheese (mozzarella)" ]
+            },
+            {
+                "process": "Layer",
+                "ingredients": [ "dough", "chopped Tomatoes (fresh)", "Cheese (mozzarella)", "Basil" ]
+            },
+            {
+                "process": "Bake",
+                "ingredients": [ "Pizza Margherita" ]
+            }
+        ]
+    },
+    {
+        "name": "Spaghetti Carbonara",
+        "description": "A rich and creamy Roman pasta dish.",
+        "ingredients": [
+            {
+                "name": "Pasta (spaghetti)",
+                "amount": 200,
+                "unit": "g"
+            },
+            {
+                "name": "Bacon or pancetta",
+                "amount": 100,
+                "unit": "g"
+            },
+            {
+                "name": "Eggs",
+                "amount": 2,
+                "unit": "unit"
+            },
+            {
+                "name": "Cheese (Pecorino)",
+                "amount": 50,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 2,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Boil",
+                "ingredients": [ "Pasta (spaghetti)" ]
+            },
+            {
+                "process": "Chop",
+                "ingredients": [ "Bacon or pancetta" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Bacon or pancetta" ]
+            },
+            {
+                "process": "Whisk",
+                "ingredients": [ "Eggs", "Cheese (Pecorino)", "Pepper" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "cooked Pasta (spaghetti)", "Bacon or pancetta", "egg mixture", "pasta water" ]
+            }
+        ]
+    },
+    {
+        "name": "Ratatouille",
+        "description": "A vibrant and flavorful French vegetable stew.",
+        "ingredients": [
+            {
+                "name": "Tomatoes (fresh)",
+                "amount": 300,
+                "unit": "g"
+            },
+            {
+                "name": "Onion",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Garlic",
+                "amount": 3,
+                "unit": "cloves"
+            },
+            {
+                "name": "Bell peppers",
+                "amount": 2,
+                "unit": "unit"
+            },
+            {
+                "name": "Zucchini",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Eggplant",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Olive oil",
+                "amount": 30,
+                "unit": "ml"
+            },
+            {
+                "name": "Basil",
+                "amount": 5,
+                "unit": "g"
+            },
+            {
+                "name": "Thyme",
+                "amount": 3,
+                "unit": "g"
+            },
+            {
+                "name": "Salt",
+                "amount": 3,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 2,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Onion", "Garlic", "Bell peppers", "Zucchini", "Eggplant", "Tomatoes (fresh)" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Onion", "Garlic", "Olive oil" ]
+            },
+            {
+                "process": "Stir-fry",
+                "ingredients": [ "Bell peppers", "Zucchini", "Eggplant" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "chopped Tomatoes (fresh)", "Basil", "Thyme", "Salt", "Pepper" ]
+            },
+            {
+                "process": "Simmer",
+                "ingredients": [ "Ratatouille" ]
+            }
+        ]
+    },
+    {
+        "name": "Frittata",
+        "description": "An Italian egg-based dish, similar to an omelette or quiche.",
+        "ingredients": [
+            {
+                "name": "Eggs",
+                "amount": 6,
+                "unit": "unit"
+            },
+            {
+                "name": "Milk",
+                "amount": 50,
+                "unit": "ml"
+            },
+            {
+                "name": "Cheese (cheddar)",
+                "amount": 100,
+                "unit": "g"
+            },
+            {
+                "name": "Spinach",
+                "amount": 100,
+                "unit": "g"
+            },
+            {
+                "name": "Onion",
+                "amount": 0.5,
+                "unit": "unit"
+            },
+            {
+                "name": "Olive oil",
+                "amount": 15,
+                "unit": "ml"
+            },
+            {
+                "name": "Salt",
+                "amount": 2,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 1,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Onion", "Spinach" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Onion", "Spinach", "Olive oil" ]
+            },
+            {
+                "process": "Whisk",
+                "ingredients": [ "Eggs", "Milk", "Cheese (cheddar)", "Salt", "Pepper" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "fried vegetables", "egg mixture" ]
+            },
+            {
+                "process": "Bake",
+                "ingredients": [ "Frittata" ]
+            }
+        ]
+    },
+    {
+        "name": "Zucchini Slice",
+        "description": "A savory baked slice, great for lunch or snacks.",
+        "ingredients": [
+            {
+                "name": "Zucchini",
+                "amount": 2,
+                "unit": "unit"
+            },
+            {
+                "name": "Flour",
+                "amount": 100,
+                "unit": "g"
+            },
+            {
+                "name": "Eggs",
+                "amount": 4,
+                "unit": "unit"
+            },
+            {
+                "name": "Cheese (cheddar)",
+                "amount": 150,
+                "unit": "g"
+            },
+            {
+                "name": "Onion",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Olive oil",
+                "amount": 20,
+                "unit": "ml"
+            },
+            {
+                "name": "Salt",
+                "amount": 2,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 1,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Grate",
+                "ingredients": [ "Zucchini", "Cheese (cheddar)" ]
+            },
+            {
+                "process": "Chop",
+                "ingredients": [ "Onion" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Onion", "Olive oil" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "grated Zucchini", "Onion", "Flour", "Eggs", "grated Cheese (cheddar)", "Salt", "Pepper" ]
+            },
+            {
+                "process": "Layer",
+                "ingredients": [ "Zucchini Slice mixture" ]
+            },
+            {
+                "process": "Bake",
+                "ingredients": [ "Zucchini Slice" ]
+            }
+        ]
+    },
+    {
+        "name": "Pommes Anna",
+        "description": "A classic French dish of sliced, layered potatoes baked in butter.",
+        "ingredients": [
+            {
+                "name": "Potatoes",
+                "amount": 500,
+                "unit": "g"
+            },
+            {
+                "name": "Butter",
+                "amount": 100,
+                "unit": "g"
+            },
+            {
+                "name": "Salt",
+                "amount": 3,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 2,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Potatoes" ]
+            },
+            {
+                "process": "Melt",
+                "ingredients": [ "Butter" ]
+            },
+            {
+                "process": "Layer",
+                "ingredients": [ "potato slices", "melted Butter", "Salt", "Pepper" ]
+            },
+            {
+                "process": "Bake",
+                "ingredients": [ "Pommes Anna" ]
+            }
+        ]
+    },
+    {
+        "name": "Rosti",
+        "description": "A Swiss potato dish, similar to a hash brown.",
+        "ingredients": [
+            {
+                "name": "Potatoes",
+                "amount": 400,
+                "unit": "g"
+            },
+            {
+                "name": "Butter",
+                "amount": 50,
+                "unit": "g"
+            },
+            {
+                "name": "Salt",
+                "amount": 2,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 1,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Grate",
+                "ingredients": [ "Potatoes" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "grated Potatoes", "Salt", "Pepper" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Rosti mixture", "Butter" ]
+            }
+        ]
+    },
+    {
+        "name": "Goulash",
+        "description": "A hearty Hungarian stew, typically made with meat and vegetables.",
+        "ingredients": [
+            {
+                "name": "Ground beef",
+                "amount": 400,
+                "unit": "g"
+            },
+            {
+                "name": "Onion",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Garlic",
+                "amount": 2,
+                "unit": "cloves"
+            },
+            {
+                "name": "Tomatoes (canned)",
+                "amount": 400,
+                "unit": "g"
+            },
+            {
+                "name": "Potatoes",
+                "amount": 200,
+                "unit": "g"
+            },
+            {
+                "name": "Bell peppers",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Paprika",
+                "amount": 10,
+                "unit": "g"
+            },
+            {
+                "name": "Salt",
+                "amount": 5,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 2,
+                "unit": "g"
+            },
+            {
+                "name": "Vegetable oil",
+                "amount": 20,
+                "unit": "ml"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Onion", "Garlic", "Potatoes", "Bell peppers" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Ground beef", "Vegetable oil" ]
+            },
+            {
+                "process": "Stir-fry",
+                "ingredients": [ "Onion", "Garlic", "Bell peppers" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "canned Tomatoes (canned)", "Paprika", "Salt", "Pepper" ]
+            },
+            {
+                "process": "Add",
+                "ingredients": [ "Potatoes", "water" ]
+            },
+            {
+                "process": "Simmer",
+                "ingredients": [ "Goulash" ]
+            }
+        ]
+    },
+    {
+        "name": "Butter Chicken",
+        "description": "A rich and creamy Indian curry.",
+        "ingredients": [
+            {
+                "name": "Chicken",
+                "amount": 500,
+                "unit": "g"
+            },
+            {
+                "name": "Onion",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Garlic",
+                "amount": 3,
+                "unit": "cloves"
+            },
+            {
+                "name": "Tomatoes (canned)",
+                "amount": 400,
+                "unit": "g"
+            },
+            {
+                "name": "Cream",
+                "amount": 150,
+                "unit": "ml"
+            },
+            {
+                "name": "Butter",
+                "amount": 50,
+                "unit": "g"
+            },
+            {
+                "name": "Chili powder",
+                "amount": 5,
+                "unit": "g"
+            },
+            {
+                "name": "Salt",
+                "amount": 3,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Chicken", "Onion", "Garlic" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Chicken", "Butter" ]
+            },
+            {
+                "process": "Stir-fry",
+                "ingredients": [ "Onion", "Garlic" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "canned Tomatoes (canned)", "Chili powder", "Salt" ]
+            },
+            {
+                "process": "Simmer",
+                "ingredients": [ "Butter Chicken" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "Cream" ]
+            }
+        ]
+    },
+    {
+        "name": "Mapo Tofu",
+        "description": "A popular spicy Chinese dish from Sichuan province.",
+        "ingredients": [
+            {
+                "name": "Tofu",
+                "amount": 400,
+                "unit": "g"
+            },
+            {
+                "name": "Ground beef",
+                "amount": 100,
+                "unit": "g"
+            },
+            {
+                "name": "Garlic",
+                "amount": 2,
+                "unit": "cloves"
+            },
+            {
+                "name": "Soy sauce",
+                "amount": 30,
+                "unit": "ml"
+            },
+            {
+                "name": "Miso paste",
+                "amount": 15,
+                "unit": "g"
+            },
+            {
+                "name": "Chili powder",
+                "amount": 5,
+                "unit": "g"
+            },
+            {
+                "name": "Vegetable oil",
+                "amount": 20,
+                "unit": "ml"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Garlic" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Ground beef", "Vegetable oil" ]
+            },
+            {
+                "process": "Add",
+                "ingredients": [ "Garlic" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "Soy sauce", "Miso paste", "Chili powder" ]
+            },
+            {
+                "process": "Chop",
+                "ingredients": [ "Tofu" ]
+            },
+            {
+                "process": "Add",
+                "ingredients": [ "Tofu", "water" ]
+            },
+            {
+                "process": "Simmer",
+                "ingredients": [ "Mapo Tofu" ]
+            }
+        ]
+    },
+    {
+        "name": "Chicken Chop Suey",
+        "description": "A stir-fried dish with chicken and mixed vegetables.",
+        "ingredients": [
+            {
+                "name": "Chicken",
+                "amount": 300,
+                "unit": "g"
+            },
+            {
+                "name": "Bell peppers",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Onion",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Carrot",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Cabbage",
+                "amount": 150,
+                "unit": "g"
+            },
+            {
+                "name": "Soy sauce",
+                "amount": 40,
+                "unit": "ml"
+            },
+            {
+                "name": "Vegetable oil",
+                "amount": 20,
+                "unit": "ml"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Chicken", "Bell peppers", "Onion", "Carrot", "Cabbage" ]
+            },
+            {
+                "process": "Stir-fry",
+                "ingredients": [ "Chicken", "Vegetable oil" ]
+            },
+            {
+                "process": "Add",
+                "ingredients": [ "chopped Bell peppers", "Onion", "Carrot", "Cabbage" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "Soy sauce" ]
+            }
+        ]
+    },
+    {
+        "name": "Shrimp Scampi",
+        "description": "Shrimp cooked in garlic butter sauce, often served with pasta.",
+        "ingredients": [
+            {
+                "name": "Shrimp",
+                "amount": 300,
+                "unit": "g"
+            },
+            {
+                "name": "Garlic",
+                "amount": 4,
+                "unit": "cloves"
+            },
+            {
+                "name": "Butter",
+                "amount": 50,
+                "unit": "g"
+            },
+            {
+                "name": "Olive oil",
+                "amount": 20,
+                "unit": "ml"
+            },
+            {
+                "name": "Parsley",
+                "amount": 5,
+                "unit": "g"
+            },
+            {
+                "name": "Salt",
+                "amount": 2,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 1,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Garlic", "Parsley" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Garlic", "Butter", "Olive oil" ]
+            },
+            {
+                "process": "Add",
+                "ingredients": [ "Shrimp" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "chopped Parsley", "Salt", "Pepper" ]
+            }
+        ]
+    },
+    {
+        "name": "Eggplant Parmigiana",
+        "description": "Layers of fried eggplant, tomato sauce, and cheese, baked until bubbly.",
+        "ingredients": [
+            {
+                "name": "Eggplant",
+                "amount": 2,
+                "unit": "unit"
+            },
+            {
+                "name": "Tomatoes (canned)",
+                "amount": 800,
+                "unit": "g"
+            },
+            {
+                "name": "Cheese (mozzarella)",
+                "amount": 300,
+                "unit": "g"
+            },
+            {
+                "name": "Cheese (parmesan)",
+                "amount": 50,
+                "unit": "g"
+            },
+            {
+                "name": "Olive oil",
+                "amount": 50,
+                "unit": "ml"
+            },
+            {
+                "name": "Basil",
+                "amount": 5,
+                "unit": "g"
+            },
+            {
+                "name": "Salt",
+                "amount": 3,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 2,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Eggplant" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Eggplant", "Olive oil" ]
+            },
+            {
+                "process": "Chop",
+                "ingredients": [ "Tomatoes (canned)" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "chopped Tomatoes (canned)", "Basil", "Salt", "Pepper" ]
+            },
+            {
+                "process": "Grate",
+                "ingredients": [ "Cheese (mozzarella)", "Cheese (parmesan)" ]
+            },
+            {
+                "process": "Layer",
+                "ingredients": [ "fried Eggplant", "tomato sauce", "Cheese (mozzarella)", "Cheese (parmesan)" ]
+            },
+            {
+                "process": "Bake",
+                "ingredients": [ "Eggplant Parmigiana" ]
+            }
+        ]
+    },
+    {
+        "name": "Fried Rice",
+        "description": "A quick and versatile dish made with leftover rice.",
+        "ingredients": [
+            {
+                "name": "Rice",
+                "amount": 200,
+                "unit": "g"
+            },
+            {
+                "name": "Eggs",
+                "amount": 2,
+                "unit": "unit"
+            },
+            {
+                "name": "Carrot",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Onion",
+                "amount": 0.5,
+                "unit": "unit"
+            },
+            {
+                "name": "Soy sauce",
+                "amount": 30,
+                "unit": "ml"
+            },
+            {
+                "name": "Vegetable oil",
+                "amount": 20,
+                "unit": "ml"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Carrot", "Onion" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Eggs" ]
+            },
+            {
+                "process": "Chop",
+                "ingredients": [ "fried Eggs" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Onion", "Carrot", "Vegetable oil" ]
+            },
+            {
+                "process": "Add",
+                "ingredients": [ "cooked Rice" ]
+            },
+            {
+                "process": "Stir-fry",
+                "ingredients": [ "Rice" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "chopped Eggs", "Soy sauce" ]
+            },
+            {
+                "process": "Stir-fry",
+                "ingredients": [ "Fried Rice" ]
+            }
+        ]
+    },
+    {
+        "name": "Miso Soup",
+        "description": "A traditional Japanese soup with a savory broth.",
+        "ingredients": [
+            {
+                "name": "Miso paste",
+                "amount": 30,
+                "unit": "g"
+            },
+            {
+                "name": "Tofu",
+                "amount": 100,
+                "unit": "g"
+            },
+            {
+                "name": "Spinach",
+                "amount": 50,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Boil",
+                "ingredients": [ "water" ]
+            },
+            {
+                "process": "Chop",
+                "ingredients": [ "Tofu" ]
+            },
+            {
+                "process": "Simmer",
+                "ingredients": [ "Tofu", "Spinach" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "Miso paste", "hot water" ]
+            }
+        ]
+    },
+    {
+        "name": "Tomato Basil Soup",
+        "description": "A comforting and aromatic soup.",
+        "ingredients": [
+            {
+                "name": "Tomatoes (canned)",
+                "amount": 800,
+                "unit": "g"
+            },
+            {
+                "name": "Basil",
+                "amount": 15,
+                "unit": "g"
+            },
+            {
+                "name": "Onion",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Garlic",
+                "amount": 2,
+                "unit": "cloves"
+            },
+            {
+                "name": "Olive oil",
+                "amount": 20,
+                "unit": "ml"
+            },
+            {
+                "name": "Salt",
+                "amount": 3,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 1,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Onion", "Garlic" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Onion", "Garlic", "Olive oil" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "canned Tomatoes (canned)", "Basil", "Salt", "Pepper" ]
+            },
+            {
+                "process": "Simmer",
+                "ingredients": [ "Tomato Basil Soup" ]
+            }
+        ]
+    },
+    {
+        "name": "Grilled Cheese Sandwich",
+        "description": "A classic comfort food, crispy and cheesy.",
+        "ingredients": [
+            {
+                "name": "Bread",
+                "amount": 2,
+                "unit": "slices"
+            },
+            {
+                "name": "Cheese (cheddar)",
+                "amount": 100,
+                "unit": "g"
+            },
+            {
+                "name": "Butter",
+                "amount": 10,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Grate",
+                "ingredients": [ "Cheese (cheddar)" ]
+            },
+            {
+                "process": "Layer",
+                "ingredients": [ "Cheese (cheddar)", "Bread" ]
+            },
+            {
+                "process": "Butter",
+                "ingredients": [ "Bread" ]
+            },
+            {
+                "process": "Grill",
+                "ingredients": [ "Grilled Cheese Sandwich" ]
+            }
+        ]
+    },
+    {
+        "name": "Pasta Aglio e Olio",
+        "description": "A simple and flavorful Italian pasta dish with garlic and oil.",
+        "ingredients": [
+            {
+                "name": "Pasta (spaghetti)",
+                "amount": 200,
+                "unit": "g"
+            },
+            {
+                "name": "Garlic",
+                "amount": 4,
+                "unit": "cloves"
+            },
+            {
+                "name": "Olive oil",
+                "amount": 50,
+                "unit": "ml"
+            },
+            {
+                "name": "Parsley",
+                "amount": 5,
+                "unit": "g"
+            },
+            {
+                "name": "Salt",
+                "amount": 3,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 1,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Boil",
+                "ingredients": [ "Pasta (spaghetti)" ]
+            },
+            {
+                "process": "Chop",
+                "ingredients": [ "Garlic", "Parsley" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Garlic", "Olive oil" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "cooked Pasta (spaghetti)", "garlic oil", "chopped Parsley", "Salt", "Pepper" ]
+            }
+        ]
+    },
+    {
+        "name": "Omelette",
+        "description": "A quick and versatile egg dish.",
+        "ingredients": [
+            {
+                "name": "Eggs",
+                "amount": 3,
+                "unit": "unit"
+            },
+            {
+                "name": "Butter",
+                "amount": 10,
+                "unit": "g"
+            },
+            {
+                "name": "Salt",
+                "amount": 1,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 0.5,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Whisk",
+                "ingredients": [ "Eggs", "Salt", "Pepper" ]
+            },
+            {
+                "process": "Melt",
+                "ingredients": [ "Butter" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Omelette" ]
+            }
+        ]
+    },
+    {
+        "name": "Pancakes",
+        "description": "Fluffy breakfast staples, great with syrup.",
+        "ingredients": [
+            {
+                "name": "Flour",
+                "amount": 150,
+                "unit": "g"
+            },
+            {
+                "name": "Milk",
+                "amount": 200,
+                "unit": "ml"
+            },
+            {
+                "name": "Eggs",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Sugar",
+                "amount": 10,
+                "unit": "g"
+            },
+            {
+                "name": "Vegetable oil",
+                "amount": 10,
+                "unit": "ml"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Mix",
+                "ingredients": [ "Flour", "Milk", "Eggs", "Sugar" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Pancakes" ]
+            }
+        ]
+    },
+    {
+        "name": "French Toast",
+        "description": "Bread soaked in egg and milk, then fried.",
+        "ingredients": [
+            {
+                "name": "Bread",
+                "amount": 2,
+                "unit": "slices"
+            },
+            {
+                "name": "Eggs",
+                "amount": 2,
+                "unit": "unit"
+            },
+            {
+                "name": "Milk",
+                "amount": 50,
+                "unit": "ml"
+            },
+            {
+                "name": "Butter",
+                "amount": 10,
+                "unit": "g"
+            },
+            {
+                "name": "Sugar",
+                "amount": 5,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Whisk",
+                "ingredients": [ "Eggs", "Milk", "Sugar" ]
+            },
+            {
+                "process": "Dip",
+                "ingredients": [ "Bread" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "French Toast", "Butter" ]
+            }
+        ]
+    },
+    {
+        "name": "Macaroni and Cheese",
+        "description": "A creamy, cheesy pasta dish.",
+        "ingredients": [
+            {
+                "name": "Pasta (macaroni)",
+                "amount": 200,
+                "unit": "g"
+            },
+            {
+                "name": "Milk",
+                "amount": 250,
+                "unit": "ml"
+            },
+            {
+                "name": "Cheese (cheddar)",
+                "amount": 200,
+                "unit": "g"
+            },
+            {
+                "name": "Butter",
+                "amount": 30,
+                "unit": "g"
+            },
+            {
+                "name": "Flour",
+                "amount": 20,
+                "unit": "g"
+            },
+            {
+                "name": "Salt",
+                "amount": 3,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 1,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Boil",
+                "ingredients": [ "Pasta (macaroni)" ]
+            },
+            {
+                "process": "Melt",
+                "ingredients": [ "Butter" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "Flour", "melted Butter" ]
+            },
+            {
+                "process": "Whisk",
+                "ingredients": [ "Milk" ]
+            },
+            {
+                "process": "Grate",
+                "ingredients": [ "Cheese (cheddar)" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "grated Cheese (cheddar)", "sauce" ]
+            },
+            {
+                "process": "Combine",
+                "ingredients": [ "cooked Pasta (macaroni)", "cheese sauce", "Salt", "Pepper" ]
+            }
+        ]
+    },
+    {
+        "name": "Baked Potatoes",
+        "description": "Simple and satisfying oven-baked potatoes.",
+        "ingredients": [
+            {
+                "name": "Potatoes",
+                "amount": 2,
+                "unit": "unit"
+            },
+            {
+                "name": "Olive oil",
+                "amount": 10,
+                "unit": "ml"
+            },
+            {
+                "name": "Salt",
+                "amount": 2,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 1,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Potatoes" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "Potatoes", "Olive oil", "Salt", "Pepper" ]
+            },
+            {
+                "process": "Bake",
+                "ingredients": [ "Baked Potatoes" ]
+            }
+        ]
+    },
+    {
+        "name": "Coleslaw",
+        "description": "A fresh and crunchy cabbage salad.",
+        "ingredients": [
+            {
+                "name": "Cabbage",
+                "amount": 300,
+                "unit": "g"
+            },
+            {
+                "name": "Carrot",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Mayonnaise",
+                "amount": 50,
+                "unit": "ml"
+            },
+            {
+                "name": "Vinegar (white)",
+                "amount": 10,
+                "unit": "ml"
+            },
+            {
+                "name": "Sugar",
+                "amount": 5,
+                "unit": "g"
+            },
+            {
+                "name": "Salt",
+                "amount": 2,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 1,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Cabbage", "Carrot" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "Mayonnaise", "Vinegar (white)", "Sugar", "Salt", "Pepper" ]
+            },
+            {
+                "process": "Combine",
+                "ingredients": [ "chopped Cabbage", "Carrot", "dressing" ]
+            }
+        ]
+    },
+    {
+        "name": "Cucumber Salad",
+        "description": "A light and refreshing salad.",
+        "ingredients": [
+            {
+                "name": "Cucumber",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Dill",
+                "amount": 5,
+                "unit": "g"
+            },
+            {
+                "name": "Yogurt",
+                "amount": 50,
+                "unit": "ml"
+            },
+            {
+                "name": "Vinegar (white)",
+                "amount": 5,
+                "unit": "ml"
+            },
+            {
+                "name": "Salt",
+                "amount": 1,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Cucumber", "Dill" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "Yogurt", "Vinegar (white)", "Salt", "chopped Dill" ]
+            },
+            {
+                "process": "Combine",
+                "ingredients": [ "chopped Cucumber", "dressing" ]
+            }
+        ]
+    },
+    {
+        "name": "Lentil Soup",
+        "description": "A hearty and nutritious vegetarian soup.",
+        "ingredients": [
+            {
+                "name": "Lentils",
+                "amount": 200,
+                "unit": "g"
+            },
+            {
+                "name": "Onion",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Carrot",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Garlic",
+                "amount": 2,
+                "unit": "cloves"
+            },
+            {
+                "name": "Tomatoes (canned)",
+                "amount": 400,
+                "unit": "g"
+            },
+            {
+                "name": "Olive oil",
+                "amount": 20,
+                "unit": "ml"
+            },
+            {
+                "name": "Salt",
+                "amount": 3,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 1,
+                "unit": "g"
+            },
+            {
+                "name": "Thyme",
+                "amount": 2,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Onion", "Carrot", "Garlic" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Onion", "Carrot", "Garlic", "Olive oil" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "Lentils", "canned Tomatoes (canned)", "Salt", "Pepper", "Thyme" ]
+            },
+            {
+                "process": "Add",
+                "ingredients": [ "water" ]
+            },
+            {
+                "process": "Simmer",
+                "ingredients": [ "Lentil Soup" ]
+            }
+        ]
+    },
+    {
+        "name": "Chili con Carne",
+        "description": "A spicy stew containing chili powder, meat, and beans.",
+        "ingredients": [
+            {
+                "name": "Ground beef",
+                "amount": 400,
+                "unit": "g"
+            },
+            {
+                "name": "Beans",
+                "amount": 400,
+                "unit": "g"
+            },
+            {
+                "name": "Tomatoes (canned)",
+                "amount": 400,
+                "unit": "g"
+            },
+            {
+                "name": "Onion",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Garlic",
+                "amount": 2,
+                "unit": "cloves"
+            },
+            {
+                "name": "Chili powder",
+                "amount": 10,
+                "unit": "g"
+            },
+            {
+                "name": "Cumin",
+                "amount": 5,
+                "unit": "g"
+            },
+            {
+                "name": "Salt",
+                "amount": 3,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 1,
+                "unit": "g"
+            },
+            {
+                "name": "Vegetable oil",
+                "amount": 20,
+                "unit": "ml"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Onion", "Garlic" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Ground beef", "Vegetable oil" ]
+            },
+            {
+                "process": "Add",
+                "ingredients": [ "Onion", "Garlic" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "canned Tomatoes (canned)", "Beans", "Chili powder", "Cumin", "Salt", "Pepper" ]
+            },
+            {
+                "process": "Simmer",
+                "ingredients": [ "Chili con Carne" ]
+            }
+        ]
+    },
+    {
+        "name": "Stuffed Bell Peppers",
+        "description": "Bell peppers filled with a savory mixture and baked.",
+        "ingredients": [
+            {
+                "name": "Bell peppers",
+                "amount": 4,
+                "unit": "unit"
+            },
+            {
+                "name": "Ground beef",
+                "amount": 200,
+                "unit": "g"
+            },
+            {
+                "name": "Rice",
+                "amount": 100,
+                "unit": "g"
+            },
+            {
+                "name": "Onion",
+                "amount": 0.5,
+                "unit": "unit"
+            },
+            {
+                "name": "Tomatoes (paste)",
+                "amount": 50,
+                "unit": "g"
+            },
+            {
+                "name": "Salt",
+                "amount": 2,
+                "unit": "g"
+            },
+            {
+                "name": "Pepper",
+                "amount": 1,
+                "unit": "g"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Onion" ]
+            },
+            {
+                "process": "Boil",
+                "ingredients": [ "Rice" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "Ground beef", "chopped Onion", "Rice", "Tomatoes (paste)", "Salt", "Pepper" ]
+            },
+            {
+                "process": "Stuff",
+                "ingredients": [ "Bell peppers", "mixture" ]
+            },
+            {
+                "process": "Bake",
+                "ingredients": [ "Stuffed Bell Peppers" ]
+            }
+        ]
+    },
+    {
+        "name": "Cabbage Stir-Fry",
+        "description": "A simple and quick stir-fried cabbage dish.",
+        "ingredients": [
+            {
+                "name": "Cabbage",
+                "amount": 400,
+                "unit": "g"
+            },
+            {
+                "name": "Carrot",
+                "amount": 1,
+                "unit": "unit"
+            },
+            {
+                "name": "Garlic",
+                "amount": 2,
+                "unit": "cloves"
+            },
+            {
+                "name": "Soy sauce",
+                "amount": 20,
+                "unit": "ml"
+            },
+            {
+                "name": "Vegetable oil",
+                "amount": 15,
+                "unit": "ml"
+            }
+        ],
+        "steps": [
+            {
+                "process": "Chop",
+                "ingredients": [ "Cabbage", "Carrot", "Garlic" ]
+            },
+            {
+                "process": "Fry",
+                "ingredients": [ "Vegetable oil" ]
+            },
+            {
+                "process": "Add",
+                "ingredients": [ "Garlic" ]
+            },
+            {
+                "process": "Stir-fry",
+                "ingredients": [ "Cabbage", "Carrot" ]
+            },
+            {
+                "process": "Mix",
+                "ingredients": [ "Soy sauce" ]
+            }
+        ]
+    }
+]
