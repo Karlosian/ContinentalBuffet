@@ -14,7 +14,14 @@
         "unit": "g"
     },
     {
-        "name": "Bacon or pancetta",
+        "name": "Bacon",
+        "cost": 6.75,
+        "amount": 250,
+        "type": 1,
+        "unit": "g"
+    },
+    {
+        "name": "Pancetta",
         "cost": 6.75,
         "amount": 250,
         "type": 1,

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1024,576" overflow="scroll" scroll="horizontal">
   <displayList>
-    <list id="n13_jarb" name="n13" xy="179,99" size="666,375" layout="row" selectionMode="multiple" overflow="scroll" scroll="horizontal">
+    <list id="n13_jarb" name="n13" xy="179,99" size="666,375" touchable="false" selectionMode="multiple" overflow="scroll" lineGap="40">
       <item url="ui://9ah5ij39jarbn"/>
       <item url="ui://9ah5ij39jarbh"/>
       <item url="ui://9ah5ij39jarbi"/>
@@ -15,5 +15,6 @@
       <item url="ui://9ah5ij39jarbr"/>
       <item url="ui://9ah5ij39jarbg"/>
     </list>
+    <component id="n14_sdhr" name="n14" src="sdhr16" fileName="SelectProcessButton.xml" xy="287,156" size="454,255" alpha="0"/>
   </displayList>
 </component>

@@ -6,6 +6,7 @@
 #include "Recipe.h"
 #include "Ingredient.h"
 #include "CookingProcess.h"  // Renamed from Action.h
+#include "axmol.h"
 
 #define JSON_HAS_CPP_20 0
 #include "json.hpp"
@@ -38,7 +39,8 @@ std::vector<CookingProcess> Recipe::getRecipeSteps() {
 
 // Function to extract all the recipes from the JSON file and store them in the static vector
 void Recipe::getRecipeList() {
-    std::ifstream file("recipes.json");
+    std::string fullPath = ax::FileUtils::getInstance()->fullPathForFilename("recipes.json");
+    std::ifstream file(fullPath);
     std::cout << "Current working directory: " << std::filesystem::current_path() << std::endl;
 
     if (!file.is_open())

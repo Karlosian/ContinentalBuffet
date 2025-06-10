@@ -3,7 +3,7 @@
   <resources>
     <component id="f7n20" name="Component1.xml" path="/" exported="true"/>
     <image id="jarb2" name="background.jpg" path="/Assets/"/>
-    <component id="jarb3" name="ScrollProcesses.xml" path="/"/>
+    <component id="jarb3" name="ScrollProcesses.xml" path="/ComponentTemplates/"/>
     <image id="jarbg" name="Whisk.png" path="/Assets/Processes/"/>
     <image id="jarbh" name="Boil.png" path="/Assets/Processes/"/>
     <image id="jarbi" name="Chopping.png" path="/Assets/Processes/"/>
@@ -16,13 +16,75 @@
     <image id="jarbp" name="Grill.png" path="/Assets/Processes/"/>
     <image id="jarbq" name="Mix.png" path="/Assets/Processes/"/>
     <image id="jarbr" name="Stuff.png" path="/Assets/Processes/"/>
-    <image id="jarbt" name="LeftArrow.png" path="/Assets/"/>
-    <image id="jarbu" name="RightArrow.png" path="/Assets/"/>
-    <image id="jarbv" name="LeftArrowClicked.png" path="/Assets/"/>
-    <image id="jarbw" name="RightArrowClicked.png" path="/Assets/"/>
-    <component id="jarbx" name="LeftArrow.xml" path="/"/>
-    <component id="jarby" name="Right Arrow.xml" path="/"/>
-    <component id="jarbz" name="ProcessComponent.xml" path="/"/>
+    <image id="jarbt" name="LeftArrow.png" path="/Assets/Button/"/>
+    <image id="jarbu" name="RightArrow.png" path="/Assets/Button/"/>
+    <image id="jarbv" name="LeftArrowClicked.png" path="/Assets/Button/"/>
+    <image id="jarbw" name="RightArrowClicked.png" path="/Assets/Button/"/>
+    <component id="jarbx" name="LeftArrow.xml" path="/ButtonComponents/"/>
+    <component id="jarby" name="Right Arrow.xml" path="/ButtonComponents/"/>
+    <component id="jarbz" name="ProcessComponent.xml" path="/ComponentTemplates/"/>
+    <component id="jarb10" name="ProcessButton.xml" path="/ButtonComponents/"/>
+    <image id="jarb11" name="Back Click.png" path="/Assets/Button/"/>
+    <image id="jarb12" name="Back Hover.png" path="/Assets/Button/"/>
+    <image id="jarb13" name="Back.png" path="/Assets/Button/"/>
+    <image id="jarb14" name="RecipeBackground.png" path="/Assets/"/>
+    <component id="jarb15" name="IngredientScroll.xml" path="/ComponentTemplates/"/>
+    <component id="sdhr16" name="SelectProcessButton.xml" path="/ButtonComponents/"/>
+    <image id="w20x17" name="45.png" path="/Assets/Ingredients/"/>
+    <image id="w20x18" name="18.png" path="/Assets/Ingredients/"/>
+    <image id="w20x19" name="19.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1a" name="20.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1b" name="21.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1c" name="22.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1d" name="23.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1e" name="24.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1f" name="25.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1g" name="26.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1h" name="27.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1i" name="28.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1j" name="29.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1k" name="30.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1l" name="31.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1m" name="32.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1n" name="33.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1o" name="34.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1p" name="35.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1q" name="38.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1r" name="39.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1s" name="40.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1t" name="41.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1u" name="42.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1v" name="16.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1w" name="43.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1x" name="15.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1y" name="13.png" path="/Assets/Ingredients/"/>
+    <image id="w20x1z" name="46.png" path="/Assets/Ingredients/"/>
+    <image id="w20x20" name="47.png" path="/Assets/Ingredients/"/>
+    <image id="w20x21" name="48.png" path="/Assets/Ingredients/"/>
+    <image id="w20x22" name="49.png" path="/Assets/Ingredients/"/>
+    <image id="w20x23" name="50.png" path="/Assets/Ingredients/"/>
+    <image id="w20x24" name="51.png" path="/Assets/Ingredients/"/>
+    <image id="w20x25" name="52.png" path="/Assets/Ingredients/"/>
+    <image id="w20x26" name="53.png" path="/Assets/Ingredients/"/>
+    <image id="w20x27" name="54.png" path="/Assets/Ingredients/"/>
+    <image id="w20x28" name="55.png" path="/Assets/Ingredients/"/>
+    <image id="w20x29" name="36.png" path="/Assets/Ingredients/"/>
+    <image id="w20x2a" name="37.png" path="/Assets/Ingredients/"/>
+    <image id="w20x2b" name="3.png" path="/Assets/Ingredients/"/>
+    <image id="w20x2c" name="4.png" path="/Assets/Ingredients/"/>
+    <image id="w20x2d" name="5.png" path="/Assets/Ingredients/"/>
+    <image id="w20x2e" name="6.png" path="/Assets/Ingredients/"/>
+    <image id="w20x2f" name="17.png" path="/Assets/Ingredients/"/>
+    <image id="w20x2g" name="7.png" path="/Assets/Ingredients/"/>
+    <image id="w20x2h" name="8.png" path="/Assets/Ingredients/"/>
+    <image id="w20x2i" name="9.png" path="/Assets/Ingredients/"/>
+    <image id="w20x2j" name="10.png" path="/Assets/Ingredients/"/>
+    <image id="w20x2k" name="11.png" path="/Assets/Ingredients/"/>
+    <image id="w20x2l" name="12.png" path="/Assets/Ingredients/"/>
+    <image id="w20x2m" name="14.png" path="/Assets/Ingredients/"/>
+    <image id="w20x2n" name="44.png" path="/Assets/Ingredients/"/>
+    <component id="w20x2o" name="ListItemButton.xml" path="/ComponentTemplates/"/>
+    <component id="w20x2p" name="ButtomItem.xml" path="/ComponentTemplates/"/>
   </resources>
   <publish name="CookingPackage"/>
 </packageDescription>
