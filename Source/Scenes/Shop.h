@@ -7,6 +7,7 @@
 #include "GRoot.h"
 #include "UIPackage.h"
 #include "GComponent.h"
+#include "GList.h"
 
 class Shop : public ax::Scene {
     enum class GameState

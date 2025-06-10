@@ -11,6 +11,7 @@
 #include "UIPackage.h"
 #include "GComponent.h"
 #include "GButton.h"
+#include "BubbleGame.h"
 
 #include <iostream>
 
