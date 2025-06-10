@@ -3,7 +3,9 @@
 #include "Shop.h"
 
 #include "../Classes/Ingredient.h"
+#include "../Classes/Player.h"
 #include "../AppDelegate.h"
+
 
 #include "GRoot.h"
 #include "UIPackage.h"
@@ -30,6 +32,10 @@ void Homepage::loadStartScreen() {
             Director::getInstance()->replaceScene(utils::createInstance<CookingScene>());
         });
     }
+
+    Ingredient::getIngredientList();
+    Player::initalizeTestInventory();
+    Player::sortInventory();
 }
 
 bool Homepage::init() {
