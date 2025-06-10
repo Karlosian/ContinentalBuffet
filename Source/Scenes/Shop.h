@@ -2,6 +2,7 @@
 #define SHOP_H_
 
 #include "axmol.h"
+#include "vector"
 
 #include "GRoot.h"
 #include "UIPackage.h"
@@ -25,9 +26,11 @@ private:
     ax::EventListenerMouse* _mouseListener          = nullptr;
     int _sceneID                                    = 0;
 
-    fairygui::GRoot* root;
 
+    fairygui::GRoot* root;
     fairygui::GList* ingredientsList;
+
+    std::vector<std::string> labels;
 
 public:
     void loadStartScreen();
@@ -36,6 +39,8 @@ public:
     void update(float delta) override;
 
     void menuCloseCallback(ax::Object* sender);
+
+    void renderListItems(int index, fairygui::GObject* obj);
 
     void print();
 

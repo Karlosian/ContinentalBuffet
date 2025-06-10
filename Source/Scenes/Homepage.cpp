@@ -27,7 +27,7 @@ void Homepage::loadStartScreen() {
     if (startButtonObject != nullptr && startButtonObject->as<fairygui::GButton>() != nullptr) {
         fairygui::GButton* startButton = startButtonObject->as<fairygui::GButton>();
         startButton->addClickListener([](fairygui::EventContext* context) {
-            Director::getInstance()->replaceScene(utils::createInstance<CookingScene>());
+            Director::getInstance()->replaceScene(utils::createInstance<Shop>());
         });
     }
 }
