@@ -11,6 +11,6 @@
     <component id="n18_cwzb" name="n18" src="leu5c" fileName="Interactables/Clear.xml" xy="1003,480" size="246,109"/>
     <component id="n19_cwzb" name="n19" src="leu5g" fileName="Interactables/Back.xml" xy="976,609" size="273,83"/>
     <image id="n20_cwzb" name="n20" src="leu5m" fileName="Assets/Untitled design.png" xy="724,20" size="526,434"/>
-    <list id="n12_cwzb" name="n12" xy="726,23" size="524,431" overflow="scroll"/>
+    <list id="n12_cwzb" name="n12" xy="726,22" size="524,431" overflow="scroll" defaultItem="ui://8j0ekteccwzb2a"/>
   </displayList>
 </component>

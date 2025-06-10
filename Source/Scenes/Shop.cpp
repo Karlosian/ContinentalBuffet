@@ -5,18 +5,74 @@
 #include "UIPackage.h"
 #include "GComponent.h"
 #include "GButton.h"
+#include "GList.h"
+#include "GLabel.h"
+#include "GTextField.h"
+#include "../Classes/Ingredient.h"
 
 #include <iostream>
+#include <string>
 
 using namespace ax;
 
 static int s_sceneID = 2000;
+static int itemCounter = 0;
+
+void Shop::print()
+{
+    std::cout << "RAN";
+}
+
+void Shop::renderListItems(int index, fairygui::GObject* obj)
+{
+    std::cout << "if";
+    if (index >= 0 && index < labels.size())
+    {
+        std::cout << "if1";
+        fairygui::GComponent* itemComponent = obj->as<fairygui::GComponent>();
+        if (itemComponent)
+        {
+            std::cout << "if2";
+            fairygui::GTextField* label = itemComponent->getChild("n0")->as<fairygui::GTextField>();
+            if (label)
+            {
+                label->setText(labels[index]);
+                std::cout << "if3";
+            }
+        }
+    }
+}
 
 void Shop::loadStartScreen() {
     fairygui::UIPackage::addPackage("UI/Shop");
-    fairygui::GComponent* homepageComponent = fairygui::UIPackage::createObject("Package2", "Component1")->as<fairygui::GComponent>();
-    homepageComponent->setPosition(0, 0);
-    root->addChild(homepageComponent);
+    fairygui::GComponent* shopComponent = fairygui::UIPackage::createObject("Package2", "Component1")->as<fairygui::GComponent>();
+    shopComponent->setPosition(0, 0);
+    root->addChild(shopComponent);
+    fairygui::GObject* ingredientsComponentObject = shopComponent->getChild("n11");
+
+    fairygui::GComponent* ingredientsComponent = ingredientsComponentObject->as<fairygui::GComponent>();
+
+    ingredientsList = shopComponent->getChild("n12")->as<fairygui::GList>();
+
+    labels.push_back("asdlkahsdkjasd");
+
+    ingredientsList->itemRenderer = CC_CALLBACK_2(Shop::renderListItems, this);
+    ingredientsList->setNumItems(labels.size());
+
+    for (int i = 1; i <= 53; i++)
+    {
+        std::string temp = "b" + std::to_string(i);
+        fairygui::GObject* ingredientsButton1 = ingredientsComponent->getChild(temp);
+        if (ingredientsButton1 != nullptr && ingredientsButton1->as<fairygui::GButton>() != nullptr) {
+            fairygui::GButton* rightArrow = ingredientsButton1->as<fairygui::GButton>();
+            rightArrow->addClickListener([this, i](fairygui::EventContext* context) {
+                std::vector<Ingredient> allIngredient = Ingredient::getIngredients();
+                labels.push_back(allIngredient[i - 1].getName());
+                ingredientsList->setNumItems(labels.size());
+            });
+        }
+    }
+
 }
 
 bool Shop::init() {

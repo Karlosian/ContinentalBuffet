@@ -74,6 +74,8 @@
     <image id="cwzb22" name="27.png" path="/Ingredients/"/>
     <image id="cwzb23" name="54.png" path="/Ingredients/"/>
     <component id="cwzb28" name="Scroll2.xml" path="/Components/"/>
+    <component id="cwzb29" name="Label1.xml" path="/"/>
+    <component id="cwzb2a" name="Text.xml" path="/"/>
   </resources>
   <publish name="Shop"/>
 </packageDescription>
