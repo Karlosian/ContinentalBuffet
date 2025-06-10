@@ -6,12 +6,14 @@
 #include "GRoot.h"
 #include "UIPackage.h"
 #include "GComponent.h"
+#include "GTextField.h"
 
 #include "GList.h"
 #include "GObject.h"
 
-class CookingScene : public ax::Scene
-{
+#include "../Classes/Meal.h"
+
+class CookingScene : public ax::Scene {
     enum class GameState
     {
         init = 0,
@@ -31,6 +33,11 @@ private:
 
     fairygui::GRoot* root;
     fairygui::GList* processList;
+    fairygui::GTextField* processText;
+
+    Meal* currentMeal;
+    int actionIndex;
+    std::vector<std::string> actionList;
 
 public:
     void loadStartScreen();
@@ -40,6 +47,7 @@ public:
 
     void menuCloseCallback(ax::Object* sender);
     void renderListItems(int index, fairygui::GObject* obj, const std::vector<std::string>& labels);
+    void updateElementOnActionList();
 
     CookingScene();
     ~CookingScene() override;

@@ -1,10 +1,13 @@
+#include <iostream>
+#include <ctime>
+
 #include "Player.h"
 
 // Set the player instance as a nullptr until initialized in a scene
 Player* Player::instance = nullptr;
 
 // Player constructor initializes the player with default values
-std::vector<Ingredient*> Player::inventory; 
+std::vector<Ingredient> Player::inventory; 
 
 
 // Returns the player instance (information) necessary when a new scene is loaded
@@ -16,20 +19,26 @@ Player* Player::getInstance() {
     return instance;
 }
 
+// Getter for the player inventory
+std::vector<Ingredient> Player::getInventory() {
+    return Player::inventory;
+}
+
 // Add ingredients to the player inventory during shopping
-void Player::addIngredient(Ingredient *ingredient) {
+void Player::addIngredient(Ingredient ingredient) {
     // Finds if the user already has that ingredient in their inventory (in which case it just adds to the quantity)
-    for (Ingredient *ing : inventory) {
-        if (ing->getName() == ingredient->getName()) {
-            ing->setQuantity(ing->getQuantity() + ingredient->getQuantity());
+    for (Ingredient ing : inventory) {
+        if (ing.getName() == ingredient.getName()) {
+            ing.setQuantity(ing.getQuantity() + ingredient.getQuantity());
             return;
         }
     }
     // Otherwise, adds a new ingredient object to the inventory
-    inventory.push_back(ingredient);
+    Ingredient newIngredient = ingredient;
+    inventory.push_back(newIngredient);
 }
 
-void quickSort(std::vector<Ingredient*> arr, int low, int high) {
+void Player::sortInventory(int low, int high) {
     const bool MOVING_LEFT = true, MOVING_RIGHT = false;
 
     // If this if-statement doesn't work, it means there is only 1 element (which doesn't need to be sorted)
@@ -41,48 +50,65 @@ void quickSort(std::vector<Ingredient*> arr, int low, int high) {
         bool currentDirection = MOVING_LEFT;
 
         // Sets the pivot as the first element of the subarray
-        Ingredient* pivot      = arr[low];
+        Ingredient pivot = inventory[low];
 
         // Runs until left and right represent the same element
         while (left < right) {
             if (currentDirection == MOVING_LEFT) {
-                // Runs until it either gets to where pivot is supposed to be, or until it finds an element smaller than it is
-                while (pivot->getName() < arr[right]->getName() && left < right) {
+                // Runs until it either gets to where pivot is supposed to be, or until it finds an element smaller than
+                // it is
+                while (pivot.getName() <= inventory[right].getName() && left < right) {
                     right--;
                 }
 
                 // When it finds that element that is smaller than it is, move it to the other side of the pivot
-                arr[left] = arr[right];
+                inventory[left] = inventory[right];
 
                 // Start moving from left to right
                 currentDirection = MOVING_RIGHT;
             }
 
             if (currentDirection == MOVING_RIGHT) {
-                // Runs until it either gets to where pivot is supposed to be, or until it finds an element larger than it is
-                while (pivot->getName() > arr[left]->getName() && left < right) {
+                // Runs until it either gets to where pivot is supposed to be, or until it finds an element larger than
+                // it is
+                while (pivot.getName() >= inventory[left].getName() && left < right) {
                     left++;
                 }
 
                 // When it finds that element that is larger than it is, move it to the other side of the pivot
-                arr[right] = arr[left];
+                inventory[right] = inventory[left];
 
                 // Start moving from right to left
                 currentDirection = MOVING_LEFT;
             }
         }
 
+        for (int i = 0; i < inventory.size(); i++) {
+            std::cout << inventory[i].getName() << " ";
+        }
+        std::cout << std::endl;
+
         // Sets the pivot point at its intended position
-        arr[left] = pivot;
+        inventory[left] = pivot;
 
         // Sorts the element on the left of the pivot in the subarray
-        quickSort(arr, low, left - 1);
+        sortInventory(low, left - 1);
 
         // Sorts the element on the right of the pivot in the subarray
-        quickSort(arr, left + 1, high);
+        sortInventory(left + 1, high);
     }
 }
 
 void Player::sortInventory() {
-    quickSort(inventory, 0, inventory.size() - 1);
+    sortInventory(0, inventory.size() - 1);
+}
+
+void Player::initalizeTestInventory() {
+    std::vector<Ingredient> allIngredients = Ingredient::getIngredients();
+    srand(time(0));
+    for (int i = 0; i < 10; i++) {
+        int randomItem = rand() % allIngredients.size();
+        Ingredient ingredient = allIngredients[randomItem];
+        inventory.push_back(ingredient);
+    }
 }

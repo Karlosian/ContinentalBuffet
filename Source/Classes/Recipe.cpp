@@ -91,3 +91,13 @@ void Recipe::getRecipeList() {
         std::cerr << "Error: " << e.what() << std::endl;
     }
 }
+
+Recipe* Recipe::operator=(const Recipe& other) {
+    if (this != &other) {
+        name              = other.name;
+        description       = other.description;
+        recipeIngredients = other.recipeIngredients;
+        steps             = other.steps;
+    }
+    return this;
+}

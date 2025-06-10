@@ -15,6 +15,5 @@
       <item url="ui://9ah5ij39jarbr"/>
       <item url="ui://9ah5ij39jarbg"/>
     </list>
-    <component id="n14_sdhr" name="n14" src="sdhr16" fileName="SelectProcessButton.xml" xy="287,156" size="454,255" alpha="0"/>
   </displayList>
 </component>

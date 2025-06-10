@@ -85,6 +85,7 @@
     <image id="w20x2n" name="44.png" path="/Assets/Ingredients/"/>
     <component id="w20x2o" name="ListItemButton.xml" path="/ComponentTemplates/"/>
     <component id="w20x2p" name="ButtomItem.xml" path="/ComponentTemplates/"/>
+    <component id="7eqo2q" name="Button1.xml" path="/"/>
   </resources>
   <publish name="CookingPackage"/>
 </packageDescription>

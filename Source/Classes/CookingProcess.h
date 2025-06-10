@@ -19,7 +19,21 @@ private:
     static std::vector<std::string> CookingProcesses;
 public:
     // Default constructor
+    CookingProcess();
+
+    // Parameterized constructor
     CookingProcess(std::string n, std::vector<Ingredient> i);
+
+    // Getter
+    std::string getName();
+    std::vector<Ingredient> getIngredients();
+    static std::vector<std::string> getCookingProcesses();
+
+    // Setter
+    void setName(std::string n);
+
+    // Other methods
+    void addIngredient(Ingredient i);
 
     bool operator==(const CookingProcess& other) const;
 };

@@ -38,6 +38,9 @@ public:
 
     // Function to extract all the recipes from the JSON file and store them in the static vector
     static void getRecipeList();
+
+    // Overload equal operator
+    Recipe* operator=(const Recipe& other);
 };
 
 #endif  // RECIPE_H_

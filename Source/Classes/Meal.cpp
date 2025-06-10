@@ -1,11 +1,25 @@
 #include <vector>
+#include <iostream>
+
 #include "Meal.h"
+
+// Default Constructor
+Meal::Meal() {
+    recipeAccuracy = -1;
+    currentStep    = new CookingProcess();
+}
 
 // Parameratized Constructor
 Meal::Meal(std::vector<Ingredient> i, std::vector<CookingProcess> cp) {
     recipeIngredients = i;
     steps             = cp;
     recipeAccuracy    = -1;
+    currentStep       = new CookingProcess();
+}
+
+// Getters
+CookingProcess* Meal::getCurrentStep() {
+    return currentStep;
 }
 
 // This method searches through all the recipes stored in the JSON file and assigns a percentage
@@ -57,4 +71,42 @@ Recipe Meal::findMatchingRecipe() {
     // Return the recipe with the highest score
     recipeAccuracy = recipeAccuracyArray[maxIndex];
     return recipes[maxIndex];
+}
+
+// Overloaded Assignment Operator
+Meal* Meal::operator=(const Meal& other) {
+    if (this != &other) {
+        Recipe::operator=(other);
+        recipeAccuracy = other.recipeAccuracy;
+    }
+    return this;
+}
+
+// Add the step to the meal
+void Meal::addStepAction(std::string action) {
+    currentStep->setName(action);
+}
+
+// Add an ingredient to current cooking step
+void Meal::addIngredientToCurrentStep(Ingredient &ingredient) {
+    currentStep->addIngredient(ingredient);
+}
+
+// Remove an ingredient from current cooking step
+void Meal::removeIngredientFromCurrentStep(Ingredient &ingredient) {
+    std::vector<Ingredient> ingredients = currentStep->getIngredients();
+    ingredients.erase(
+        std::remove_if(ingredients.begin(), ingredients.end(),
+            [&ingredient](Ingredient &i) {
+                return i.getName() == ingredient.getName();
+            }), ingredients.end()
+    );
+}
+
+// Continue to next cooking step
+void Meal::addNewStep() {
+    if (currentStep != nullptr) {
+        steps.push_back(*currentStep);
+    }
+    currentStep = new CookingProcess();
 }

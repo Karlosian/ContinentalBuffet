@@ -13,8 +13,8 @@ using namespace ax;
 static int s_sceneID = 2000;
 
 void Shop::loadStartScreen() {
-    fairygui::UIPackage::addPackage("UI/Package1");
-    fairygui::GComponent* homepageComponent = fairygui::UIPackage::createObject("Package1", "Component1")->as<fairygui::GComponent>();
+    fairygui::UIPackage::addPackage("UI/Shop");
+    fairygui::GComponent* homepageComponent = fairygui::UIPackage::createObject("Package2", "Component1")->as<fairygui::GComponent>();
     homepageComponent->setPosition(0, 0);
     root->addChild(homepageComponent);
 }

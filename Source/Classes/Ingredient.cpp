@@ -17,6 +17,7 @@ Ingredient::Ingredient() {
     cost     = 0;
     quantity = 0;
     type     = -1;
+    nameIndex = -1;
 }
 
 Ingredient::Ingredient(std::string n, int a, std::string u) {
@@ -26,15 +27,17 @@ Ingredient::Ingredient(std::string n, int a, std::string u) {
     cost     = 0;
     quantity = 0;
     type     = -1;
+    nameIndex = -1;
 }
 
-Ingredient::Ingredient(std::string n, std::string u, double c, int a, int t) {
+Ingredient::Ingredient(std::string n, std::string u, double c, int a, int t, int i) {
     name     = n;
     cost     = c;
     amount   = a;
     type     = t;
     quantity = 0;
     unit     = u;
+    nameIndex = i;
 }
 
 Ingredient::Ingredient(Ingredient &i, int q) {
@@ -44,6 +47,7 @@ Ingredient::Ingredient(Ingredient &i, int q) {
     type = i.type;
     unit = i.unit;
     quantity = q;
+    nameIndex = i.nameIndex;
 }
 
 // Getters for Ingredient class
@@ -63,6 +67,10 @@ int Ingredient::getAmount() {
     return amount;
 }
 
+int Ingredient::getNameIndex() {
+    return nameIndex;
+}
+
 std::vector<Ingredient> Ingredient::getIngredients() {
     return ingredients;
 }
@@ -74,6 +82,16 @@ void Ingredient::setQuantity(int q) {
 
 void Ingredient::changeQuantityBy(int q) {
     quantity += q;
+}
+
+// Overloaded operators for Ingredient class
+void Ingredient::operator=(const Ingredient& i) {
+    name     = i.name;
+    cost     = i.cost;
+    amount   = i.amount;
+    type     = i.type;
+    unit     = i.unit;
+    quantity = i.quantity;
 }
 
 // Extracting the ingredient list from the ingredients.json file
@@ -96,10 +114,13 @@ void Ingredient::getIngredientList() {
         nlohmann::json json_data;
         file >> json_data;
 
-        // Lop through the JSON data and create Ingredient objects
+        // Loop through the JSON data and create Ingredient objects
+        int index = 0;
         for (const auto& item : json_data) {
-            Ingredient ingredient(item["name"], item["unit"], item["cost"], item["amount"], item["type"]);
+            Ingredient ingredient(item["name"], item["unit"], item["cost"], item["amount"], item["type"], index);
             Ingredient::ingredients.push_back(ingredient);
+
+            index++;  // Increment index for each ingredient
 
             // Debugging purposes
             std::cout << "Ingredient: " << ingredient.name << ", Cost: " << ingredient.cost
