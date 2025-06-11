@@ -50,50 +50,40 @@ void CookingScene::loadStartScreen() {
     // Set to bake by default
     actionIndex = 0;
 
-    // Add the up button
-    fairygui::GObject* upArrowObject = cookingSceneComponent->getChild("n4");
-    if (upArrowObject != nullptr && upArrowObject->as<fairygui::GButton>() != nullptr) {
-        upArrow = upArrowObject->as<fairygui::GButton>();
-        upArrow->addClickListener([this](fairygui::EventContext* context) {
+    // Add the left button
+    fairygui::GObject* leftArrowObject = cookingSceneComponent->getChild("n4");
+    if (leftArrowObject != nullptr && leftArrowObject->as<fairygui::GButton>() != nullptr) {
+        leftArrow = leftArrowObject->as<fairygui::GButton>();
+        leftArrow->addClickListener([this](fairygui::EventContext* context) {
             this->processList->getScrollPane()->scrollLeft(1, true);
             std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/Select.wav");
             actionIndex          = std::max(actionIndex - 1, 0);
-            if (actionIndex == 0) upArrow->setVisible(false);
-            if (actionIndex != 11) downArrow->setVisible(true);
 
-            if (!FileUtils::getInstance()->isFileExist(fullPath))
-            {
-                AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
-            }
-            else
-            {
-                // AXLOGD("Audio file found at: %s", fullPath.c_str());
-                int soundId = AudioEngine::play2d("sound/Select.wav", false, 1.0f);
-            }
+            // Update visibility of arrows based on actionIndex (at the start of the list, hide the Left arrow)
+            if (actionIndex == 0) leftArrow->setVisible(false);
+            if (actionIndex != 11) rightArrow->setVisible(true);
+
+            // Play click sound
+            if (!FileUtils::getInstance()->isFileExist(fullPath)) AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
+            else int soundId = AudioEngine::play2d("sound/Select.wav", false, 1.0f);
         });
-        upArrow->setVisible(false);  // Hide the up arrow initially
+        leftArrow->setVisible(false);  // Hide the up arrow initially
     }
 
-    //Add the down button
-    fairygui::GObject* downArrowObject = cookingSceneComponent->getChild("n5");
-    if (downArrowObject != nullptr && downArrowObject->as<fairygui::GButton>() != nullptr) {
-        downArrow = downArrowObject->as<fairygui::GButton>();
-        downArrow->addClickListener([this](fairygui::EventContext* context) {
+    //Add the right button
+    fairygui::GObject* rightArrowObject = cookingSceneComponent->getChild("n5");
+    if (rightArrowObject != nullptr && rightArrowObject->as<fairygui::GButton>() != nullptr) {
+        rightArrow = rightArrowObject->as<fairygui::GButton>();
+        rightArrow->addClickListener([this](fairygui::EventContext* context) {
             this->processList->getScrollPane()->scrollRight(1, true);
             std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/Select.wav");
             actionIndex          = std::min(actionIndex + 1, 11);
-            if (actionIndex == 11) downArrow->setVisible(false);
-            if (actionIndex != 0)  upArrow->setVisible(true);
+            if (actionIndex == 11) rightArrow->setVisible(false);
+            if (actionIndex != 0)  leftArrow->setVisible(true);
 
-            if (!FileUtils::getInstance()->isFileExist(fullPath))
-            {
-                AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
-            }
-            else
-            {
-                //AXLOGD("Audio file found at: %s", fullPath.c_str());
-                int soundId = AudioEngine::play2d("sound/Select.wav", false, 1.0f);
-            }
+            // Play click sound
+            if (!FileUtils::getInstance()->isFileExist(fullPath)) AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
+            else int soundId = AudioEngine::play2d("sound/Select.wav", false, 1.0f);
         });
     }
 
