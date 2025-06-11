@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1024,576" overflow="scroll" scroll="horizontal">
   <displayList>
-    <list id="n13_jarb" name="n13" xy="179,99" size="666,375" touchable="false" selectionMode="multiple" overflow="scroll" lineGap="40">
+    <list id="n13_jarb" name="n13" xy="179,99" size="666,375" touchable="false" layout="row" selectionMode="multiple" overflow="scroll" scroll="horizontal" lineGap="40">
       <item url="ui://9ah5ij39jarbn"/>
       <item url="ui://9ah5ij39jarbh"/>
       <item url="ui://9ah5ij39jarbi"/>

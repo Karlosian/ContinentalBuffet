@@ -85,10 +85,20 @@
     <image id="w20x2n" name="44.png" path="/Assets/Ingredients/"/>
     <component id="w20x2o" name="ListItemButton.xml" path="/ComponentTemplates/"/>
     <component id="w20x2p" name="ButtomItem.xml" path="/ComponentTemplates/"/>
-    <component id="7eqo2q" name="Button1.xml" path="/"/>
+    <component id="7eqo2q" name="Button1.xml" path="/ComponentTemplates/"/>
     <image id="7eqo2s" name="button_serve-meal.png" path="/Assets/Button/"/>
     <image id="7eqo2t" name="button_serve-meal-pressed.png" path="/Assets/Button/"/>
-    <component id="7eqo2u" name="ServeButton.xml" path="/"/>
+    <component id="7eqo2u" name="ServeButton.xml" path="/ComponentTemplates/"/>
+    <image id="7eqo2v" name="CookingScene Background.png" path="/Assets/"/>
+    <image id="7eqo2y" name="Pantry Button.png" path="/Assets/Button/"/>
+    <component id="7eqo2z" name="PantryButton.xml" path="/Assets/Button/"/>
+    <image id="7eqo30" name="emptyPantry.png" path="/Assets/Button/"/>
+    <image id="pyhy31" name="button_shop-for-ingredients.png" path="/Assets/Button/"/>
+    <image id="pyhy32" name="button_shop-for-ingredients-pressed.png" path="/Assets/Button/"/>
+    <component id="pyhy33" name="Shop Button.xml" path="/ComponentTemplates/"/>
+    <image id="pyhy34" name="button_get-recipes.png" path="/Assets/Button/"/>
+    <image id="pyhy35" name="button_get-recipes-pressed.png" path="/Assets/Button/"/>
+    <component id="pyhy36" name="Bubble button.xml" path="/ComponentTemplates/"/>
   </resources>
   <publish name="CookingPackage"/>
 </packageDescription>
