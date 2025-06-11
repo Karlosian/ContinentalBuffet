@@ -20,7 +20,7 @@ public:
 
     // Setters
     static void setIngredientsChosen(int index, bool isChosen);
-    static void setMoney(int i);
+    static void setMoney(double i);
 
     // Methods
     static void addIngredient(Ingredient ingredient);

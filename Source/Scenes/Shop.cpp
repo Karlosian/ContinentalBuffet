@@ -26,8 +26,7 @@ void Shop::print()
     std::cout << "RAN";
 }
 
-void Shop::renderListItems(int index, fairygui::GObject* obj)
-{
+void Shop::renderListItems(int index, fairygui::GObject* obj) {
     if (index >= 0 && index < cart.size()) 
     {
         fairygui::GComponent* itemComponent = obj->as<fairygui::GComponent>();
@@ -45,12 +44,12 @@ void Shop::renderListItems(int index, fairygui::GObject* obj)
     }
 }
 
-void Shop::addIngredientToCart(Ingredient ingredient)
-{
+void Shop::addIngredientToCart(Ingredient ingredient) {
     for (auto& item : cart) {
         if (item.getName() == ingredient.getName())
         { 
             item.changeQuantityBy(1);
+            sortIngredientInCart();
             std::cout << item.getQuantity();
             totalCost += ingredient.getCost();
             costLabel->setText(toString(totalCost) + "$");
@@ -58,8 +57,8 @@ void Shop::addIngredientToCart(Ingredient ingredient)
         }
     }
     ingredient.setQuantity(1);
-    cart.push_back(ingredient);  // Add the ingredient to the cart vector
-    //sortIngredientInCart();
+    cart.push_back(ingredient);
+    sortIngredientInCart();     // Add the ingredient to the cart vector
 
     std::cout << "Added " << ingredient.getName() << " to cart. Cart size: " << cart.size() << "cost: " << ingredient.getCost() << std::endl;
     totalCost += ingredient.getCost();
@@ -77,11 +76,13 @@ std::string Shop::toString(double c) const {
 
 // Using bubble sort to sort the ingredients in the cart
 void Shop::sortIngredientInCart() {
-    for (int j = 0; j < cart.size() - 1; j++) {
-        if (cart[j].getName() > cart[j + 1].getName()) {
-            auto temp = cart[j];
-            cart[j] = cart[j + 1];
-            cart[j + 1] = temp;
+    for (int i = 0; i < cart.size() - 1; i++) {
+        for (int j = 0; j < cart.size() - 1 - i; j++) {
+            if (cart[j].getName() > cart[j + 1].getName()) {
+                auto temp   = cart[j];
+                cart[j]     = cart[j + 1];
+                cart[j + 1] = temp;
+            }
         }
     }
 }

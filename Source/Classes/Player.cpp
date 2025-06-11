@@ -5,6 +5,7 @@
 
 // Set the player instance as a nullptr until initialized in a scene
 Player* Player::instance = nullptr;
+double Player::money = 100.0;  // Default money amount
 
 // Player constructor initializes the player with default values
 std::vector<Ingredient> Player::inventory; 
@@ -28,9 +29,8 @@ std::vector<bool> Player::getIngredientsChosen() {
     return Player::ingredientsChosen;
 }
 
-double Player::getMoney()
-{
-    return money;
+double Player::getMoney() {
+    return Player::money;
 }
 
 // Setter for the player inventory
@@ -38,9 +38,8 @@ void Player::setIngredientsChosen(int index, bool isChosen) {
     Player::ingredientsChosen[index] = isChosen;
 }
 
-void Player::setMoney(int i)
-{
-    money -= i;
+void Player::setMoney(double i) {
+    Player::money -= i;
 }
 
 // Add ingredients to the player inventory during shopping
@@ -122,7 +121,6 @@ void Player::initalizeTestInventory() {
     std::vector<Ingredient> allIngredients = Ingredient::getIngredients();
     srand(time(0));
 
-    /*
     std::vector<int> randomIndices;
     for (int i = 0; i < 10; i++) {
         int randomItem = rand() % allIngredients.size();
@@ -135,11 +133,8 @@ void Player::initalizeTestInventory() {
         inventory.push_back(ingredient);
         std::cout << "Adding " << ingredient.getName() << " to inventory with indexNum " << ingredient.getNameIndex() << std::endl;
         ingredientsChosen.push_back(false);
-    }
-    */
-    for (auto i : allIngredients) {
-        inventory.push_back(i);
-        ingredientsChosen.push_back(false);
+
+        randomIndices.push_back(randomItem);
     }
     sortInventory();
 }
