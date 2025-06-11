@@ -79,9 +79,7 @@ void Shop::sortIngredientInCart() {
     for (int i = 0; i < cart.size() - 1; i++) {
         for (int j = 0; j < cart.size() - 1 - i; j++) {
             if (cart[j].getName() > cart[j + 1].getName()) {
-                auto temp   = cart[j];
-                cart[j]     = cart[j + 1];
-                cart[j + 1] = temp;
+                std::swap(cart[j], cart[j + 1]);
             }
         }
     }
@@ -106,6 +104,15 @@ void Shop::loadStartScreen() {
         return;
     }
     costLabel = costLabelComponent->as<fairygui::GTextField>();
+
+    fairygui::GObject* balanceLabelComponent = shopComponent->getChild("n16");
+    if (balanceLabelComponent == nullptr || balanceLabelComponent->as<fairygui::GTextField>() == nullptr)
+    {
+        std::cout << "Balance GLabel broke \n";
+        return;
+    }
+    balanceLabel = balanceLabelComponent->as<fairygui::GTextField>();
+    balanceLabel->setText(std::to_string(Player::getMoney()) + "$");
 
     for (int i = 1; i <= 53; i++)
     {
@@ -139,6 +146,7 @@ void Shop::loadStartScreen() {
         fairygui::GButton* buy = buyButton->as<fairygui::GButton>();
         buy->addClickListener([this](fairygui::EventContext* context) {
             Player::setMoney(totalCost);
+            balanceLabel->setText(std::to_string(Player::getMoney()) + "$");
             totalCost = 0;
             costLabel->setText(toString(totalCost) + "$");
             for (auto& item : cart) Player::addIngredient(item);
