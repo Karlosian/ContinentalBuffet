@@ -79,9 +79,7 @@ void Shop::sortIngredientInCart() {
     for (int i = 0; i < cart.size() - 1; i++) {
         for (int j = 0; j < cart.size() - 1 - i; j++) {
             if (cart[j].getName() > cart[j + 1].getName()) {
-                auto temp   = cart[j];
-                cart[j]     = cart[j + 1];
-                cart[j + 1] = temp;
+                std::swap(cart[j], cart[j + 1]);
             }
         }
     }

@@ -35,8 +35,8 @@ private:
     fairygui::GList* processList;
     fairygui::GTextField* processText;
 
-    fairygui::GButton* upArrow;
-    fairygui::GButton* downArrow;
+    fairygui::GButton* leftArrow;
+    fairygui::GButton* rightArrow;
     fairygui::GButton* serveButton;
 
     std::vector<fairygui::GButton*> buttons;
