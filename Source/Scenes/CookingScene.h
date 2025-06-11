@@ -7,7 +7,7 @@
 #include "UIPackage.h"
 #include "GComponent.h"
 #include "GTextField.h"
-
+#include "GButton.h"
 #include "GList.h"
 #include "GObject.h"
 
@@ -34,6 +34,12 @@ private:
     fairygui::GRoot* root;
     fairygui::GList* processList;
     fairygui::GTextField* processText;
+
+    fairygui::GButton* upArrow;
+    fairygui::GButton* downArrow;
+    fairygui::GButton* serveButton;
+
+    std::vector<fairygui::GButton*> buttons;
 
     Meal* currentMeal;
     int actionIndex;

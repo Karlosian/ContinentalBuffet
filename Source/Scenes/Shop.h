@@ -33,10 +33,11 @@ private:
 
     fairygui::GRoot* root;
     fairygui::GList* ingredientsList;
-    fairygui::GTextField* costSum;
+    fairygui::GTextField* costLabel;
 
-    std::vector<std::string> labels;
     std::vector<Ingredient> cart;
+
+    double totalCost = 0;
 
 public:
     // Initialization Methods
@@ -49,11 +50,14 @@ public:
     void renderListItems(int index, fairygui::GObject* obj);
 
     // Dynamic GUI Methods
-    void addIngredientToCart(const Ingredient& ingredient);
-
+    void addIngredientToCart(Ingredient ingredient);
+    void sortIngredientInCart();
 
     // Debugging Methods
     void print();
+
+    // Overload toString method
+    std::string toString(double c) const;
 
     Shop();
     ~Shop() override;

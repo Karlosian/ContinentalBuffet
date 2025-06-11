@@ -67,7 +67,7 @@
                 "unit": "g"
             },
             {
-                "name": "Bacon",
+                "name": "Bacon or pancetta",
                 "amount": 100,
                 "unit": "g"
             },
@@ -94,11 +94,11 @@
             },
             {
                 "process": "Chop",
-                "ingredients": [ "Bacon" ]
+                "ingredients": [ "Bacon or pancetta" ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Bacon" ]
+                "ingredients": [ "Bacon or pancetta" ]
             },
             {
                 "process": "Whisk",
@@ -106,7 +106,7 @@
             },
             {
                 "process": "Mix",
-                "ingredients": [ "Pasta (spaghetti)", "Bacon or pancetta", "egg mixture", "pasta water" ]
+                "ingredients": [ "cooked Pasta (spaghetti)", "Bacon or pancetta", "egg mixture", "pasta water" ]
             }
         ]
     },
@@ -838,7 +838,7 @@
     },
     {
         "name": "Fried Rice",
-        "description": "A quick and versatile dish made with upover rice.",
+        "description": "A quick and versatile dish made with leftover rice.",
         "ingredients": [
             {
                 "name": "Rice",

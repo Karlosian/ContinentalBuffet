@@ -11,6 +11,7 @@
 #include "UIPackage.h"
 #include "GComponent.h"
 #include "GButton.h"
+#include "BubbleGame.h"
 
 #include <iostream>
 
@@ -26,16 +27,16 @@ void Homepage::loadStartScreen() {
 
     fairygui::GObject* startButtonObject = homepageComponent->getChild("n4");
 
+    Ingredient::getIngredientList();
+    Recipe::getRecipeList();
+    Player::initalizeTestInventory();
+
     if (startButtonObject != nullptr && startButtonObject->as<fairygui::GButton>() != nullptr) {
         fairygui::GButton* startButton = startButtonObject->as<fairygui::GButton>();
         startButton->addClickListener([](fairygui::EventContext* context) {
             Director::getInstance()->replaceScene(utils::createInstance<Shop>());
         });
     }
-
-    Ingredient::getIngredientList();
-    Player::initalizeTestInventory();
-    Player::sortInventory();
 }
 
 bool Homepage::init() {

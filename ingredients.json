@@ -1,0 +1,366 @@
+[
+    {
+        "name": "Chicken",
+        "cost": 8.99,
+        "amount": 1000,
+        "type": 1,
+        "unit": "g"
+    },
+    {
+        "name": "Ground beef",
+        "cost": 7.49,
+        "amount": 450,
+        "type": 1,
+        "unit": "g"
+    },
+    {
+        "name": "Bacon or pancetta",
+        "cost": 6.75,
+        "amount": 250,
+        "type": 1,
+        "unit": "g"
+    },
+    {
+        "name": "Shrimp",
+        "cost": 14.50,
+        "amount": 300,
+        "type": 1,
+        "unit": "g"
+    },
+    {
+        "name": "Eggs",
+        "cost": 3.29,
+        "amount": 12,
+        "type": 1,
+        "unit": "unit"
+    },
+    {
+        "name": "Tofu",
+        "cost": 3.79,
+        "amount": 350,
+        "type": 1,
+        "unit": "g"
+    },
+    {
+        "name": "Cheese (mozzarella)",
+        "cost": 5.99,
+        "amount": 400,
+        "type": 1,
+        "unit": "g"
+    },
+    {
+        "name": "Cheese (cheddar)",
+        "cost": 6.29,
+        "amount": 400,
+        "type": 1,
+        "unit": "g"
+    },
+    {
+        "name": "Cheese (parmesan)",
+        "cost": 7.99,
+        "amount": 200,
+        "type": 1,
+        "unit": "g"
+    },
+    {
+        "name": "Cheese (Pecorino)",
+        "cost": 8.50,
+        "amount": 200,
+        "type": 1,
+        "unit": "g"
+    },
+    {
+        "name": "Lentils",
+        "cost": 2.19,
+        "amount": 500,
+        "type": 1,
+        "unit": "g"
+    },
+    {
+        "name": "Tomatoes (fresh)",
+        "cost": 2.89,
+        "amount": 500,
+        "type": 2,
+        "unit": "g"
+    },
+    {
+        "name": "Tomatoes (canned)",
+        "cost": 1.49,
+        "amount": 400,
+        "type": 2,
+        "unit": "g"
+    },
+    {
+        "name": "Tomatoes (paste)",
+        "cost": 0.99,
+        "amount": 150,
+        "type": 2,
+        "unit": "g"
+    },
+    {
+        "name": "Onion",
+        "cost": 1.29,
+        "amount": 1000,
+        "type": 2,
+        "unit": "g"
+    },
+    {
+        "name": "Garlic",
+        "cost": 0.79,
+        "amount": 1,
+        "type": 2,
+        "unit": "head"
+    },
+    {
+        "name": "Potatoes",
+        "cost": 3.50,
+        "amount": 2200,
+        "type": 2,
+        "unit": "g"
+    },
+    {
+        "name": "Bell peppers",
+        "cost": 2.49,
+        "amount": 3,
+        "type": 2,
+        "unit": "unit"
+    },
+    {
+        "name": "Zucchini",
+        "cost": 2.15,
+        "amount": 500,
+        "type": 2,
+        "unit": "g"
+    },
+    {
+        "name": "Eggplant",
+        "cost": 2.99,
+        "amount": 1,
+        "type": 2,
+        "unit": "unit"
+    },
+    {
+        "name": "Cabbage",
+        "cost": 1.89,
+        "amount": 1000,
+        "type": 2,
+        "unit": "g"
+    },
+    {
+        "name": "Carrot",
+        "cost": 1.59,
+        "amount": 1000,
+        "type": 2,
+        "unit": "g"
+    },
+    {
+        "name": "Cucumber",
+        "cost": 1.79,
+        "amount": 1,
+        "type": 2,
+        "unit": "unit"
+    },
+    {
+        "name": "Basil",
+        "cost": 2.25,
+        "amount": 50,
+        "type": 2,
+        "unit": "g"
+    },
+    {
+        "name": "Spinach",
+        "cost": 2.69,
+        "amount": 300,
+        "type": 2,
+        "unit": "g"
+    },
+    {
+        "name": "Rice",
+        "cost": 4.50,
+        "amount": 1000,
+        "type": 3,
+        "unit": "g"
+    },
+    {
+        "name": "Pasta (spaghetti)",
+        "cost": 2.79,
+        "amount": 500,
+        "type": 3,
+        "unit": "g"
+    },
+    {
+        "name": "Pasta (macaroni)",
+        "cost": 2.69,
+        "amount": 500,
+        "type": 3,
+        "unit": "g"
+    },
+    {
+        "name": "Flour",
+        "cost": 3.99,
+        "amount": 2500,
+        "type": 3,
+        "unit": "g"
+    },
+    {
+        "name": "Bread",
+        "cost": 3.19,
+        "amount": 600,
+        "type": 3,
+        "unit": "g"
+    },
+    {
+        "name": "Beans",
+        "cost": 1.89,
+        "amount": 400,
+        "type": 3,
+        "unit": "g"
+    },
+    {
+        "name": "Milk",
+        "cost": 3.89,
+        "amount": 1000,
+        "type": 4,
+        "unit": "ml"
+    },
+    {
+        "name": "Butter",
+        "cost": 5.29,
+        "amount": 454,
+        "type": 4,
+        "unit": "g"
+    },
+    {
+        "name": "Cream",
+        "cost": 4.79,
+        "amount": 500,
+        "type": 4,
+        "unit": "ml"
+    },
+    {
+        "name": "Yogurt",
+        "cost": 3.59,
+        "amount": 500,
+        "type": 4,
+        "unit": "ml"
+    },
+    {
+        "name": "Olive oil",
+        "cost": 7.99,
+        "amount": 750,
+        "type": 5,
+        "unit": "ml"
+    },
+    {
+        "name": "Vegetable oil",
+        "cost": 5.49,
+        "amount": 1000,
+        "type": 5,
+        "unit": "ml"
+    },
+    {
+        "name": "Salt",
+        "cost": 1.19,
+        "amount": 737,
+        "type": 6,
+        "unit": "g"
+    },
+    {
+        "name": "Pepper",
+        "cost": 2.49,
+        "amount": 100,
+        "type": 6,
+        "unit": "g"
+    },
+    {
+        "name": "Paprika",
+        "cost": 2.75,
+        "amount": 50,
+        "type": 6,
+        "unit": "g"
+    },
+    {
+        "name": "Chili powder",
+        "cost": 2.85,
+        "amount": 50,
+        "type": 6,
+        "unit": "g"
+    },
+    {
+        "name": "Soy sauce",
+        "cost": 3.10,
+        "amount": 250,
+        "type": 6,
+        "unit": "ml"
+    },
+    {
+        "name": "Vinegar (white)",
+        "cost": 1.99,
+        "amount": 1000,
+        "type": 6,
+        "unit": "ml"
+    },
+    {
+        "name": "Vinegar (balsamic)",
+        "cost": 4.25,
+        "amount": 500,
+        "type": 6,
+        "unit": "ml"
+    },
+    {
+        "name": "Vinegar (rice)",
+        "cost": 3.75,
+        "amount": 500,
+        "type": 6,
+        "unit": "ml"
+    },
+    {
+        "name": "Miso paste",
+        "cost": 6.80,
+        "amount": 300,
+        "type": 6,
+        "unit": "g"
+    },
+    {
+        "name": "Mayonnaise",
+        "cost": 3.99,
+        "amount": 500,
+        "type": 6,
+        "unit": "ml"
+    },
+    {
+        "name": "Sugar",
+        "cost": 2.99,
+        "amount": 1000,
+        "type": 6,
+        "unit": "g"
+    },
+    {
+        "name": "Dill",
+        "cost": 2.50,
+        "amount": 20,
+        "type": 7,
+        "unit": "g"
+    },
+    {
+        "name": "Parsley",
+        "cost": 2.50,
+        "amount": 20,
+        "type": 7,
+        "unit": "g"
+    },
+    {
+        "name": "Thyme",
+        "cost": 2.50,
+        "amount": 20,
+        "type": 7,
+        "unit": "g"
+    },
+    {
+        "name": "Bay leaf",
+        "cost": 2.75,
+        "amount": 20,
+        "type": 7,
+        "unit": "leaves"
+    }
+]

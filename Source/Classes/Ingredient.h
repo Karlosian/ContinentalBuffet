@@ -36,6 +36,7 @@ public:
     // Setters
     void setQuantity(int q);
     void changeQuantityBy(int q);
+    void setNameIndex(int i);
 
     // Overload assignment operator
     void operator=(const Ingredient& i);

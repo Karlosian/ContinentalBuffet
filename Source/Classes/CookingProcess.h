@@ -34,6 +34,7 @@ public:
 
     // Other methods
     void addIngredient(Ingredient i);
+    void removeIngredient(Ingredient i);
 
     bool operator==(const CookingProcess& other) const;
 };
