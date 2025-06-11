@@ -1,4 +1,6 @@
 #include "CookingScene.h"
+#include "Shop.h"
+#include "BubbleGame.h"
 
 #include "../Classes/Ingredient.h"
 #include "../Classes/Player.h"
@@ -135,6 +137,7 @@ void CookingScene::loadStartScreen() {
     processText = processTextObject->as<fairygui::GTextField>();
     processText->setText("Your actions will appear here");
 
+    // Button to serve the meal (Finish button basically)
     fairygui::GObject* serveButtonObject = cookingSceneComponent->getChild("n13");
     if (serveButtonObject == nullptr || serveButtonObject->as<fairygui::GButton>() == nullptr) {
         std::cerr << "Error: serveButtonObject is null." << std::endl;
@@ -144,6 +147,29 @@ void CookingScene::loadStartScreen() {
     serveButton->addClickListener([this](fairygui::EventContext* context) {
         Recipe recipe = currentMeal->findMatchingRecipe();
         std::cout << recipe.name << " " << currentMeal->getRecipeAccuracy() << std::endl;
+    });
+
+    // Button to navigate to the shop
+    fairygui::GObject* shopButtonObject = cookingSceneComponent->getChild("n16");
+    if (shopButtonObject == nullptr || shopButtonObject->as<fairygui::GButton>() == nullptr) {
+        std::cerr << "Error: shopButtonObject is null." << std::endl;
+        return;
+    }
+    fairygui::GButton* shopButton = shopButtonObject->as<fairygui::GButton>();
+    shopButton->addClickListener([this](fairygui::EventContext* context) {
+        Director::getInstance()->replaceScene(utils::createInstance<Shop>());
+    });
+
+    // Button to navigate to the bubble game
+    fairygui::GObject* bubbleButtonObject = cookingSceneComponent->getChild("n17");
+    if (bubbleButtonObject == nullptr || bubbleButtonObject->as<fairygui::GButton>() == nullptr)
+    {
+        std::cerr << "Error: bubbleButtonObject is null." << std::endl;
+        return;
+    }
+    fairygui::GButton* bubbleButton = bubbleButtonObject->as<fairygui::GButton>();
+    bubbleButton->addClickListener([this](fairygui::EventContext* context) {
+        Director::getInstance()->replaceScene(utils::createInstance<BubbleGame>());
     });
 
     currentMeal = new Meal();
