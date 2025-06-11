@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="524,83">
+<component size="524,65">
   <displayList>
-    <text id="n0_cwzb" name="n0" xy="18,15" size="484,48" fontSize="12" autoSize="none" text=""/>
+    <text id="n0_cwzb" name="n0" xy="18,12" size="484,42" font="Impact" fontSize="30" autoSize="none" text=""/>
   </displayList>
 </component>

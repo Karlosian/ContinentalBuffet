@@ -7,6 +7,11 @@
 #include "GRoot.h"
 #include "UIPackage.h"
 #include "GComponent.h"
+#include "GList.h"
+#include "GButton.h"
+#include "GTextField.h"
+
+#include "../Classes/Ingredient.h"
 
 class Shop : public ax::Scene {
     enum class GameState
@@ -26,25 +31,29 @@ private:
     ax::EventListenerMouse* _mouseListener          = nullptr;
     int _sceneID                                    = 0;
 
-
     fairygui::GRoot* root;
     fairygui::GList* ingredientsList;
+    fairygui::GTextField* costSum;
 
     std::vector<std::string> labels;
+    std::vector<Ingredient> cart;
 
 public:
+    // Initialization Methods
     void loadStartScreen();
-
     bool init() override;
     void update(float delta) override;
-
     void menuCloseCallback(ax::Object* sender);
 
+    // Render Methods
     void renderListItems(int index, fairygui::GObject* obj);
 
-    void print();
+    // Dynamic GUI Methods
+    void addIngredientToCart(const Ingredient& ingredient);
 
-    // Vacy, add your method declaration here (ex. calculate cost or something)
+
+    // Debugging Methods
+    void print();
 
     Shop();
     ~Shop() override;
