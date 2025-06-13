@@ -1,6 +1,7 @@
 #include "Homepage.h"
 #include "CookingScene.h"
 #include "Shop.h"
+#include <Scenes/MusicManager.h>
 
 #include "../Classes/Ingredient.h"
 #include "../Classes/Player.h"
@@ -30,6 +31,9 @@ void Homepage::loadStartScreen() {
     Ingredient::getIngredientList();
     Recipe::getRecipeList();
     Player::initalizeTestInventory();
+
+    auto musicMgr = new MusicManager();
+    musicMgr->startPlaylist();
 
     if (startButtonObject != nullptr && startButtonObject->as<fairygui::GButton>() != nullptr) {
         fairygui::GButton* startButton = startButtonObject->as<fairygui::GButton>();
