@@ -1,6 +1,15 @@
 #include "BubbleGame.h"
 #include "AudioEngine.h"
+#include "FairyGUI.h"
+#include "GComponent.h"
+#include "GButton.h"
+#include "GObject.h"
+#include "CookingScene.h"
 USING_NS_AX;
+
+
+
+
 
 
 BubbleGame* BubbleGame::createScene()
@@ -8,10 +17,11 @@ BubbleGame* BubbleGame::createScene()
     return BubbleGame::create();
 }
 
+
 void BubbleGame::startGame(){
    // Reset score
     score = 0;
-    updateScoreLabel();  // You'd write this function to show score
+    updateScoreLabel();
 
     // Start game timer (e.g., 30 seconds)
     float gameDuration = 30.0f;
@@ -32,29 +42,88 @@ void BubbleGame::startGame(){
 
     if (timeLeft <= 0) {
         this->unschedule("game_timer");
-        endGame();  // Call your endGame function
+        endGame();  
     }
 }, 1.0f, "game_timer");
 
 
-    // Maybe show UI elements (timer, score, etc.)
+    //show UI elements (timer, score, etc.)
     scoreLabel->setVisible(true);
     timerLabel->setVisible(true);    
     return;
 }
 
 void BubbleGame::endGame(){
+    fairygui::GObject* backObj = comp->getChild("n0");
+    fairygui::GButton* backButton = backObj->as<fairygui::GButton>();
+
+
+     //stop all scheduled functions
+    this->unschedule("bubble_spawn");
+    this->unschedule("game_timer");
+    this->unschedule("game_end");
+    
+    scoreLabel->setVisible(false);
+    timerLabel->setVisible(false);
+    
+    // "//" is all nodes in axmol, so call lambda to remove all nodes
+    this->enumerateChildren("//", [](Node* node) -> bool {
+        if (auto sprite = dynamic_cast<Sprite*>(node)) {
+
+            //check if is a bubble
+            if(sprite->getName() == "bubble"){
+            //remove
+            sprite->stopAllActions();
+            sprite->removeFromParent();}
+        }
+        return false; // Continue enumeration
+    });
+    
+    //create game over screen
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    auto origin = Director::getInstance()->getVisibleOrigin();
+    
+    auto overlay = LayerColor::create(Color4B(0, 0, 0, 180));
+    this->addChild(overlay, 100, "game_over_overlay");
+    
+    auto gameOverLabel = Label::createWithTTF("GAME OVER!", "fonts/Marker Felt.ttf", 64);
+    gameOverLabel->setPosition(origin + Vec2(visibleSize.width/2, visibleSize.height/2 + 100));
+    gameOverLabel->setColor(Color3B::RED);
+    this->addChild(gameOverLabel, 101);
+    
+    //final score display
+    auto finalScoreLabel = Label::createWithTTF("Final Score: " + std::to_string(score), "fonts/Marker Felt.ttf", 36);
+    finalScoreLabel->setPosition(origin + Vec2(visibleSize.width/2, visibleSize.height/2 + 20));
+    finalScoreLabel->setColor(Color3B::WHITE);
+    this->addChild(finalScoreLabel, 101);
+ 
+    //make button visible
+    comp->setPosition(visibleSize.width/2 - 75, visibleSize.height/2 +50);
+    //add listener
+    backButton->addClickListener([](fairygui::EventContext* context) {
+            Director::getInstance()->replaceScene(utils::createInstance<CookingScene>());
+        });
+
+    
+    //add  animation to the game over screen
+    gameOverLabel->setScale(0.1f);
+    gameOverLabel->runAction(ScaleTo::create(0.3f, 1.0f));
+    
     return;
 }
 
 void BubbleGame::spawnBubble(){
     //create the bubble sprite
     auto bubble = ax::Sprite::create("BubbleGame/bubble.png");
-    if (!bubble) return; 
+    if (!bubble) return;
+    
+    bubble->setName("bubble");
     //scale and disable anti-aliasing for pixel art
     bubble->setScale(4.0f);
     bubble->getTexture()->setAliasTexParameters(); 
     
+
+
     //random X position along the screen width
     auto visibleSize = ax::Director::getInstance()->getVisibleSize();
     float randomX = AXRANDOM_0_1() * visibleSize.width;
@@ -173,6 +242,17 @@ bool BubbleGame::init()
 {
     if (!Scene::init())
        { return false;}
+
+    //debug
+    auto listener = EventListenerKeyboard::create();
+listener->onKeyPressed = [this](EventKeyboard::KeyCode keyCode, Event* event) {
+    if (keyCode == EventKeyboard::KeyCode::KEY_ESCAPE) {
+        AXLOGD("ESC pressed - calling endGame()");
+        this->endGame();
+    }
+};
+_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+       
     
     this->createUI();
     this->startCountdown();
@@ -181,6 +261,22 @@ bool BubbleGame::init()
 }
 
 void BubbleGame::createUI() {
+//fairygui init
+    root = fairygui::GRoot::create(this);
+    root->retain();
+    
+    //initialize ui package
+    fairygui::UIPackage::addPackage("UI/BackButton");
+    comp = fairygui::UIPackage::createObject("BackButton", "BackButtonComponent")->as<fairygui::GComponent>();
+    if (!comp) {
+        AXLOGE("Error: Failed to create FairyGUI component.");
+    }
+
+//add button
+    if (comp && root) {
+    comp->setPosition(-9999, -9999);
+    root->addChild(comp);
+    }
 auto bg = Sprite::create("BubbleGame/bg.png");
 bg->setAnchorPoint(Vec2::ZERO);
 bg->setPosition(Vec2::ZERO);
@@ -197,17 +293,18 @@ this->addChild(bg, -1);
 
 //create score label
 scoreLabel = ax::Label::createWithTTF("Score: 0", "fonts/Marker Felt.ttf", 24);
-scoreLabel->setPosition(Vec2(100, 680));  // Adjust position as needed
+scoreLabel->setPosition(Vec2(100, 680));  
 scoreLabel->setColor(ax::Color3B::WHITE);
 this->addChild(scoreLabel, 10);
 
 //create timerLabel
 timerLabel = ax::Label::createWithTTF("Time: 30", "fonts/Marker Felt.ttf", 24);
-timerLabel->setPosition(Vec2(1200, 680));  // Adjust position
+timerLabel->setPosition(Vec2(1200, 680)); 
 timerLabel->setColor(ax::Color3B::WHITE);
 this->addChild(timerLabel, 10);
 
 }
 
-BubbleGame::BubbleGame() { }
+BubbleGame::BubbleGame() : score(0), timeLeft(30), scoreLabel(nullptr), timerLabel(nullptr), root(nullptr), comp(nullptr) {
+}
 BubbleGame::~BubbleGame() { }
