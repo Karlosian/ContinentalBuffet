@@ -99,6 +99,10 @@
     <image id="pyhy34" name="button_get-recipes.png" path="/Assets/Button/"/>
     <image id="pyhy35" name="button_get-recipes-pressed.png" path="/Assets/Button/"/>
     <component id="pyhy36" name="Bubble button.xml" path="/ComponentTemplates/"/>
+    <component id="j18b37" name="Result.xml" path="/ComponentTemplates/"/>
+    <image id="j18b38" name="button_on-to-the-next-dish.png" path="/Assets/Button/"/>
+    <image id="j18b39" name="button_on-to-the-next-dish-pressed.png" path="/Assets/Button/"/>
+    <component id="j18b3a" name="Restart.xml" path="/Assets/Button/"/>
   </resources>
   <publish name="CookingPackage"/>
 </packageDescription>
