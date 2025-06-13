@@ -13,7 +13,9 @@
 
 #include "../Classes/Ingredient.h"
 
-class Shop : public ax::Scene {
+class Shop : public ax::Scene
+{
+public:
     enum class GameState
     {
         init = 0,
@@ -25,40 +27,39 @@ class Shop : public ax::Scene {
     };
 
 private:
-    GameState _gameState                            = GameState::init;
+    GameState _gameState = GameState::init;
+
+    // Event listeners for user inputs
     ax::EventListenerTouchAllAtOnce* _touchListener = nullptr;
     ax::EventListenerKeyboard* _keyboardListener    = nullptr;
     ax::EventListenerMouse* _mouseListener          = nullptr;
-    int _sceneID                                    = 0;
 
+    int _sceneID = 0;
+
+    // FairyGUI UI components
     fairygui::GRoot* root;
     fairygui::GList* ingredientsList;
     fairygui::GTextField* costLabel;
     fairygui::GTextField* balanceLabel;
 
-    std::vector<Ingredient> cart;
-
+    std::vector<Ingredient> cart;  // Shopping cart for ingredients
     double totalCost = 0;
 
 public:
-    // Initialization Methods
+    // Scene lifecycle methods
     void loadStartScreen();
     bool init() override;
     void update(float delta) override;
     void menuCloseCallback(ax::Object* sender);
 
-    // Render Methods
+    // Rendering and UI logic
     void renderListItems(int index, fairygui::GObject* obj);
-
-    // Dynamic GUI Methods
     void addIngredientToCart(Ingredient ingredient);
     void sortIngredientInCart();
 
-    // Debugging Methods
-    void print();
-
-    // Overload toString method
-    std::string toString(double c) const;
+    // Utility
+    void print();                          // Debugging print function
+    std::string toString(double c) const;  // Converts double to string
 
     Shop();
     ~Shop() override;
