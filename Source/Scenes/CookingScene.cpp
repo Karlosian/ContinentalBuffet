@@ -116,7 +116,7 @@ void CookingScene::loadStartScreen() {
     }
 
     // Add render here
-    ingredientList->itemRenderer = CC_CALLBACK_2(CookingScene::renderListItems, this, labels);
+    ingredientList->itemRenderer = CC_CALLBACK_2(CookingScene::renderListItems, this);
     ingredientList->setNumItems(ingredients.size());
 
     fairygui::GObject* processTextObject = cookingSceneComponent->getChild("n8");
@@ -222,12 +222,12 @@ void CookingScene::loadEndPopUp() {
 
         currentMeal->substractUsedIngredients();
         currentMeal = new Meal();  // Reset the current meal for a new cooking session
-        for (int i = 0; i < actionList.size(); i++) {
-            actionList.pop_back();  // Clear the action list
-        }
+        actionIndex = 0;           // Reset action index
+        processText->setText("Your actions will appear here");
 
+        // Update Rendered Items
+        updateElementOnActionList();
         ingredientList->setNumItems(Player::getInventory().size());
-        actionIndex = 0;              // Reset action index
     });
 }
 
@@ -238,15 +238,17 @@ std::string CookingScene::toString(double c) const {
     return ss.str();
 }
 
-void CookingScene::renderListItems(int index, fairygui::GObject* obj, const std::vector<std::string>& labels) {
-    if (index >= 0 && index < labels.size()) {
+void CookingScene::renderListItems(int index, fairygui::GObject* obj) {
+    std::vector<Ingredient> inventory = Player::getInventory();
+    if (index >= 0 && index < inventory.size()) {
         fairygui::GComponent* itemComponent = obj->as<fairygui::GComponent>();
 
         if (itemComponent) {
             fairygui::GTextField* label = itemComponent->getChild("n1")->as<fairygui::GTextField>();
             if (label) {
-                label->setText(labels[index]);
+                label->setText(inventory[index].getName());
             }
+
             fairygui::GButton* button = itemComponent->getChild("n2")->as<fairygui::GButton>();
             if (button) {
                 button->addClickListener([index, this, button](fairygui::EventContext* context) {
@@ -284,9 +286,6 @@ void CookingScene::renderListItems(int index, fairygui::GObject* obj, const std:
                 ingredientAmountText->setText(std::to_string(amount));
             }
         }
-
-        std::vector<Ingredient> ingredients = Player::getInventory();
-        std::cout << "Bum : " << labels[index] << " : " << ingredients[index].getQuantity() << std::endl;
     }
 }
 

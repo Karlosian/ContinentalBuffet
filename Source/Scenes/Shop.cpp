@@ -148,8 +148,11 @@ void Shop::loadStartScreen()
                 balanceLabel->setText(toString(Player::getMoney()) + "$");
                 totalCost = 0;
                 costLabel->setText(toString(totalCost) + "$");
-                for (auto& item : cart)
+                for (auto& item : cart) {
                     Player::addIngredient(item);
+                }
+                Player::sortInventory();
+
                 cart.clear();
                 ingredientsList->setNumItems(0);
             }

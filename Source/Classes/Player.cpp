@@ -40,8 +40,7 @@ void Player::setIngredientsChosen(int index, bool isChosen) {
 }
 
 bool Player::setMoney(double i) {
-    if (Player::money >= i)
-    {
+    if (Player::money >= i) {
         Player::money -= i;
         return true;
     }
@@ -54,9 +53,11 @@ bool Player::setMoney(double i) {
 // Add ingredients to the player inventory during shopping
 void Player::addIngredient(Ingredient ingredient) {
     // Finds if the user already has that ingredient in their inventory (in which case it just adds to the quantity)
-    for (Ingredient ing : inventory) {
+    std::cout << std::endl << "ASDADASD " << ingredient.getName();
+
+    for (Ingredient& ing : inventory) {
         if (ing.getName() == ingredient.getName()) {
-            ing.setQuantity(ing.getQuantity() + ingredient.getQuantity());
+            ing.changeQuantityBy(ingredient.getQuantity());
             return;
         }
     }
