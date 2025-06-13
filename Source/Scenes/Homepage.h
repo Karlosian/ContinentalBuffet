@@ -28,13 +28,15 @@ private:
     fairygui::GRoot* root;
 
 public:
+    // Loader methods
     void loadStartScreen();
 
+    // Overriten update methods from ax::Scene
     bool init() override;
     void update(float delta) override;
-
     void menuCloseCallback(ax::Object* sender);
 
+    // Constructors and destructors
     Homepage();
     ~Homepage() override;
 };

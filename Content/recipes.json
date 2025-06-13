@@ -2,6 +2,7 @@
     {
         "name": "Pizza Margherita",
         "description": "A classic Neapolitan pizza, simple yet flavorful.",
+        "cost": 12.50,
         "ingredients": [
             {
                 "name": "Flour",
@@ -37,29 +38,45 @@
         "steps": [
             {
                 "process": "Mix",
-                "ingredients": [ "Flour", "water", "Salt" ]
+                "ingredients": [
+                    "Flour",
+                    "water",
+                    "Salt"
+                ]
             },
             {
                 "process": "Chop",
-                "ingredients": [ "Tomatoes (fresh)" ]
+                "ingredients": [
+                    "Tomatoes (fresh)"
+                ]
             },
             {
                 "process": "Grate",
-                "ingredients": [ "Cheese (mozzarella)" ]
+                "ingredients": [
+                    "Cheese (mozzarella)"
+                ]
             },
             {
                 "process": "Layer",
-                "ingredients": [ "dough", "chopped Tomatoes (fresh)", "Cheese (mozzarella)", "Basil" ]
+                "ingredients": [
+                    "dough",
+                    "chopped Tomatoes (fresh)",
+                    "Cheese (mozzarella)",
+                    "Basil"
+                ]
             },
             {
                 "process": "Bake",
-                "ingredients": [ "Pizza Margherita" ]
+                "ingredients": [
+                    "Pizza Margherita"
+                ]
             }
         ]
     },
     {
         "name": "Spaghetti Carbonara",
         "description": "A rich and creamy Roman pasta dish.",
+        "cost": 14.75,
         "ingredients": [
             {
                 "name": "Pasta (spaghetti)",
@@ -90,29 +107,45 @@
         "steps": [
             {
                 "process": "Boil",
-                "ingredients": [ "Pasta (spaghetti)" ]
+                "ingredients": [
+                    "Pasta (spaghetti)"
+                ]
             },
             {
                 "process": "Chop",
-                "ingredients": [ "Bacon" ]
+                "ingredients": [
+                    "Bacon"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Bacon" ]
+                "ingredients": [
+                    "Bacon"
+                ]
             },
             {
                 "process": "Whisk",
-                "ingredients": [ "Eggs", "Cheese (Pecorino)", "Pepper" ]
+                "ingredients": [
+                    "Eggs",
+                    "Cheese (Pecorino)",
+                    "Pepper"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "Pasta (spaghetti)", "Bacon or pancetta", "egg mixture", "pasta water" ]
+                "ingredients": [
+                    "Pasta (spaghetti)",
+                    "Bacon or pancetta",
+                    "egg mixture",
+                    "pasta water"
+                ]
             }
         ]
     },
     {
         "name": "Ratatouille",
         "description": "A vibrant and flavorful French vegetable stew.",
+        "cost": 11.25,
         "ingredients": [
             {
                 "name": "Tomatoes (fresh)",
@@ -173,29 +206,53 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Onion", "Garlic", "Bell peppers", "Zucchini", "Eggplant", "Tomatoes (fresh)" ]
+                "ingredients": [
+                    "Onion",
+                    "Garlic",
+                    "Bell peppers",
+                    "Zucchini",
+                    "Eggplant",
+                    "Tomatoes (fresh)"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Onion", "Garlic", "Olive oil" ]
+                "ingredients": [
+                    "Onion",
+                    "Garlic",
+                    "Olive oil"
+                ]
             },
             {
                 "process": "Stir-fry",
-                "ingredients": [ "Bell peppers", "Zucchini", "Eggplant" ]
+                "ingredients": [
+                    "Bell peppers",
+                    "Zucchini",
+                    "Eggplant"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "chopped Tomatoes (fresh)", "Basil", "Thyme", "Salt", "Pepper" ]
+                "ingredients": [
+                    "chopped Tomatoes (fresh)",
+                    "Basil",
+                    "Thyme",
+                    "Salt",
+                    "Pepper"
+                ]
             },
             {
                 "process": "Simmer",
-                "ingredients": [ "Ratatouille" ]
+                "ingredients": [
+                    "Ratatouille"
+                ]
             }
         ]
     },
     {
         "name": "Frittata",
         "description": "An Italian egg-based dish, similar to an omelette or quiche.",
+        "cost": 9.50,
         "ingredients": [
             {
                 "name": "Eggs",
@@ -241,29 +298,48 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Onion", "Spinach" ]
+                "ingredients": [
+                    "Onion",
+                    "Spinach"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Onion", "Spinach", "Olive oil" ]
+                "ingredients": [
+                    "Onion",
+                    "Spinach",
+                    "Olive oil"
+                ]
             },
             {
                 "process": "Whisk",
-                "ingredients": [ "Eggs", "Milk", "Cheese (cheddar)", "Salt", "Pepper" ]
+                "ingredients": [
+                    "Eggs",
+                    "Milk",
+                    "Cheese (cheddar)",
+                    "Salt",
+                    "Pepper"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "fried vegetables", "egg mixture" ]
+                "ingredients": [
+                    "fried vegetables",
+                    "egg mixture"
+                ]
             },
             {
                 "process": "Bake",
-                "ingredients": [ "Frittata" ]
+                "ingredients": [
+                    "Frittata"
+                ]
             }
         ]
     },
     {
         "name": "Zucchini Slice",
         "description": "A savory baked slice, great for lunch or snacks.",
+        "cost": 10.75,
         "ingredients": [
             {
                 "name": "Zucchini",
@@ -309,33 +385,54 @@
         "steps": [
             {
                 "process": "Grate",
-                "ingredients": [ "Zucchini", "Cheese (cheddar)" ]
+                "ingredients": [
+                    "Zucchini",
+                    "Cheese (cheddar)"
+                ]
             },
             {
                 "process": "Chop",
-                "ingredients": [ "Onion" ]
+                "ingredients": [
+                    "Onion"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Onion", "Olive oil" ]
+                "ingredients": [
+                    "Onion",
+                    "Olive oil"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "grated Zucchini", "Onion", "Flour", "Eggs", "grated Cheese (cheddar)", "Salt", "Pepper" ]
+                "ingredients": [
+                    "grated Zucchini",
+                    "Onion",
+                    "Flour",
+                    "Eggs",
+                    "grated Cheese (cheddar)",
+                    "Salt",
+                    "Pepper"
+                ]
             },
             {
                 "process": "Layer",
-                "ingredients": [ "Zucchini Slice mixture" ]
+                "ingredients": [
+                    "Zucchini Slice mixture"
+                ]
             },
             {
                 "process": "Bake",
-                "ingredients": [ "Zucchini Slice" ]
+                "ingredients": [
+                    "Zucchini Slice"
+                ]
             }
         ]
     },
     {
         "name": "Pommes Anna",
         "description": "A classic French dish of sliced, layered potatoes baked in butter.",
+        "cost": 7.00,
         "ingredients": [
             {
                 "name": "Potatoes",
@@ -361,25 +458,37 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Potatoes" ]
+                "ingredients": [
+                    "Potatoes"
+                ]
             },
             {
                 "process": "Melt",
-                "ingredients": [ "Butter" ]
+                "ingredients": [
+                    "Butter"
+                ]
             },
             {
                 "process": "Layer",
-                "ingredients": [ "potato slices", "melted Butter", "Salt", "Pepper" ]
+                "ingredients": [
+                    "potato slices",
+                    "melted Butter",
+                    "Salt",
+                    "Pepper"
+                ]
             },
             {
                 "process": "Bake",
-                "ingredients": [ "Pommes Anna" ]
+                "ingredients": [
+                    "Pommes Anna"
+                ]
             }
         ]
     },
     {
         "name": "Rosti",
         "description": "A Swiss potato dish, similar to a hash brown.",
+        "cost": 6.50,
         "ingredients": [
             {
                 "name": "Potatoes",
@@ -405,21 +514,31 @@
         "steps": [
             {
                 "process": "Grate",
-                "ingredients": [ "Potatoes" ]
+                "ingredients": [
+                    "Potatoes"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "grated Potatoes", "Salt", "Pepper" ]
+                "ingredients": [
+                    "grated Potatoes",
+                    "Salt",
+                    "Pepper"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Rosti mixture", "Butter" ]
+                "ingredients": [
+                    "Rosti mixture",
+                    "Butter"
+                ]
             }
         ]
     },
     {
         "name": "Goulash",
         "description": "A hearty Hungarian stew, typically made with meat and vegetables.",
+        "cost": 19.00,
         "ingredients": [
             {
                 "name": "Ground beef",
@@ -475,33 +594,49 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Onion", "Garlic", "Potatoes", "Bell peppers" ]
+                "ingredients": [
+                    "Onion",
+                    "Garlic",
+                    "Potatoes",
+                    "Bell peppers"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Ground beef", "Vegetable oil" ]
+                "ingredients": [
+                    "Ground beef",
+                    "Vegetable oil"
+                ]
             },
             {
                 "process": "Stir-fry",
-                "ingredients": [ "Onion", "Garlic", "Bell peppers" ]
+                "ingredients": [
+                    "Onion",
+                    "Garlic",
+                    "Bell peppers"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "canned Tomatoes (canned)", "Paprika", "Salt", "Pepper" ]
-            },
-            {
-                "process": "Add",
-                "ingredients": [ "Potatoes", "water" ]
+                "ingredients": [
+                    "canned Tomatoes (canned)",
+                    "Paprika",
+                    "Salt",
+                    "Pepper"
+                ]
             },
             {
                 "process": "Simmer",
-                "ingredients": [ "Goulash" ]
+                "ingredients": [
+                    "Potatoes"
+                ]
             }
         ]
     },
     {
         "name": "Butter Chicken",
         "description": "A rich and creamy Indian curry.",
+        "cost": 24.50,
         "ingredients": [
             {
                 "name": "Chicken",
@@ -547,33 +682,52 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Chicken", "Onion", "Garlic" ]
+                "ingredients": [
+                    "Chicken",
+                    "Onion",
+                    "Garlic"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Chicken", "Butter" ]
+                "ingredients": [
+                    "Chicken",
+                    "Butter"
+                ]
             },
             {
                 "process": "Stir-fry",
-                "ingredients": [ "Onion", "Garlic" ]
+                "ingredients": [
+                    "Onion",
+                    "Garlic"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "canned Tomatoes (canned)", "Chili powder", "Salt" ]
+                "ingredients": [
+                    "canned Tomatoes (canned)",
+                    "Chili powder",
+                    "Salt"
+                ]
             },
             {
                 "process": "Simmer",
-                "ingredients": [ "Butter Chicken" ]
+                "ingredients": [
+                    "Butter Chicken"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "Cream" ]
+                "ingredients": [
+                    "Cream"
+                ]
             }
         ]
     },
     {
         "name": "Mapo Tofu",
         "description": "A popular spicy Chinese dish from Sichuan province.",
+        "cost": 16.00,
         "ingredients": [
             {
                 "name": "Tofu",
@@ -614,37 +768,62 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Garlic" ]
+                "ingredients": [
+                    "Garlic"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Ground beef", "Vegetable oil" ]
+                "ingredients": [
+                    "Ground beef",
+                    "Vegetable oil"
+                ]
             },
             {
-                "process": "Add",
-                "ingredients": [ "Garlic" ]
+                "process": "Fry",
+                "ingredients": [
+                    "Garlic"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "Soy sauce", "Miso paste", "Chili powder" ]
+                "ingredients": [
+                    "Soy sauce",
+                    "Miso paste",
+                    "Chili powder"
+                ]
             },
             {
                 "process": "Chop",
-                "ingredients": [ "Tofu" ]
+                "ingredients": [
+                    "Tofu"
+                ]
             },
             {
                 "process": "Add",
-                "ingredients": [ "Tofu", "water" ]
+                "ingredients": [
+                    "Tofu",
+                    "water"
+                ]
             },
             {
                 "process": "Simmer",
-                "ingredients": [ "Mapo Tofu" ]
+                "ingredients": [
+                    "Tofu",
+                    "Ground beef",
+                    "Garlic",
+                    "Soy sauce",
+                    "Miso paste",
+                    "Chili powder",
+                    "Vegetable oil"
+                ]
             }
         ]
     },
     {
         "name": "Chicken Chop Suey",
         "description": "A stir-fried dish with chicken and mixed vegetables.",
+        "cost": 15.50,
         "ingredients": [
             {
                 "name": "Chicken",
@@ -685,25 +864,42 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Chicken", "Bell peppers", "Onion", "Carrot", "Cabbage" ]
+                "ingredients": [
+                    "Chicken",
+                    "Bell peppers",
+                    "Onion",
+                    "Carrot",
+                    "Cabbage"
+                ]
             },
             {
                 "process": "Stir-fry",
-                "ingredients": [ "Chicken", "Vegetable oil" ]
+                "ingredients": [
+                    "Chicken",
+                    "Vegetable oil"
+                ]
             },
             {
-                "process": "Add",
-                "ingredients": [ "chopped Bell peppers", "Onion", "Carrot", "Cabbage" ]
+                "process": "Stir-fry",
+                "ingredients": [
+                    "Bell peppers",
+                    "Onion",
+                    "Carrot",
+                    "Cabbage"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "Soy sauce" ]
+                "ingredients": [
+                    "Soy sauce"
+                ]
             }
         ]
     },
     {
         "name": "Shrimp Scampi",
         "description": "Shrimp cooked in garlic butter sauce, often served with pasta.",
+        "cost": 27.00,
         "ingredients": [
             {
                 "name": "Shrimp",
@@ -744,25 +940,39 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Garlic", "Parsley" ]
+                "ingredients": [
+                    "Garlic",
+                    "Parsley"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Garlic", "Butter", "Olive oil" ]
+                "ingredients": [
+                    "Garlic",
+                    "Butter",
+                    "Olive oil"
+                ]
             },
             {
                 "process": "Add",
-                "ingredients": [ "Shrimp" ]
+                "ingredients": [
+                    "Shrimp"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "chopped Parsley", "Salt", "Pepper" ]
+                "ingredients": [
+                    "Parsley",
+                    "Salt",
+                    "Pepper"
+                ]
             }
         ]
     },
     {
         "name": "Eggplant Parmigiana",
         "description": "Layers of fried eggplant, tomato sauce, and cheese, baked until bubbly.",
+        "cost": 16.25,
         "ingredients": [
             {
                 "name": "Eggplant",
@@ -808,37 +1018,67 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Eggplant" ]
+                "ingredients": [
+                    "Eggplant"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Eggplant", "Olive oil" ]
+                "ingredients": [
+                    "Eggplant",
+                    "Olive oil"
+                ]
             },
             {
                 "process": "Chop",
-                "ingredients": [ "Tomatoes (canned)" ]
+                "ingredients": [
+                    "Tomatoes (canned)"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "chopped Tomatoes (canned)", "Basil", "Salt", "Pepper" ]
+                "ingredients": [
+                    "Tomatoes (canned)",
+                    "Basil",
+                    "Salt",
+                    "Pepper"
+                ]
             },
             {
                 "process": "Grate",
-                "ingredients": [ "Cheese (mozzarella)", "Cheese (parmesan)" ]
+                "ingredients": [
+                    "Cheese (mozzarella)",
+                    "Cheese (parmesan)"
+                ]
             },
             {
                 "process": "Layer",
-                "ingredients": [ "fried Eggplant", "tomato sauce", "Cheese (mozzarella)", "Cheese (parmesan)" ]
+                "ingredients": [
+                    "Eggplant",
+                    "Tomatoes (canned)",
+                    "Cheese (mozzarella)",
+                    "Cheese (parmesan)"
+                ]
             },
             {
                 "process": "Bake",
-                "ingredients": [ "Eggplant Parmigiana" ]
+                "ingredients": [
+                    "Eggplant",
+                    "Tomatoes (canned)",
+                    "Cheese (mozzarella)",
+                    "Cheese (parmesan)",
+                    "Olive oil",
+                    "Basil",
+                    "Salt",
+                    "Pepper"
+                ]
             }
         ]
     },
     {
         "name": "Fried Rice",
         "description": "A quick and versatile dish made with upover rice.",
+        "cost": 8.50,
         "ingredients": [
             {
                 "name": "Rice",
@@ -874,41 +1114,56 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Carrot", "Onion" ]
+                "ingredients": [
+                    "Carrot",
+                    "Onion"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Eggs" ]
+                "ingredients": [
+                    "Eggs"
+                ]
             },
             {
                 "process": "Chop",
-                "ingredients": [ "fried Eggs" ]
+                "ingredients": [
+                    "Eggs"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Onion", "Carrot", "Vegetable oil" ]
-            },
-            {
-                "process": "Add",
-                "ingredients": [ "cooked Rice" ]
+                "ingredients": [
+                    "Onion",
+                    "Carrot",
+                    "Vegetable oil"
+                ]
             },
             {
                 "process": "Stir-fry",
-                "ingredients": [ "Rice" ]
+                "ingredients": [
+                    "Rice"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "chopped Eggs", "Soy sauce" ]
+                "ingredients": [
+                    "Eggs",
+                    "Soy sauce"
+                ]
             },
             {
                 "process": "Stir-fry",
-                "ingredients": [ "Fried Rice" ]
+                "ingredients": [
+                    "Fried Rice"
+                ]
             }
         ]
     },
     {
         "name": "Miso Soup",
         "description": "A traditional Japanese soup with a savory broth.",
+        "cost": 6.75,
         "ingredients": [
             {
                 "name": "Miso paste",
@@ -928,26 +1183,30 @@
         ],
         "steps": [
             {
-                "process": "Boil",
-                "ingredients": [ "water" ]
-            },
-            {
                 "process": "Chop",
-                "ingredients": [ "Tofu" ]
+                "ingredients": [
+                    "Tofu"
+                ]
             },
             {
                 "process": "Simmer",
-                "ingredients": [ "Tofu", "Spinach" ]
+                "ingredients": [
+                    "Tofu",
+                    "Spinach"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "Miso paste", "hot water" ]
+                "ingredients": [
+                    "Miso paste"
+                ]
             }
         ]
     },
     {
         "name": "Tomato Basil Soup",
         "description": "A comforting and aromatic soup.",
+        "cost": 7.25,
         "ingredients": [
             {
                 "name": "Tomatoes (canned)",
@@ -988,25 +1247,40 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Onion", "Garlic" ]
+                "ingredients": [
+                    "Onion",
+                    "Garlic"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Onion", "Garlic", "Olive oil" ]
+                "ingredients": [
+                    "Onion",
+                    "Garlic",
+                    "Olive oil"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "canned Tomatoes (canned)", "Basil", "Salt", "Pepper" ]
+                "ingredients": [
+                    "Tomatoes (canned)",
+                    "Basil",
+                    "Salt",
+                    "Pepper"
+                ]
             },
             {
                 "process": "Simmer",
-                "ingredients": [ "Tomato Basil Soup" ]
+                "ingredients": [
+                    "Tomato Basil Soup"
+                ]
             }
         ]
     },
     {
         "name": "Grilled Cheese Sandwich",
         "description": "A classic comfort food, crispy and cheesy.",
+        "cost": 4.75,
         "ingredients": [
             {
                 "name": "Bread",
@@ -1027,25 +1301,35 @@
         "steps": [
             {
                 "process": "Grate",
-                "ingredients": [ "Cheese (cheddar)" ]
+                "ingredients": [
+                    "Cheese (cheddar)"
+                ]
             },
             {
                 "process": "Layer",
-                "ingredients": [ "Cheese (cheddar)", "Bread" ]
+                "ingredients": [
+                    "Cheese (cheddar)",
+                    "Bread"
+                ]
             },
             {
                 "process": "Butter",
-                "ingredients": [ "Bread" ]
+                "ingredients": [
+                    "Bread"
+                ]
             },
             {
                 "process": "Grill",
-                "ingredients": [ "Grilled Cheese Sandwich" ]
+                "ingredients": [
+                    "Grilled Cheese Sandwich"
+                ]
             }
         ]
     },
     {
         "name": "Pasta Aglio e Olio",
         "description": "A simple and flavorful Italian pasta dish with garlic and oil.",
+        "cost": 8.00,
         "ingredients": [
             {
                 "name": "Pasta (spaghetti)",
@@ -1081,25 +1365,41 @@
         "steps": [
             {
                 "process": "Boil",
-                "ingredients": [ "Pasta (spaghetti)" ]
+                "ingredients": [
+                    "Pasta (spaghetti)"
+                ]
             },
             {
                 "process": "Chop",
-                "ingredients": [ "Garlic", "Parsley" ]
+                "ingredients": [
+                    "Garlic",
+                    "Parsley"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Garlic", "Olive oil" ]
+                "ingredients": [
+                    "Garlic",
+                    "Olive oil"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "cooked Pasta (spaghetti)", "garlic oil", "chopped Parsley", "Salt", "Pepper" ]
+                "ingredients": [
+                    "Pasta (spaghetti)",
+                    "Garlic",
+                    "Olive oil",
+                    "Parsley",
+                    "Salt",
+                    "Pepper"
+                ]
             }
         ]
     },
     {
         "name": "Omelette",
         "description": "A quick and versatile egg dish.",
+        "cost": 5.50,
         "ingredients": [
             {
                 "name": "Eggs",
@@ -1125,21 +1425,30 @@
         "steps": [
             {
                 "process": "Whisk",
-                "ingredients": [ "Eggs", "Salt", "Pepper" ]
+                "ingredients": [
+                    "Eggs",
+                    "Salt",
+                    "Pepper"
+                ]
             },
             {
                 "process": "Melt",
-                "ingredients": [ "Butter" ]
+                "ingredients": [
+                    "Butter"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Omelette" ]
+                "ingredients": [
+                    "Omelette"
+                ]
             }
         ]
     },
     {
         "name": "Pancakes",
         "description": "Fluffy breakfast staples, great with syrup.",
+        "cost": 6.00,
         "ingredients": [
             {
                 "name": "Flour",
@@ -1170,17 +1479,25 @@
         "steps": [
             {
                 "process": "Mix",
-                "ingredients": [ "Flour", "Milk", "Eggs", "Sugar" ]
+                "ingredients": [
+                    "Flour",
+                    "Milk",
+                    "Eggs",
+                    "Sugar"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Pancakes" ]
+                "ingredients": [
+                    "Pancakes"
+                ]
             }
         ]
     },
     {
         "name": "French Toast",
         "description": "Bread soaked in egg and milk, then fried.",
+        "cost": 6.25,
         "ingredients": [
             {
                 "name": "Bread",
@@ -1211,21 +1528,31 @@
         "steps": [
             {
                 "process": "Whisk",
-                "ingredients": [ "Eggs", "Milk", "Sugar" ]
+                "ingredients": [
+                    "Eggs",
+                    "Milk",
+                    "Sugar"
+                ]
             },
             {
                 "process": "Dip",
-                "ingredients": [ "Bread" ]
+                "ingredients": [
+                    "Bread"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "French Toast", "Butter" ]
+                "ingredients": [
+                    "French Toast",
+                    "Butter"
+                ]
             }
         ]
     },
     {
         "name": "Macaroni and Cheese",
         "description": "A creamy, cheesy pasta dish.",
+        "cost": 10.50,
         "ingredients": [
             {
                 "name": "Pasta (macaroni)",
@@ -1266,37 +1593,55 @@
         "steps": [
             {
                 "process": "Boil",
-                "ingredients": [ "Pasta (macaroni)" ]
+                "ingredients": [
+                    "Pasta (macaroni)"
+                ]
             },
             {
                 "process": "Melt",
-                "ingredients": [ "Butter" ]
+                "ingredients": [
+                    "Butter"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "Flour", "melted Butter" ]
+                "ingredients": [
+                    "Flour",
+                    "melted Butter"
+                ]
             },
             {
                 "process": "Whisk",
-                "ingredients": [ "Milk" ]
+                "ingredients": [
+                    "Milk"
+                ]
             },
             {
                 "process": "Grate",
-                "ingredients": [ "Cheese (cheddar)" ]
+                "ingredients": [
+                    "Cheese (cheddar)"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "grated Cheese (cheddar)", "sauce" ]
+                "ingredients": [
+                    "Cheese (cheddar)"
+                ]
             },
             {
                 "process": "Combine",
-                "ingredients": [ "cooked Pasta (macaroni)", "cheese sauce", "Salt", "Pepper" ]
+                "ingredients": [
+                    "Pasta (macaroni)",
+                    "Salt",
+                    "Pepper"
+                ]
             }
         ]
     },
     {
         "name": "Baked Potatoes",
         "description": "Simple and satisfying oven-baked potatoes.",
+        "cost": 4.50,
         "ingredients": [
             {
                 "name": "Potatoes",
@@ -1322,21 +1667,31 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Potatoes" ]
+                "ingredients": [
+                    "Potatoes"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "Potatoes", "Olive oil", "Salt", "Pepper" ]
+                "ingredients": [
+                    "Potatoes",
+                    "Olive oil",
+                    "Salt",
+                    "Pepper"
+                ]
             },
             {
                 "process": "Bake",
-                "ingredients": [ "Baked Potatoes" ]
+                "ingredients": [
+                    "Baked Potatoes"
+                ]
             }
         ]
     },
     {
         "name": "Coleslaw",
         "description": "A fresh and crunchy cabbage salad.",
+        "cost": 5.25,
         "ingredients": [
             {
                 "name": "Cabbage",
@@ -1377,21 +1732,35 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Cabbage", "Carrot" ]
+                "ingredients": [
+                    "Cabbage",
+                    "Carrot"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "Mayonnaise", "Vinegar (white)", "Sugar", "Salt", "Pepper" ]
+                "ingredients": [
+                    "Mayonnaise",
+                    "Vinegar (white)",
+                    "Sugar",
+                    "Salt",
+                    "Pepper"
+                ]
             },
             {
                 "process": "Combine",
-                "ingredients": [ "chopped Cabbage", "Carrot", "dressing" ]
+                "ingredients": [
+                    "Cabbage",
+                    "Carrot",
+                    "dressing"
+                ]
             }
         ]
     },
     {
         "name": "Cucumber Salad",
         "description": "A light and refreshing salad.",
+        "cost": 4.95,
         "ingredients": [
             {
                 "name": "Cucumber",
@@ -1422,21 +1791,33 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Cucumber", "Dill" ]
+                "ingredients": [
+                    "Cucumber",
+                    "Dill"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "Yogurt", "Vinegar (white)", "Salt", "chopped Dill" ]
+                "ingredients": [
+                    "Yogurt",
+                    "Vinegar (white)",
+                    "Salt",
+                    "chopped Dill"
+                ]
             },
             {
                 "process": "Combine",
-                "ingredients": [ "chopped Cucumber", "dressing" ]
+                "ingredients": [
+                    "chopped Cucumber",
+                    "dressing"
+                ]
             }
         ]
     },
     {
         "name": "Lentil Soup",
         "description": "A hearty and nutritious vegetarian soup.",
+        "cost": 8.75,
         "ingredients": [
             {
                 "name": "Lentils",
@@ -1487,29 +1868,49 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Onion", "Carrot", "Garlic" ]
+                "ingredients": [
+                    "Onion",
+                    "Carrot",
+                    "Garlic"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Onion", "Carrot", "Garlic", "Olive oil" ]
+                "ingredients": [
+                    "Onion",
+                    "Carrot",
+                    "Garlic",
+                    "Olive oil"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "Lentils", "canned Tomatoes (canned)", "Salt", "Pepper", "Thyme" ]
+                "ingredients": [
+                    "Lentils",
+                    "canned Tomatoes (canned)",
+                    "Salt",
+                    "Pepper",
+                    "Thyme"
+                ]
             },
             {
                 "process": "Add",
-                "ingredients": [ "water" ]
+                "ingredients": [
+                    "water"
+                ]
             },
             {
                 "process": "Simmer",
-                "ingredients": [ "Lentil Soup" ]
+                "ingredients": [
+                    "Lentil Soup"
+                ]
             }
         ]
     },
     {
         "name": "Chili con Carne",
         "description": "A spicy stew containing chili powder, meat, and beans.",
+        "cost": 17.50,
         "ingredients": [
             {
                 "name": "Ground beef",
@@ -1565,29 +1966,48 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Onion", "Garlic" ]
+                "ingredients": [
+                    "Onion",
+                    "Garlic"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Ground beef", "Vegetable oil" ]
+                "ingredients": [
+                    "Ground beef",
+                    "Vegetable oil"
+                ]
             },
             {
                 "process": "Add",
-                "ingredients": [ "Onion", "Garlic" ]
+                "ingredients": [
+                    "Onion",
+                    "Garlic"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "canned Tomatoes (canned)", "Beans", "Chili powder", "Cumin", "Salt", "Pepper" ]
+                "ingredients": [
+                    "canned Tomatoes (canned)",
+                    "Beans",
+                    "Chili powder",
+                    "Cumin",
+                    "Salt",
+                    "Pepper"
+                ]
             },
             {
                 "process": "Simmer",
-                "ingredients": [ "Chili con Carne" ]
+                "ingredients": [
+                    "Chili con Carne"
+                ]
             }
         ]
     },
     {
         "name": "Stuffed Bell Peppers",
         "description": "Bell peppers filled with a savory mixture and baked.",
+        "cost": 16.75,
         "ingredients": [
             {
                 "name": "Bell peppers",
@@ -1628,29 +2048,46 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Onion" ]
+                "ingredients": [
+                    "Onion"
+                ]
             },
             {
                 "process": "Boil",
-                "ingredients": [ "Rice" ]
+                "ingredients": [
+                    "Rice"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "Ground beef", "chopped Onion", "Rice", "Tomatoes (paste)", "Salt", "Pepper" ]
+                "ingredients": [
+                    "Ground beef",
+                    "chopped Onion",
+                    "Rice",
+                    "Tomatoes (paste)",
+                    "Salt",
+                    "Pepper"
+                ]
             },
             {
                 "process": "Stuff",
-                "ingredients": [ "Bell peppers", "mixture" ]
+                "ingredients": [
+                    "Bell peppers",
+                    "mixture"
+                ]
             },
             {
                 "process": "Bake",
-                "ingredients": [ "Stuffed Bell Peppers" ]
+                "ingredients": [
+                    "Stuffed Bell Peppers"
+                ]
             }
         ]
     },
     {
         "name": "Cabbage Stir-Fry",
         "description": "A simple and quick stir-fried cabbage dish.",
+        "cost": 7.50,
         "ingredients": [
             {
                 "name": "Cabbage",
@@ -1681,23 +2118,36 @@
         "steps": [
             {
                 "process": "Chop",
-                "ingredients": [ "Cabbage", "Carrot", "Garlic" ]
+                "ingredients": [
+                    "Cabbage",
+                    "Carrot",
+                    "Garlic"
+                ]
             },
             {
                 "process": "Fry",
-                "ingredients": [ "Vegetable oil" ]
+                "ingredients": [
+                    "Vegetable oil"
+                ]
             },
             {
                 "process": "Add",
-                "ingredients": [ "Garlic" ]
+                "ingredients": [
+                    "Garlic"
+                ]
             },
             {
                 "process": "Stir-fry",
-                "ingredients": [ "Cabbage", "Carrot" ]
+                "ingredients": [
+                    "Cabbage",
+                    "Carrot"
+                ]
             },
             {
                 "process": "Mix",
-                "ingredients": [ "Soy sauce" ]
+                "ingredients": [
+                    "Soy sauce"
+                ]
             }
         ]
     }

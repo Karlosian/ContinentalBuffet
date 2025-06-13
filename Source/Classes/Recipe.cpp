@@ -17,9 +17,10 @@ std::vector<Recipe> Recipe::recipes;  // Definition for static member
 Recipe::Recipe() {}
 
 // Constructor to initialize a Recipe object with name, description, ingredients, and steps
-Recipe::Recipe(std::string n, std::string d, std::vector<Ingredient> i, std::vector<CookingProcess> s) {
+Recipe::Recipe(std::string n, std::string d, double c, std::vector<Ingredient> i, std::vector<CookingProcess> s) {
     name              = n;
     description       = d;
+    cost              = c;
     recipeIngredients = i;
     steps             = s;
 }
@@ -35,6 +36,10 @@ std::vector<Ingredient> Recipe::getRecipeIngredients() {
 
 std::vector<CookingProcess> Recipe::getRecipeSteps() {
     return steps;
+}
+
+double Recipe::getCost() {
+    return cost;
 }
 
 // Function to extract all the recipes from the JSON file and store them in the static vector
@@ -82,8 +87,8 @@ void Recipe::getRecipeList() {
                 steps.push_back(CookingProcess(step["process"], ingredients_for_step));
             }
 
-            recipes.push_back(Recipe(recipe["name"], recipe["description"], recipeIngredients, steps));
-            std::cout << "Recipe Name: " << recipe["name"] << std::endl;
+            recipes.push_back(Recipe(recipe["name"], recipe["description"], recipe["cost"], recipeIngredients, steps));
+            std::cout << "Recipe Name: " << recipe["name"] << ", costs : " << recipe["cost"] << std::endl;
         }
     } catch (const nlohmann::json::parse_error& e) {
         std::cerr << "JSON parse error: " << e.what() << std::endl;
@@ -92,6 +97,7 @@ void Recipe::getRecipeList() {
     }
 }
 
+// Overloaded assignment operator
 Recipe* Recipe::operator=(const Recipe& other) {
     if (this != &other) {
         name              = other.name;

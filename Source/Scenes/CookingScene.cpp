@@ -24,6 +24,7 @@ using namespace ax;
 static int s_sceneID = 2000;
 //sfx from https://jdwasabi.itch.io/8-bit-16-bit-sound-effects-pack
 
+// This method loads in all the components in the Cooking Scene
 void CookingScene::loadStartScreen() {
     // Load the cooking scene UI package and add it to the scene
     fairygui::UIPackage::addPackage("UI/CookingPackage");
@@ -37,20 +38,19 @@ void CookingScene::loadStartScreen() {
         return;
     }
 
+    // Set to the process list to bake by default
+    actionIndex = 0;
+
     // Find the process GList
     fairygui::GObject* processListObject = processListComponent->as<fairygui::GComponent>()->getChild("n13");
     if (processListObject == nullptr || processListObject->as<fairygui::GList>() == nullptr) {
         std::cerr << "Error: processListObject is null." << std::endl;
         return;
     }
-
     processList = processListObject->as<fairygui::GList>();
     processList->getScrollPane()->setScrollStep(667); // Set 1 scroll to go 415 pixels
 
-    // Set to bake by default
-    actionIndex = 0;
-
-    // Add the left button
+    // Add the left button on the process list
     fairygui::GObject* leftArrowObject = cookingSceneComponent->getChild("n4");
     if (leftArrowObject != nullptr && leftArrowObject->as<fairygui::GButton>() != nullptr) {
         leftArrow = leftArrowObject->as<fairygui::GButton>();
@@ -70,7 +70,7 @@ void CookingScene::loadStartScreen() {
         leftArrow->setVisible(false);  // Hide the up arrow initially
     }
 
-    //Add the right button
+    //Add the right button on the process list
     fairygui::GObject* rightArrowObject = cookingSceneComponent->getChild("n5");
     if (rightArrowObject != nullptr && rightArrowObject->as<fairygui::GButton>() != nullptr) {
         rightArrow = rightArrowObject->as<fairygui::GButton>();
@@ -87,7 +87,7 @@ void CookingScene::loadStartScreen() {
         });
     }
 
-    // Add the action button
+    // Add the action button (the one that takes the chosen ingredients and bundles it with an action such as "bake")
     fairygui::GObject* actionButtonObject = cookingSceneComponent->getChild("n11");
     if (actionButtonObject != nullptr && actionButtonObject->as<fairygui::GButton>() != nullptr) {
         fairygui::GButton* actionButton = actionButtonObject->as<fairygui::GButton>();
@@ -101,24 +101,19 @@ void CookingScene::loadStartScreen() {
         });
     }
 
+    // Find the ingredient GList (the one in the pantry that contains all the ingredients in the player's inventory
     fairygui::GObject* ingredientListObject = cookingSceneComponent->getChild("n9");
     if (ingredientListObject == nullptr || ingredientListObject->as<fairygui::GList>() == nullptr) {
         std::cerr << "Error: ingredientListObject is null." << std::endl;
         return;
     }
 
-    ingredientList = ingredientListObject->as<fairygui::GList>();
-    std::vector<Ingredient> ingredients = Player::getInventory();
-
-    std::vector<std::string> labels;
-    for (Ingredient ingredient : ingredients) {
-        labels.push_back(ingredient.getName());
-    }
-
-    // Add render here
+    // Initialize ingredientList and set the itemRenderer (this is a feature that is unique to fairygui, which runs everytime ingredientList has it's number of items reset)
+    ingredientList               = ingredientListObject->as<fairygui::GList>();
     ingredientList->itemRenderer = CC_CALLBACK_2(CookingScene::renderListItems, this);
-    ingredientList->setNumItems(ingredients.size());
+    ingredientList->setNumItems(Player::getInventory().size());
 
+    // Find the textfield to display the actions taken by the player
     fairygui::GObject* processTextObject = cookingSceneComponent->getChild("n8");
     if (processTextObject == nullptr || processTextObject->as<fairygui::GTextField>() == nullptr) {
         std::cerr << "Error: processTextObject is null." << std::endl;
@@ -151,7 +146,7 @@ void CookingScene::loadStartScreen() {
         Director::getInstance()->replaceScene(utils::createInstance<Shop>());
     });
 
-    // Button to navigate to the bubble game
+    // Button to navigate to the bubble game (the one that lets you acquire new recipes [not yet implemented])
     fairygui::GObject* bubbleButtonObject = cookingSceneComponent->getChild("n17");
     if (bubbleButtonObject == nullptr || bubbleButtonObject->as<fairygui::GButton>() == nullptr) {
         std::cerr << "Error: bubbleButtonObject is null." << std::endl;
@@ -162,9 +157,7 @@ void CookingScene::loadStartScreen() {
         Director::getInstance()->replaceScene(utils::createInstance<BubbleGame>());
     });
 
-    currentMeal = new Meal();
-
-    // Load the end popup screen
+    // Preload the end popup screen
     fairygui::GObject* endPopUpObject = cookingSceneComponent->getChild("n20");
     if (endPopUpObject == nullptr || endPopUpObject->as<fairygui::GComponent>() == nullptr) {
         std::cerr << "Error: endPopUpObject is null." << std::endl;
@@ -174,15 +167,86 @@ void CookingScene::loadStartScreen() {
     endPopUpComponent->setVisible(false);  // Hide the end popup initially
     endPopUpComponent->setTouchable(false);
 
+    // Create an empty Meal instance to keep track of the player's actions
+    currentMeal = new Meal();
+
+    // Add the fairygui component to root to be displayed
     root->addChild(cookingSceneComponent);
 }
 
+// This method is used to dynamically update the elements in the pantry GList
+void CookingScene::renderListItems(int index, fairygui::GObject* obj) {
+    // Get the inventory of the player
+    std::vector<Ingredient> inventory = Player::getInventory();
+
+    // Checks if the index in the GList array is actually matching that of the player inventory
+    if (index >= 0 && index < inventory.size()) {
+        // Find the template component to make the ingredient button box
+        fairygui::GComponent* itemComponent = obj->as<fairygui::GComponent>();
+
+        // Checks if it exists in the fairygui project
+        if (itemComponent) {
+            // Find the label in the component and set it to the name of the ingredient
+            fairygui::GTextField* label = itemComponent->getChild("n1")->as<fairygui::GTextField>();
+            if (label) label->setText(inventory[index].getName());
+
+            // Find the button and set it's onClick behaviour
+            fairygui::GButton* button = itemComponent->getChild("n2")->as<fairygui::GButton>();
+            if (button) {
+                button->addClickListener([index, this, button](fairygui::EventContext* context) {
+                    // Find Ingredient
+                    std::vector<Ingredient> ingredients = Player::getInventory();
+
+                    // Selected State
+                    if (!Player::getIngredientsChosen()[index]) {
+                        currentMeal->addIngredientToCurrentStep(ingredients[index]);
+                        button->setAlpha(0.5f);  // Set button to semi-transparent
+                        Player::setIngredientsChosen(index, true);
+                        std::cout << "Added ingredient: " << ingredients[index].getName() << std::endl;
+                    }
+
+                    // Unselected State
+                    else {
+                        currentMeal->removeIngredientFromCurrentStep(ingredients[index]);
+                        button->setAlpha(0.0f);  // Set button to fully opaque
+                        Player::setIngredientsChosen(index, false);
+                        std::cout << "Removed ingredient: " << ingredients[index].getName() << std::endl;
+                    }
+                    //updateElementOnActionList();
+                });
+                // Add to button vector to modify later if necessary
+                buttons.push_back(button);
+            }
+
+            // Load the image associated with the ingredient
+            fairygui::GLoader* imgLoader = itemComponent->getChild("n0")->as<fairygui::GLoader>();
+            if (imgLoader) {
+                std::vector<Ingredient> inventory = Player::getInventory();
+                imgLoader->setURL("UI/Assets/" + std::to_string(inventory[index].getNameIndex() + 3) + ".png");
+                std::cout << ("UI/Assets/" + std::to_string(inventory[index].getNameIndex() + 3) + ".png") << std::endl;
+            }
+
+            // Update the textfield to show the quantity of that ingredient in the player's inventory
+            fairygui::GTextField* ingredientAmountText = itemComponent->getChild("n6")->as<fairygui::GTextField>();
+            if (ingredientAmountText) {
+                std::vector<Ingredient> ingredients = Player::getInventory();
+                int amount = ingredients[index].getQuantity();
+                ingredientAmountText->setText(std::to_string(amount));
+            }
+        }
+    }
+}
+
+// This method loads in the pop up that shows up after the player "serves" his meal
 void CookingScene::loadEndPopUp() {
+    // Show the end popup
     endPopUpComponent->setVisible(true);
     endPopUpComponent->setTouchable(true);
 
+    // Find the closest matching recipe to the one the user made
     Recipe recipe = currentMeal->findMatchingRecipe();
 
+    // Display what dish was served on a GTextField
     fairygui::GObject* dishServed = endPopUpComponent->getChild("n8");
     if (dishServed == nullptr || dishServed->as<fairygui::GTextField>() == nullptr) {
         std::cerr << "Error: dishServed is null." << std::endl;
@@ -196,41 +260,44 @@ void CookingScene::loadEndPopUp() {
         dishServed->setText(recipe.getRecipeName());
     }
 
+    // Gives money to the user based on the found recipe's price and how accurate the player was to it
+    double profitFromMeal = recipe.getCost() * (currentMeal->getRecipeAccuracy() * 1.5);
+    Player::addMoney(profitFromMeal);
+
+    // Display how close (in percentage) the meal made the player was to the found recipe
     fairygui::GObject* accuracyTextObject = endPopUpComponent->getChild("n7");
     if (accuracyTextObject == nullptr || accuracyTextObject->as<fairygui::GTextField>() == nullptr) {
         std::cerr << "Error: accuracyTextObject is null." << std::endl;
         return;
     }
     fairygui::GTextField* accuracyText = accuracyTextObject->as<fairygui::GTextField>();
-    if (currentMeal->getRecipeAccuracy() < 0.5) {
-        accuracyText->setText("Please do better...");
-    }
+
+    // The meal made by the player didn't match well with any of the recipes in recipes.json
+    if (currentMeal->getRecipeAccuracy() < 0.5) accuracyText->setText("Please do better...");
     else {
-        accuracyText->setText("Recipe Accuracy: " + toString(currentMeal->getRecipeAccuracy() * 100.0) + "%.");
+        accuracyText->setText(
+            "Recipe Accuracy: " + toString(currentMeal->getRecipeAccuracy() * 100.0)        // Show accuracy
+            + "% (" + toString(recipe.getCost() * currentMeal->getRecipeAccuracy()) + "$)"  // Show money gained
+        );
     }
 
+    // Find and set the restart button behaviour
     fairygui::GObject* cookNewDishButtonObject = endPopUpComponent->getChild("n9");
     if (cookNewDishButtonObject == nullptr || cookNewDishButtonObject->as<fairygui::GButton>() == nullptr) {
         std::cerr << "Error: cookNewDishButtonObject is null." << std::endl;
         return;
     }
-
     fairygui::GButton* cookNewDishButton = cookNewDishButtonObject->as<fairygui::GButton>();
     cookNewDishButton->addClickListener([this](fairygui::EventContext* context) {
+        // Hide the end popup screen
         endPopUpComponent->setVisible(false);
         endPopUpComponent->setTouchable(false);
 
+        // Deduct the ingredients used by the player from their inventory
         currentMeal->substractUsedIngredients();
-        Director::getInstance()->replaceScene(utils::createInstance<CookingScene>());
-        /*
-        currentMeal = new Meal();  // Reset the current meal for a new cooking session
-        actionIndex = 0;           // Reset action index
-        processText->setText("Your actions will appear here");
 
-        // Update Rendered Items
-        updateElementOnActionList();
-        ingredientList->setNumItems(Player::getInventory().size());
-        */
+        // Create a new instance of this scene [This is a temporary solution until a better one is found]
+        Director::getInstance()->replaceScene(utils::createInstance<CookingScene>());
     });
 }
 
@@ -241,71 +308,28 @@ std::string CookingScene::toString(double c) const {
     return ss.str();
 }
 
-void CookingScene::renderListItems(int index, fairygui::GObject* obj) {
-    std::vector<Ingredient> inventory = Player::getInventory();
-    if (index >= 0 && index < inventory.size()) {
-        fairygui::GComponent* itemComponent = obj->as<fairygui::GComponent>();
-
-        if (itemComponent) {
-            fairygui::GTextField* label = itemComponent->getChild("n1")->as<fairygui::GTextField>();
-            if (label) {
-                label->setText(inventory[index].getName());
-            }
-
-            fairygui::GButton* button = itemComponent->getChild("n2")->as<fairygui::GButton>();
-            if (button) {
-                button->addClickListener([index, this, button](fairygui::EventContext* context) {
-                    std::vector<Ingredient> ingredients = Player::getInventory();
-                    std::cout << ingredients[index].getName() << std::endl;
-                    if (!Player::getIngredientsChosen()[index]) {
-                        currentMeal->addIngredientToCurrentStep(ingredients[index]);
-                        button->setAlpha(0.5f);  // Set button to semi-transparent
-                        Player::setIngredientsChosen(index, true);
-                        std::cout << "Added ingredient: " << ingredients[index].getName() << std::endl;
-                    }
-
-                    else {
-                        currentMeal->removeIngredientFromCurrentStep(ingredients[index]);
-                        button->setAlpha(0.0f);  // Set button to fully opaque
-                        Player::setIngredientsChosen(index, false);
-                        std::cout << "Removed ingredient: " << ingredients[index].getName() << std::endl;
-                    }
-                    //updateElementOnActionList();
-                });
-                buttons.push_back(button);
-            }
-
-            fairygui::GLoader* imgLoader = itemComponent->getChild("n0")->as<fairygui::GLoader>();
-            if (imgLoader) {
-                std::vector<Ingredient> inventory = Player::getInventory();
-                imgLoader->setURL("UI/Assets/" + std::to_string(inventory[index].getNameIndex() + 3) + ".png");
-                std::cout << ("UI/Assets/" + std::to_string(inventory[index].getNameIndex() + 3) + ".png") << std::endl;
-            }
-
-            fairygui::GTextField* ingredientAmountText = itemComponent->getChild("n6")->as<fairygui::GTextField>();
-            if (ingredientAmountText) {
-                std::vector<Ingredient> ingredients = Player::getInventory();
-                int amount = ingredients[index].getQuantity();
-                ingredientAmountText->setText(std::to_string(amount));
-            }
-        }
-    }
-}
-
+// This method is used to dynamically update the text inside of the action Textfield (the one that displays all the action taken by the player)
 void CookingScene::updateElementOnActionList() {
+    // Initialize a string to show all the actions taken by the player to display on the GTextfield
     std::string textToDisplay = "";
+
+    // Cycle through the steps taken by the player
     for (CookingProcess& step : currentMeal->getRecipeSteps()) {
+        // Add which process was used at each step
         textToDisplay += step.getName() + " : ";
+
+        // Cycle through the ingredients used in that step to show along the process
         for (Ingredient& i : step.getIngredients()) {
             textToDisplay += i.getName() + ", ";
         }
         textToDisplay += "\n";
     }
 
-    std::cout << "Current Meal Steps: " << textToDisplay << std::endl;
-
+    // If there is indeed actions taken by the player, display it on the GTextfield
     if (textToDisplay != "") {
         processText->setText(textToDisplay);
+
+        // Go back and uncheck every buttons in the pantry
         for (int i = 0; i < buttons.size(); i++) {
             Player::setIngredientsChosen(i, false);  // Reset the selection state for all ingredients
             buttons[i]->setAlpha(0.0f);
@@ -313,6 +337,7 @@ void CookingScene::updateElementOnActionList() {
     }
 }
 
+// Overload the init() method from ax::Scene to run the loadStartScreen() upon launch
 bool CookingScene::init() {
     if (!Scene::init()) return false;
 

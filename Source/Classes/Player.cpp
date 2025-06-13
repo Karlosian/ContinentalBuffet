@@ -26,10 +26,12 @@ std::vector<Ingredient> Player::getInventory() {
     return Player::inventory;
 }
 
+// Getter for the player's "which ingredient is selected"
 std::vector<bool> Player::getIngredientsChosen() {
     return Player::ingredientsChosen;
 }
 
+// Getter for player money
 double Player::getMoney() {
     return Player::money;
 }
@@ -39,15 +41,20 @@ void Player::setIngredientsChosen(int index, bool isChosen) {
     Player::ingredientsChosen[index] = isChosen;
 }
 
+// Setter for the player's wallet
 bool Player::setMoney(double i) {
+    // Checks if the player has enough money to buy in the shop
     if (Player::money >= i) {
+        // If so, reduce his funds by how much he spent
         Player::money -= i;
         return true;
     }
-    else
-    {
-        return false;
-    }
+    return false;
+}
+
+// Setter for when the player gains money from dishes cooked
+void Player::addMoney(double i) {
+    Player::money += i;
 }
 
 // Add ingredients to the player inventory during shopping
@@ -67,6 +74,7 @@ void Player::addIngredient(Ingredient ingredient) {
     ingredientsChosen.push_back(false);
 }
 
+// Using the quicksort algorithm to sort the player's inventory in alphabetical order
 void Player::sortInventory(int low, int high) {
     const bool MOVING_LEFT = true, MOVING_RIGHT = false;
 
@@ -123,10 +131,12 @@ void Player::sortInventory(int low, int high) {
     }
 }
 
+// Overloaded method to call without need for quicksort ranges
 void Player::sortInventory() {
     sortInventory(0, inventory.size() - 1);
 }
 
+// Remove a certain quantity from an ingredient
 void Player::decreaseIngredientQuantity(int index, int amount) {
     inventory[index].changeQuantityBy(-amount);
 
@@ -137,25 +147,32 @@ void Player::decreaseIngredientQuantity(int index, int amount) {
     }
 }
 
+// Adds ten random ingredient to the player's inventory upon each playthrough
 void Player::initalizeTestInventory() {
+    // Gets the list of all the items in the ingredients.json file
     std::vector<Ingredient> allIngredients = Ingredient::getIngredients();
+
+    // Get a random seed for the number generator
     srand(time(0));
 
+    // Creates a vector to store all the ingredients seleced (to avoid having two of the same)
     std::vector<int> randomIndices;
+
     for (int i = 0; i < 10; i++) {
-        int randomItem = rand() % allIngredients.size();
+        // Find a random ingredient not yet selected
+        int randomItem;
+        do {randomItem = rand() % allIngredients.size();} while (std::find(randomIndices.begin(), randomIndices.end(), randomItem) != randomIndices.end());
 
-        while (std::find(randomIndices.begin(), randomIndices.end(), randomItem) != randomIndices.end()) {
-            randomItem = rand() % allIngredients.size();
-        }
-
+        // Add a random quantity of this ingredient to the player's inventory
         Ingredient ingredient = allIngredients[randomItem];
         ingredient.setQuantity((int)(rand() % 10 + 1));  // Random quantity between 1 and 10
         inventory.push_back(ingredient);
-        std::cout << "Adding " << ingredient.getName() << " to inventory with indexNum " << ingredient.getNameIndex() << std::endl;
         ingredientsChosen.push_back(false);
 
+        // Add to the randomIndices vector to avoid it being chosen on the next loop
         randomIndices.push_back(randomItem);
     }
+
+    // Sort the player's inventory
     sortInventory();
 }

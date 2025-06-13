@@ -8,8 +8,8 @@ class Player {
 private:
     static Player *instance;                    // Singleton instance
     static std::vector<Ingredient> inventory;   // Player's inventory
-    static std::vector<bool> ingredientsChosen; 
-    static double money;                               // Player's money
+    static std::vector<bool> ingredientsChosen; // Bool vector for which ingredients are chosen during the cooking scene
+    static double money;                        // Player's money
 public:
     static Player* getInstance();
 
@@ -21,6 +21,7 @@ public:
     // Setters
     static void setIngredientsChosen(int index, bool isChosen);
     static bool setMoney(double i);
+    static void addMoney(double i);
     static void decreaseIngredientQuantity(int index, int amount);
 
     // Methods

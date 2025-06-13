@@ -9,6 +9,8 @@ std::vector<std::string> CookingProcess::CookingProcesses = {
     "Bake", "Boil", "Chop", "Fry", "Grate", "Grill", "Layer", "Mix", "Simmer", "Stir-fry", "Stuff", "Whisk"
 };
 
+
+// Constructors
 CookingProcess::CookingProcess() {
     name = "";
     ingredients = std::vector<Ingredient>();
@@ -19,6 +21,7 @@ CookingProcess::CookingProcess(std::string n, std::vector<Ingredient> i) {
     ingredients = i;
 }
 
+// Getters
 std::string CookingProcess::getName() {
     return name;
 }
@@ -31,6 +34,7 @@ std::vector<std::string> CookingProcess::getCookingProcesses() {
     return CookingProcesses;
 }
 
+// Setters
 void CookingProcess::setName(std::string n) {
     name = n;
 }
@@ -48,6 +52,7 @@ void CookingProcess::removeIngredient(Ingredient i) {
     }
 }
 
+// Comparison method overload
 bool CookingProcess::operator==(const CookingProcess& other) const {
     if (name != other.name || CookingProcesses.size() != other.CookingProcesses.size())
     {

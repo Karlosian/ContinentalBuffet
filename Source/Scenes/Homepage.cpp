@@ -20,29 +20,34 @@ using namespace ax;
 
 static int s_sceneID = 2000;
 
+// Load all the GUI elements in the homepage
 void Homepage::loadStartScreen() {
+    // Load the fairygui project for the homepage
     fairygui::UIPackage::addPackage("UI/Package1");
     fairygui::GComponent* homepageComponent = fairygui::UIPackage::createObject("Package1", "Component1")->as<fairygui::GComponent>();
     homepageComponent->setPosition(0, 0);
     root->addChild(homepageComponent);
 
+    // Get the start button
     fairygui::GObject* startButtonObject = homepageComponent->getChild("n4");
-
-    Ingredient::getIngredientList();
-    Recipe::getRecipeList();
-    Player::initalizeTestInventory();
-
-    auto musicMgr = new MusicManager();
-    musicMgr->startPlaylist();
-
     if (startButtonObject != nullptr && startButtonObject->as<fairygui::GButton>() != nullptr) {
         fairygui::GButton* startButton = startButtonObject->as<fairygui::GButton>();
         startButton->addClickListener([](fairygui::EventContext* context) {
             Director::getInstance()->replaceScene(utils::createInstance<CookingScene>());
         });
     }
+
+    // Initialize all the possible ingredients and recipes, as well as the player inventory
+    Ingredient::getIngredientList();
+    Recipe::getRecipeList();
+    Player::initalizeTestInventory();
+
+    // Start music
+    auto musicMgr = new MusicManager();
+    musicMgr->startPlaylist();
 }
 
+// Method run upon initialization of the homepage scene
 bool Homepage::init() {
     if (!Scene::init()) return false;
 

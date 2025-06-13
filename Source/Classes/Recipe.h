@@ -16,6 +16,9 @@ public:
     // Short description of the recipe (for hover on the recipe book)
     std::string description;
 
+    // Cost of the meal made from that recipe
+    double cost;
+
     // List of ingredients needed for the recipe
     std::vector<Ingredient> recipeIngredients;
 
@@ -29,12 +32,13 @@ public:
     Recipe();
 
     // Parameterized Constructor
-    Recipe(std::string n, std::string d, std::vector<Ingredient> i, std::vector<CookingProcess> s);
+    Recipe(std::string n, std::string d, double c, std::vector<Ingredient> i, std::vector<CookingProcess> s);
 
     // Getters
     std::string getRecipeName();
     std::vector<Ingredient> getRecipeIngredients();
     std::vector<CookingProcess> getRecipeSteps();
+    double getCost();
 
     // Function to extract all the recipes from the JSON file and store them in the static vector
     static void getRecipeList();

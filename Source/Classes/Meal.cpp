@@ -103,13 +103,16 @@ void Meal::removeIngredientFromCurrentStep(Ingredient &ingredient) {
     currentStep->removeIngredient(ingredient);
 }
 
+// Goes through the actions the player took to make the dish and substract the ingredients used from their inventory
 void Meal::substractUsedIngredients() {
+    // Vector to keep track of which ingredient was used
     std::vector<std::string> ingredientsReduced;
 
     for (CookingProcess stepsTaken : steps) {
         for (Ingredient ingredientInStep : stepsTaken.getIngredients()) {
             std::vector<Ingredient> playerInventory = Player::getInventory();
             for (int i = 0; i < playerInventory.size(); i++) {
+                // Avoids having the same ingredient removed multiple times from the player's inventory
                 bool hasBeenReduced = false;
 
                 for (std::string ing : ingredientsReduced) {
@@ -118,6 +121,7 @@ void Meal::substractUsedIngredients() {
                     }
                 }
 
+                // Reduce quantity of the ingredient
                 if (playerInventory[i].getName() == ingredientInStep.getName() && !hasBeenReduced) {
                     Player::decreaseIngredientQuantity(i, 1);
                     ingredientsReduced.push_back(ingredientInStep.getName());
