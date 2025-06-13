@@ -34,6 +34,7 @@ private:
     fairygui::GRoot* root;
     fairygui::GList* ingredientsList;
     fairygui::GTextField* costLabel;
+    fairygui::GTextField* balanceLabel;
 
     std::vector<Ingredient> cart;
 
