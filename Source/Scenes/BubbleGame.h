@@ -1,6 +1,9 @@
 #pragma once
 
 #include "axmol.h"
+#include "FairyGUI.h"
+#include "GComponent.h"
+#include "GRoot.h"
 
 class BubbleGame : public ax::Scene
 {
@@ -11,10 +14,13 @@ class BubbleGame : public ax::Scene
     void updateScoreLabel();
     void endGame();
     void spawnBubble();
+    fairygui::GRoot* root;
     int score = 0;
     int timeLeft = 30;
-    ax::Label* scoreLabel = nullptr;
-    ax::Label* timerLabel = nullptr;
+    ax::Label* scoreLabel;
+    ax::Label* timerLabel;
+    //load at scene creation to avoid lagspikes
+    fairygui::GComponent* comp;
 public:
     static BubbleGame* createScene();
     BubbleGame();              
