@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="d5m4bzjt">
+  <resources>
+    <component id="j18b37" name="Result.xml" path="/"/>
+    <image id="j18b38" name="button_on-to-the-next-dish.png" path="/"/>
+    <image id="j18b39" name="button_on-to-the-next-dish-pressed.png" path="/"/>
+    <component id="j18b3a" name="Restart.xml" path="/"/>
+    <image id="j18b0" name="ab67616d0000b2735e6b90660ef58289d93c9ff0.jpg" path="/"/>
+  </resources>
+  <publish name="CookingPopUp"/>
+</packageDescription>

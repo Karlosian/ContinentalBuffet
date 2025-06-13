@@ -117,6 +117,16 @@ void Player::sortInventory() {
     sortInventory(0, inventory.size() - 1);
 }
 
+void Player::decreaseIngredientQuantity(int index, int amount) {
+    inventory[index].changeQuantityBy(-amount);
+
+    // If the quantity of the ingredient is less than or equal to 0, remove it from the inventory
+    if (inventory[index].getQuantity() <= 0) {
+        inventory.erase(inventory.begin() + index);
+        ingredientsChosen.erase(ingredientsChosen.begin() + index);
+    }
+}
+
 void Player::initalizeTestInventory() {
     std::vector<Ingredient> allIngredients = Ingredient::getIngredients();
     srand(time(0));
@@ -130,6 +140,7 @@ void Player::initalizeTestInventory() {
         }
 
         Ingredient ingredient = allIngredients[randomItem];
+        ingredient.setQuantity((int)(rand() % 10 + 1));  // Random quantity between 1 and 10
         inventory.push_back(ingredient);
         std::cout << "Adding " << ingredient.getName() << " to inventory with indexNum " << ingredient.getNameIndex() << std::endl;
         ingredientsChosen.push_back(false);

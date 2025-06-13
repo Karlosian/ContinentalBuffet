@@ -16,8 +16,6 @@ public:
     Meal();
     Meal(std::vector<Ingredient> i, std::vector<CookingProcess> cp);
 
-    Recipe findMatchingRecipe();
-
     // Getters
     double getRecipeAccuracy();
     CookingProcess* getCurrentStep();
@@ -27,7 +25,10 @@ public:
     void addIngredientToCurrentStep(Ingredient& i);
     void removeIngredientFromCurrentStep(Ingredient& ingredient);
     void addNewStep();
+    void substractUsedIngredients();
+    Recipe findMatchingRecipe();
 
+    // Overloaded operators
     Meal* operator=(const Meal& other);
 };
 

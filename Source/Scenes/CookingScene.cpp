@@ -107,7 +107,7 @@ void CookingScene::loadStartScreen() {
         return;
     }
 
-    fairygui::GList* ingredientList = ingredientListObject->as<fairygui::GList>();
+    ingredientList = ingredientListObject->as<fairygui::GList>();
     std::vector<Ingredient> ingredients = Player::getInventory();
 
     std::vector<std::string> labels;
@@ -137,6 +137,7 @@ void CookingScene::loadStartScreen() {
     serveButton->addClickListener([this](fairygui::EventContext* context) {
         Recipe recipe = currentMeal->findMatchingRecipe();
         std::cout << recipe.name << " " << currentMeal->getRecipeAccuracy() << std::endl;
+        loadEndPopUp();  // Load the end popup screen
     });
 
     // Button to navigate to the shop
@@ -152,8 +153,7 @@ void CookingScene::loadStartScreen() {
 
     // Button to navigate to the bubble game
     fairygui::GObject* bubbleButtonObject = cookingSceneComponent->getChild("n17");
-    if (bubbleButtonObject == nullptr || bubbleButtonObject->as<fairygui::GButton>() == nullptr)
-    {
+    if (bubbleButtonObject == nullptr || bubbleButtonObject->as<fairygui::GButton>() == nullptr) {
         std::cerr << "Error: bubbleButtonObject is null." << std::endl;
         return;
     }
@@ -164,12 +164,84 @@ void CookingScene::loadStartScreen() {
 
     currentMeal = new Meal();
 
+    // Load the end popup screen
+    fairygui::GObject* endPopUpObject = cookingSceneComponent->getChild("n20");
+    if (endPopUpObject == nullptr || endPopUpObject->as<fairygui::GComponent>() == nullptr) {
+        std::cerr << "Error: endPopUpObject is null." << std::endl;
+        return;
+    }
+    endPopUpComponent = endPopUpObject->as<fairygui::GComponent>();
+    endPopUpComponent->setVisible(false);  // Hide the end popup initially
+    endPopUpComponent->setTouchable(false);
+
     root->addChild(cookingSceneComponent);
+}
+
+void CookingScene::loadEndPopUp() {
+    endPopUpComponent->setVisible(true);
+    endPopUpComponent->setTouchable(true);
+
+    Recipe recipe = currentMeal->findMatchingRecipe();
+
+    fairygui::GObject* dishServed = endPopUpComponent->getChild("n8");
+    if (dishServed == nullptr || dishServed->as<fairygui::GTextField>() == nullptr) {
+        std::cerr << "Error: dishServed is null." << std::endl;
+        return;
+    }
+    fairygui::GTextField* dishServedText = dishServed->as<fairygui::GTextField>();
+    if (currentMeal->getRecipeAccuracy() < 0.5) {
+        dishServedText->setText("Unknown Substance (Failed)");
+    }
+    else {
+        dishServed->setText(recipe.getRecipeName());
+    }
+
+    fairygui::GObject* accuracyTextObject = endPopUpComponent->getChild("n7");
+    if (accuracyTextObject == nullptr || accuracyTextObject->as<fairygui::GTextField>() == nullptr) {
+        std::cerr << "Error: accuracyTextObject is null." << std::endl;
+        return;
+    }
+    fairygui::GTextField* accuracyText = accuracyTextObject->as<fairygui::GTextField>();
+    if (currentMeal->getRecipeAccuracy() < 0.5) {
+        accuracyText->setText("Please do better...");
+    }
+    else {
+        accuracyText->setText("Recipe Accuracy: " + toString(currentMeal->getRecipeAccuracy() * 100.0) + "%.");
+    }
+
+    fairygui::GObject* cookNewDishButtonObject = endPopUpComponent->getChild("n9");
+    if (cookNewDishButtonObject == nullptr || cookNewDishButtonObject->as<fairygui::GButton>() == nullptr) {
+        std::cerr << "Error: cookNewDishButtonObject is null." << std::endl;
+        return;
+    }
+
+    fairygui::GButton* cookNewDishButton = cookNewDishButtonObject->as<fairygui::GButton>();
+    cookNewDishButton->addClickListener([this](fairygui::EventContext* context) {
+        endPopUpComponent->setVisible(false);
+        endPopUpComponent->setTouchable(false);
+
+        currentMeal->substractUsedIngredients();
+        currentMeal = new Meal();  // Reset the current meal for a new cooking session
+        for (int i = 0; i < actionList.size(); i++) {
+            actionList.pop_back();  // Clear the action list
+        }
+
+        ingredientList->setNumItems(Player::getInventory().size());
+        actionIndex = 0;              // Reset action index
+    });
+}
+
+// Overload toString method to ensure two decimal places
+std::string CookingScene::toString(double c) const {
+    std::stringstream ss;
+    ss << std::fixed << std::setprecision(2) << c;
+    return ss.str();
 }
 
 void CookingScene::renderListItems(int index, fairygui::GObject* obj, const std::vector<std::string>& labels) {
     if (index >= 0 && index < labels.size()) {
         fairygui::GComponent* itemComponent = obj->as<fairygui::GComponent>();
+
         if (itemComponent) {
             fairygui::GTextField* label = itemComponent->getChild("n1")->as<fairygui::GTextField>();
             if (label) {
@@ -179,7 +251,6 @@ void CookingScene::renderListItems(int index, fairygui::GObject* obj, const std:
             if (button) {
                 button->addClickListener([index, this, button](fairygui::EventContext* context) {
                     std::vector<Ingredient> ingredients = Player::getInventory();
-
                     std::cout << ingredients[index].getName() << std::endl;
                     if (!Player::getIngredientsChosen()[index]) {
                         currentMeal->addIngredientToCurrentStep(ingredients[index]);
@@ -198,13 +269,24 @@ void CookingScene::renderListItems(int index, fairygui::GObject* obj, const std:
                 });
                 buttons.push_back(button);
             }
+
             fairygui::GLoader* imgLoader = itemComponent->getChild("n0")->as<fairygui::GLoader>();
             if (imgLoader) {
                 std::vector<Ingredient> inventory = Player::getInventory();
                 imgLoader->setURL("UI/Assets/" + std::to_string(inventory[index].getNameIndex() + 3) + ".png");
                 std::cout << ("UI/Assets/" + std::to_string(inventory[index].getNameIndex() + 3) + ".png") << std::endl;
             }
+
+            fairygui::GTextField* ingredientAmountText = itemComponent->getChild("n6")->as<fairygui::GTextField>();
+            if (ingredientAmountText) {
+                std::vector<Ingredient> ingredients = Player::getInventory();
+                int amount = ingredients[index].getQuantity();
+                ingredientAmountText->setText(std::to_string(amount));
+            }
         }
+
+        std::vector<Ingredient> ingredients = Player::getInventory();
+        std::cout << "Bum : " << labels[index] << " : " << ingredients[index].getQuantity() << std::endl;
     }
 }
 

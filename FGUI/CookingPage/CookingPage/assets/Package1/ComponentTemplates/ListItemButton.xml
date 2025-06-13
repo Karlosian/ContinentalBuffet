@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="100,100">
+<component size="115,115">
   <displayList>
     <loader id="n0_w20x" name="n0" xy="0,0" size="100,100" url="ui://9ah5ij39w20x2j" align="center" vAlign="middle" fill="scale" clearOnPublish="true"/>
-    <text id="n1_w20x" name="n1" xy="0,0" size="100,100" fontSize="24" align="center" vAlign="middle" autoSize="none" text="CHEESE asdpkjasdlkja;dlkjas;ldjas;ljdaskljdakl;"/>
+    <text id="n1_w20x" name="n1" xy="0,0" size="100,100" fontSize="24" align="center" vAlign="middle" autoSize="none" text="CHEESE&#xA;"/>
     <component id="n4_7eqo" name="n2" src="7eqo2z" fileName="Assets/Button/PantryButton.xml" xy="0,0" alpha="0"/>
+    <graph id="n5_j5py" name="n5" xy="86,86" size="28,28" type="rect"/>
+    <text id="n6_j5py" name="n6" xy="87,87" size="26,29" fontSize="20" align="center" autoSize="none" text="20"/>
   </displayList>
 </component>

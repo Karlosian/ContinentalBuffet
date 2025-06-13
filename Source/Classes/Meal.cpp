@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "Meal.h"
+#include "Player.h"
 
 // Default Constructor
 Meal::Meal() {
@@ -100,6 +101,31 @@ void Meal::addIngredientToCurrentStep(Ingredient &ingredient) {
 // Remove an ingredient from current cooking step
 void Meal::removeIngredientFromCurrentStep(Ingredient &ingredient) {
     currentStep->removeIngredient(ingredient);
+}
+
+void Meal::substractUsedIngredients() {
+    std::vector<std::string> ingredientsReduced;
+
+    for (CookingProcess stepsTaken : steps) {
+        for (Ingredient ingredientInStep : stepsTaken.getIngredients()) {
+            std::vector<Ingredient> playerInventory = Player::getInventory();
+            for (int i = 0; i < playerInventory.size(); i++) {
+                bool hasBeenReduced = false;
+
+                for (std::string ing : ingredientsReduced) {
+                    if (playerInventory[i].getName() == ing) {
+                        hasBeenReduced = true;
+                    }
+                }
+
+                if (playerInventory[i].getName() == ingredientInStep.getName() && !hasBeenReduced) {
+                    Player::decreaseIngredientQuantity(i, 1);
+                    ingredientsReduced.push_back(ingredientInStep.getName());
+                    break;
+                }
+            }
+        }
+    }
 }
 
 // Continue to next cooking step

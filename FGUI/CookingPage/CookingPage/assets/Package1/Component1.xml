@@ -15,5 +15,6 @@
     <list id="n9_w20x" name="n9" xy="-10,18" size="369,142" layout="row" overflow="scroll" scroll="horizontal" colGap="30" defaultItem="ui://9ah5ij39w20x2o"/>
     <component id="n16_pyhy" name="n16" src="pyhy33" fileName="ComponentTemplates/Shop Button.xml" xy="18,501" size="279,52"/>
     <component id="n17_pyhy" name="n17" src="pyhy36" fileName="ComponentTemplates/Bubble button.xml" xy="1066,16" size="186,51" rotation="2"/>
+    <component id="n20_j5py" name="n20" src="j5py3a" fileName="Result.xml" xy="240,60"/>
   </displayList>
 </component>

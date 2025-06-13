@@ -86,9 +86,6 @@
     <component id="w20x2o" name="ListItemButton.xml" path="/ComponentTemplates/"/>
     <component id="w20x2p" name="ButtomItem.xml" path="/ComponentTemplates/"/>
     <component id="7eqo2q" name="Button1.xml" path="/ComponentTemplates/"/>
-    <image id="7eqo2s" name="button_serve-meal.png" path="/Assets/Button/"/>
-    <image id="7eqo2t" name="button_serve-meal-pressed.png" path="/Assets/Button/"/>
-    <component id="7eqo2u" name="ServeButton.xml" path="/ComponentTemplates/"/>
     <image id="7eqo2v" name="CookingScene Background.png" path="/Assets/"/>
     <image id="7eqo2y" name="Pantry Button.png" path="/Assets/Button/"/>
     <component id="7eqo2z" name="PantryButton.xml" path="/Assets/Button/"/>
@@ -99,10 +96,14 @@
     <image id="pyhy34" name="button_get-recipes.png" path="/Assets/Button/"/>
     <image id="pyhy35" name="button_get-recipes-pressed.png" path="/Assets/Button/"/>
     <component id="pyhy36" name="Bubble button.xml" path="/ComponentTemplates/"/>
-    <component id="j18b37" name="Result.xml" path="/ComponentTemplates/"/>
-    <image id="j18b38" name="button_on-to-the-next-dish.png" path="/Assets/Button/"/>
-    <image id="j18b39" name="button_on-to-the-next-dish-pressed.png" path="/Assets/Button/"/>
-    <component id="j18b3a" name="Restart.xml" path="/Assets/Button/"/>
+    <image id="7eqo2s" name="button_serve-meal.png" path="/Assets/Button/"/>
+    <image id="7eqo2t" name="button_serve-meal-pressed.png" path="/Assets/Button/"/>
+    <component id="7eqo2u" name="ServeButton.xml" path="/ComponentTemplates/"/>
+    <component id="j5py37" name="Restart.xml" path="/"/>
+    <image id="j5py38" name="button_on-to-the-next-dish.png" path="/"/>
+    <image id="j5py39" name="button_on-to-the-next-dish-pressed.png" path="/"/>
+    <component id="j5py3a" name="Result.xml" path="/"/>
+    <image id="j5py3b" name="ab67616d0000b2735e6b90660ef58289d93c9ff0.jpg" path="/"/>
   </resources>
   <publish name="CookingPackage"/>
 </packageDescription>

@@ -39,6 +39,9 @@ private:
     fairygui::GButton* rightArrow;
     fairygui::GButton* serveButton;
 
+    fairygui::GList* ingredientList;
+    fairygui::GComponent* endPopUpComponent;
+
     std::vector<fairygui::GButton*> buttons;
 
     Meal* currentMeal;
@@ -47,6 +50,7 @@ private:
 
 public:
     void loadStartScreen();
+    void loadEndPopUp();
 
     bool init() override;
     void update(float delta) override;
@@ -54,6 +58,9 @@ public:
     void menuCloseCallback(ax::Object* sender);
     void renderListItems(int index, fairygui::GObject* obj, const std::vector<std::string>& labels);
     void updateElementOnActionList();
+
+    // Overload toString method
+    std::string toString(double c) const;
 
     CookingScene();
     ~CookingScene() override;
