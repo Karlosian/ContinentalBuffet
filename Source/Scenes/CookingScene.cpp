@@ -221,6 +221,8 @@ void CookingScene::loadEndPopUp() {
         endPopUpComponent->setTouchable(false);
 
         currentMeal->substractUsedIngredients();
+        Director::getInstance()->replaceScene(utils::createInstance<CookingScene>());
+        /*
         currentMeal = new Meal();  // Reset the current meal for a new cooking session
         actionIndex = 0;           // Reset action index
         processText->setText("Your actions will appear here");
@@ -228,6 +230,7 @@ void CookingScene::loadEndPopUp() {
         // Update Rendered Items
         updateElementOnActionList();
         ingredientList->setNumItems(Player::getInventory().size());
+        */
     });
 }
 
