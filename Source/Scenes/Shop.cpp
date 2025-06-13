@@ -143,14 +143,16 @@ void Shop::loadStartScreen()
     if (buyButton)
     {
         buyButton->addClickListener([this](fairygui::EventContext* context) {
-            Player::setMoney(totalCost);
-            balanceLabel->setText(toString(Player::getMoney()) + "$");
-            totalCost = 0;
-            costLabel->setText(toString(totalCost) + "$");
-            for (auto& item : cart)
-                Player::addIngredient(item);
-            cart.clear();
-            ingredientsList->setNumItems(0);
+            if (Player::setMoney(totalCost))
+            {
+                balanceLabel->setText(toString(Player::getMoney()) + "$");
+                totalCost = 0;
+                costLabel->setText(toString(totalCost) + "$");
+                for (auto& item : cart)
+                    Player::addIngredient(item);
+                cart.clear();
+                ingredientsList->setNumItems(0);
+            }
         });
     }
 

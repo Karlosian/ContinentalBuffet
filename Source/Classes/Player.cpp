@@ -38,8 +38,16 @@ void Player::setIngredientsChosen(int index, bool isChosen) {
     Player::ingredientsChosen[index] = isChosen;
 }
 
-void Player::setMoney(double i) {
-    Player::money -= i;
+bool Player::setMoney(double i) {
+    if (Player::money >= i)
+    {
+        Player::money -= i;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 // Add ingredients to the player inventory during shopping
