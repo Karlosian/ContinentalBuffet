@@ -97,6 +97,13 @@ void CookingScene::loadStartScreen() {
                 currentMeal->addStepAction(cookingProcesses[actionIndex]);
                 currentMeal->addNewStep();
                 updateElementOnActionList();
+
+                // Play sound
+                std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/action.wav");
+                if (!FileUtils::getInstance()->isFileExist(fullPath))
+                    AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
+                else
+                    int soundId = AudioEngine::play2d("sound/action.wav", false, 1.0f);
             }
         });
     }
@@ -212,6 +219,14 @@ void CookingScene::renderListItems(int index, fairygui::GObject* obj) {
                         Player::setIngredientsChosen(index, false);
                         std::cout << "Removed ingredient: " << ingredients[index].getName() << std::endl;
                     }
+
+                    // Play sound
+                    std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/ingredientSelect.mp3");
+                    if (!FileUtils::getInstance()->isFileExist(fullPath))
+                        AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
+                    else
+                        int soundId = AudioEngine::play2d("sound/ingredientSelect.mp3", false, 1.0f);
+
                     //updateElementOnActionList();
                 });
                 // Add to button vector to modify later if necessary

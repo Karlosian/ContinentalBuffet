@@ -10,6 +10,8 @@
 #include "GLabel.h"
 #include "GTextField.h"
 
+#include "AudioEngine.h"
+
 #include "../Classes/Ingredient.h"  // Ingredient class
 #include "../Classes/Player.h"      // Player class
 
@@ -121,6 +123,13 @@ void Shop::loadStartScreen()
                 buyButton->addClickListener([this, i](fairygui::EventContext* context) {
                     this->addIngredientToCart(Ingredient::getIngredients()[i - 1]);
                     ingredientsList->setNumItems(cart.size());
+
+                    // Play select sound
+                    std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/ingredientSelect.mp3");
+                    if (!FileUtils::getInstance()->isFileExist(fullPath))
+                        AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
+                    else
+                        int soundId = AudioEngine::play2d("sound/ingredientSelect.mp3", false, 1.0f);
                 });
             }
         }
@@ -155,6 +164,13 @@ void Shop::loadStartScreen()
 
                 cart.clear();
                 ingredientsList->setNumItems(0);
+
+                // Play buy sound
+                std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/buy.mp3");
+                if (!FileUtils::getInstance()->isFileExist(fullPath))
+                    AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
+                else
+                    int soundId = AudioEngine::play2d("sound/buy.mp3", false, 1.0f);
             }
         });
     }
