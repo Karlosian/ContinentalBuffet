@@ -9,7 +9,7 @@
 #include "axmol.h"
 // This class represents the recipe of a dish, including its name, description, ingredients, and cooking steps.
 class Recipe {
-public:
+protected:
     // Name of the recipe
     std::string name;
 
@@ -25,6 +25,7 @@ public:
     // List of cooking steps for the recipe (e.g., "Chop the onions", "Boil the water", etc.)
     std::vector<CookingProcess> steps;
 
+private:
     // Static vector to hold all recipes in the game
     static std::vector<Recipe> recipes;
 public:
@@ -38,6 +39,8 @@ public:
     std::string getRecipeName();
     std::vector<Ingredient> getRecipeIngredients();
     std::vector<CookingProcess> getRecipeSteps();
+    std::string getDescription();
+    static std::vector<Recipe> getAllRecipes();
     double getCost();
 
     // Function to extract all the recipes from the JSON file and store them in the static vector

@@ -16,5 +16,7 @@
     <component id="n16_pyhy" name="n16" src="pyhy33" fileName="ComponentTemplates/Shop Button.xml" xy="18,501" size="279,52"/>
     <component id="n17_pyhy" name="n17" src="pyhy36" fileName="ComponentTemplates/Bubble button.xml" xy="1066,16" size="186,51" rotation="2"/>
     <component id="n20_j5py" name="n20" src="j5py3a" fileName="Result.xml" xy="240,60"/>
+    <component id="n21_tk7z" name="n21" src="tk7z3d" fileName="Assets/RecipeBook.xml" xy="140,50"/>
+    <component id="n22_tk7z" name="n22" src="tk7z3h" fileName="recipeButton.xml" xy="1087,649" size="179,48"/>
   </displayList>
 </component>

@@ -42,6 +42,14 @@ double Recipe::getCost() {
     return cost;
 }
 
+std::string Recipe::getDescription() {
+    return description;
+}
+
+std::vector<Recipe> Recipe::getAllRecipes() {
+    return recipes;
+}
+
 // Function to extract all the recipes from the JSON file and store them in the static vector
 void Recipe::getRecipeList() {
     std::string fullPath = ax::FileUtils::getInstance()->fullPathForFilename("recipes.json");

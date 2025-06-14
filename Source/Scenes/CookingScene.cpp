@@ -138,7 +138,7 @@ void CookingScene::loadStartScreen() {
     serveButton = serveButtonObject->as<fairygui::GButton>();
     serveButton->addClickListener([this](fairygui::EventContext* context) {
         Recipe recipe = currentMeal->findMatchingRecipe();
-        std::cout << recipe.name << " " << currentMeal->getRecipeAccuracy() << std::endl;
+        std::cout << recipe.getRecipeName() << " " << currentMeal->getRecipeAccuracy() << std::endl;
         loadEndPopUp();  // Load the end popup screen
     });
 
@@ -174,11 +174,152 @@ void CookingScene::loadStartScreen() {
     endPopUpComponent->setVisible(false);  // Hide the end popup initially
     endPopUpComponent->setTouchable(false);
 
+    // Initialize the recipe book popup and its button
+    fairygui::GObject* recipeBookObject = cookingSceneComponent->getChild("n21");
+    if (recipeBookObject == nullptr || recipeBookObject->as<fairygui::GComponent>() == nullptr) {
+        std::cerr << "Error: recipeBookObject is null." << std::endl;
+        return;
+    }
+    recipeBookComponent = recipeBookObject->as<fairygui::GComponent>();
+    recipeBookComponent->setVisible(false);  // Hide the recipe book initially
+    recipeBookComponent->setTouchable(false);
+
+    fairygui::GObject* recipeBookButtonObject = cookingSceneComponent->getChild("n22");
+    if (recipeBookButtonObject == nullptr || recipeBookButtonObject->as<fairygui::GButton>() == nullptr) {
+        std::cerr << "Error: recipeBookButtonObject is null." << std::endl;
+        return;
+    }
+    fairygui::GButton* recipeBookButton = recipeBookButtonObject->as<fairygui::GButton>();
+    recipeBookButton->addClickListener([this](fairygui::EventContext* context) {
+        // Toggle the visibility of the recipe book popup
+        bool isVisible = recipeBookComponent->isVisible();
+        recipeBookComponent->setVisible(!isVisible);
+        recipeBookComponent->setTouchable(!isVisible);
+
+        // Play sound
+        std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/Select.wav");
+        if (!FileUtils::getInstance()->isFileExist(fullPath))
+            AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
+        else
+            int soundId = AudioEngine::play2d("sound/Select.wav", false, 1.0f);
+    });
+
+    fairygui::GObject* recipeBookListObject = recipeBookComponent->getChild("n5");
+    if (recipeBookListObject == nullptr || recipeBookListObject->as<fairygui::GList>() == nullptr) {
+        std::cerr << "Error: recipeBookListObject is null." << std::endl;
+        return;
+    }
+    recipeBookList = recipeBookListObject->as<fairygui::GList>();
+    recipeBookList->itemRenderer = CC_CALLBACK_2(CookingScene::renderRecipeBookItems, this);
+    recipeBookList->setNumItems(Player::getPlayerRecipes().size());  // Set the number of items in the recipe book list
+    recipeBookList->getScrollPane()->setScrollStep(816);
+
+    // Add the left and right buttons for the recipe book list
+    fairygui::GObject* recipeBookLeftArrowObject = recipeBookComponent->getChild("n3");
+    if (recipeBookLeftArrowObject == nullptr || recipeBookLeftArrowObject->as<fairygui::GButton>() == nullptr) {
+        std::cerr << "Error: recipeBookLeftArrowObject is null." << std::endl;
+        return;
+    }
+    recipeBookLeftArrow = recipeBookLeftArrowObject->as<fairygui::GButton>();
+    recipeBookLeftArrow->addClickListener([this](fairygui::EventContext* context) {
+        this->recipeBookList->getScrollPane()->scrollLeft(1, false);
+
+        recipeBookIndex = std::max(recipeBookIndex - 1, 0);
+        if (recipeBookIndex == 0) recipeBookLeftArrow->setVisible(false);
+        if (recipeBookIndex != Player::getPlayerRecipes().size() / 2) recipeBookRightArrow->setVisible(true);
+
+        std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/page_flip.mp3");
+        if (!FileUtils::getInstance()->isFileExist(fullPath))
+            AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
+        else
+            int soundId = AudioEngine::play2d("sound/page_flip.mp3", false, 1.0f);
+    });
+    recipeBookLeftArrow->setVisible(false);  // Hide the left arrow initially
+
+    fairygui::GObject* recipeBookRightArrowObject = recipeBookComponent->getChild("n4");
+    if (recipeBookRightArrowObject == nullptr || recipeBookRightArrowObject->as<fairygui::GButton>() == nullptr) {
+        std::cerr << "Error: recipeBookRightArrowObject is null." << std::endl;
+        return;
+    }
+    recipeBookRightArrow = recipeBookRightArrowObject->as<fairygui::GButton>();
+    recipeBookRightArrow->addClickListener([this](fairygui::EventContext* context) {
+        this->recipeBookList->getScrollPane()->scrollRight(1, false);
+
+        recipeBookIndex = std::min(recipeBookIndex + 1, (int)(Player::getPlayerRecipes().size()/2) - 1);
+        if (recipeBookIndex == Player::getPlayerRecipes().size()/2 - 1) recipeBookRightArrow->setVisible(false);
+        if (recipeBookIndex != 0) recipeBookLeftArrow->setVisible(true);
+
+        std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/page_flip.mp3");
+        if (!FileUtils::getInstance()->isFileExist(fullPath))
+            AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
+        else
+            int soundId = AudioEngine::play2d("sound/page_flip.mp3", false, 1.0f);
+    });
+
     // Create an empty Meal instance to keep track of the player's actions
     currentMeal = new Meal();
 
     // Add the fairygui component to root to be displayed
     root->addChild(cookingSceneComponent);
+}
+
+void CookingScene::renderRecipeBookItems(int index, fairygui::GObject* obj) {
+    std::vector<Recipe> recipes = Player::getPlayerRecipes();
+
+    if (index < 0 || index >= recipes.size()) {
+        std::cerr << "Index out of bounds in renderRecipeBookItems: " << index << std::endl;
+        return;
+    }
+
+    fairygui::GComponent* itemComponent = obj->as<fairygui::GComponent>();
+    if (!itemComponent) {
+        std::cerr << "Error: itemComponent is null." << std::endl;
+        return;
+    }
+
+    // Find the title textfield and set it to the name of the recipe
+    fairygui::GTextField* recipeName = itemComponent->getChild("n0")->as<fairygui::GTextField>();
+    if (!recipeName) {
+        std::cerr << "Error: recipeName is null." << std::endl;
+        return;
+    }
+    recipeName->setText(Player::getPlayerRecipes()[index].getRecipeName());
+
+    // Find the description textfield and set it to the description of the recipe
+    fairygui::GTextField* recipeDescription = itemComponent->getChild("n1")->as<fairygui::GTextField>();
+    if (!recipeDescription) {
+        std::cerr << "Error: recipeDescription is null." << std::endl;
+        return;
+    }
+    recipeDescription->setText(Player::getPlayerRecipes()[index].getDescription());
+
+    // Find the ingredients in the recipe and set them to the textfield
+    fairygui::GTextField* recipeIngredients = itemComponent->getChild("n2")->as<fairygui::GTextField>();
+    if (!recipeIngredients) {
+        std::cerr << "Error: recipeIngredients is null." << std::endl;
+        return;
+    }
+    std::string ingredientsText;
+    for (Ingredient& ingredient : Player::getPlayerRecipes()[index].getRecipeIngredients()) {
+        ingredientsText += ingredient.getName() + ", ";
+    }
+    recipeIngredients->setText(ingredientsText);
+
+    // Find the steps in the recipe and set them to the textfield
+    fairygui::GTextField* recipeSteps = itemComponent->getChild("n3")->as<fairygui::GTextField>();
+    if (!recipeSteps) {
+        std::cerr << "Error: recipeSteps is null." << std::endl;
+        return;
+    }
+    std::string stepsText;
+    for (CookingProcess& step : Player::getPlayerRecipes()[index].getRecipeSteps()) {
+        stepsText += step.getName() + " : ";
+        for (Ingredient& ingredient : step.getIngredients()) {
+            stepsText += ingredient.getName() + ", ";
+        }
+        stepsText += "\n";
+    }
+    recipeSteps->setText(stepsText);
 }
 
 // This method is used to dynamically update the elements in the pantry GList
@@ -187,69 +328,80 @@ void CookingScene::renderListItems(int index, fairygui::GObject* obj) {
     std::vector<Ingredient> inventory = Player::getInventory();
 
     // Checks if the index in the GList array is actually matching that of the player inventory
-    if (index >= 0 && index < inventory.size()) {
-        // Find the template component to make the ingredient button box
-        fairygui::GComponent* itemComponent = obj->as<fairygui::GComponent>();
-
-        // Checks if it exists in the fairygui project
-        if (itemComponent) {
-            // Find the label in the component and set it to the name of the ingredient
-            fairygui::GTextField* label = itemComponent->getChild("n1")->as<fairygui::GTextField>();
-            if (label) label->setText(inventory[index].getName());
-
-            // Find the button and set it's onClick behaviour
-            fairygui::GButton* button = itemComponent->getChild("n2")->as<fairygui::GButton>();
-            if (button) {
-                button->addClickListener([index, this, button](fairygui::EventContext* context) {
-                    // Find Ingredient
-                    std::vector<Ingredient> ingredients = Player::getInventory();
-
-                    // Selected State
-                    if (!Player::getIngredientsChosen()[index]) {
-                        currentMeal->addIngredientToCurrentStep(ingredients[index]);
-                        button->setAlpha(0.5f);  // Set button to semi-transparent
-                        Player::setIngredientsChosen(index, true);
-                        std::cout << "Added ingredient: " << ingredients[index].getName() << std::endl;
-                    }
-
-                    // Unselected State
-                    else {
-                        currentMeal->removeIngredientFromCurrentStep(ingredients[index]);
-                        button->setAlpha(0.0f);  // Set button to fully opaque
-                        Player::setIngredientsChosen(index, false);
-                        std::cout << "Removed ingredient: " << ingredients[index].getName() << std::endl;
-                    }
-
-                    // Play sound
-                    std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/ingredientSelect.mp3");
-                    if (!FileUtils::getInstance()->isFileExist(fullPath))
-                        AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
-                    else
-                        int soundId = AudioEngine::play2d("sound/ingredientSelect.mp3", false, 1.0f);
-
-                    //updateElementOnActionList();
-                });
-                // Add to button vector to modify later if necessary
-                buttons.push_back(button);
-            }
-
-            // Load the image associated with the ingredient
-            fairygui::GLoader* imgLoader = itemComponent->getChild("n0")->as<fairygui::GLoader>();
-            if (imgLoader) {
-                std::vector<Ingredient> inventory = Player::getInventory();
-                imgLoader->setURL("UI/Assets/" + std::to_string(inventory[index].getNameIndex() + 3) + ".png");
-                std::cout << ("UI/Assets/" + std::to_string(inventory[index].getNameIndex() + 3) + ".png") << std::endl;
-            }
-
-            // Update the textfield to show the quantity of that ingredient in the player's inventory
-            fairygui::GTextField* ingredientAmountText = itemComponent->getChild("n6")->as<fairygui::GTextField>();
-            if (ingredientAmountText) {
-                std::vector<Ingredient> ingredients = Player::getInventory();
-                int amount = ingredients[index].getQuantity();
-                ingredientAmountText->setText(std::to_string(amount));
-            }
-        }
+    if (index < 0 || index >= inventory.size()) {
+        std::cerr << "Index out of bounds in renderRecipeBookItems: " << index << std::endl;
+        return;
     }
+
+    // Find the template component to make the ingredient button box
+    fairygui::GComponent* itemComponent = obj->as<fairygui::GComponent>();
+
+    // Checks if it exists in the fairygui project
+    if (!itemComponent) {
+        std::cerr << "Error: itemComponent is null." << std::endl;
+        return;
+    }
+
+    // Find the label in the component and set it to the name of the ingredient
+    fairygui::GTextField* label = itemComponent->getChild("n1")->as<fairygui::GTextField>();
+    if (label) label->setText(inventory[index].getName());
+
+    // Find the button and set it's onClick behaviour
+    fairygui::GButton* button = itemComponent->getChild("n2")->as<fairygui::GButton>();
+    if (!button) {
+        std::cerr << "Error: button is null." << std::endl;
+        return;
+    }
+
+    button->addClickListener([index, this, button](fairygui::EventContext* context) {
+        // Find Ingredient
+        std::vector<Ingredient> ingredients = Player::getInventory();
+
+        // Selected State
+        if (!Player::getIngredientsChosen()[index]) {
+            currentMeal->addIngredientToCurrentStep(ingredients[index]);
+            button->setAlpha(0.5f);  // Set button to semi-transparent
+            Player::setIngredientsChosen(index, true);
+            std::cout << "Added ingredient: " << ingredients[index].getName() << std::endl;
+        }
+
+        // Unselected State
+        else {
+            currentMeal->removeIngredientFromCurrentStep(ingredients[index]);
+            button->setAlpha(0.0f);  // Set button to fully opaque
+            Player::setIngredientsChosen(index, false);
+            std::cout << "Removed ingredient: " << ingredients[index].getName() << std::endl;
+        }
+
+        // Play sound
+        std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/ingredientSelect.mp3");
+        if (!FileUtils::getInstance()->isFileExist(fullPath))
+            AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
+        else
+            int soundId = AudioEngine::play2d("sound/ingredientSelect.mp3", false, 1.0f);
+
+        // updateElementOnActionList();
+    });
+    // Add to button vector to modify later if necessary
+    buttons.push_back(button);
+
+    // Load the image associated with the ingredient
+    fairygui::GLoader* imgLoader = itemComponent->getChild("n0")->as<fairygui::GLoader>();
+    if (!imgLoader) {
+        std::cerr << "Error: imgLoader is null." << std::endl;
+        return;
+    }
+    imgLoader->setURL("UI/Assets/" + std::to_string(inventory[index].getNameIndex() + 3) + ".png");
+    std::cout << ("UI/Assets/" + std::to_string(inventory[index].getNameIndex() + 3) + ".png") << std::endl;
+
+    // Update the textfield to show the quantity of that ingredient in the player's inventory
+    fairygui::GTextField* ingredientAmountText = itemComponent->getChild("n6")->as<fairygui::GTextField>();
+    if (!ingredientAmountText) {
+        std::cerr << "Error: ingredientAmountText is null." << std::endl;
+        return;
+    }
+    int amount                          = inventory[index].getQuantity();
+    ingredientAmountText->setText(std::to_string(amount));
 }
 
 // This method loads in the pop up that shows up after the player "serves" his meal

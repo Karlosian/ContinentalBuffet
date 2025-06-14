@@ -34,17 +34,17 @@ Recipe Meal::findMatchingRecipe() {
     std::vector<double>recipeAccuracyArray;
 
     // Loop through the recipes in the JSON file
-    for (int i = 0; i < Recipe::recipes.size(); i++) {
+    for (int i = 0; i < Recipe::getAllRecipes().size(); i++) {
         // Give a score to each recipe based on how similar it is to the ingredients used in the meal
         double ingredientScore = 0;
-        int amountOfIngredients = Recipe::recipes[i].getRecipeIngredients().size();
+        int amountOfIngredients = Recipe::getAllRecipes()[i].getRecipeIngredients().size();
 
         for (int j = 0; j < amountOfIngredients; j++) {
             for (int k = 0; k < this->recipeIngredients.size(); k++) {
-                if (Recipe::recipes[i].getRecipeIngredients()[j].getName() == this->recipeIngredients[k].getName()) {
+                if (Recipe::getAllRecipes()[i].getRecipeIngredients()[j].getName() == this->recipeIngredients[k].getName()) {
                     ingredientScore +=
                         1.0 / amountOfIngredients
-                        * (Recipe::recipes[i].getRecipeIngredients()[j].getAmount() / this->recipeIngredients[k].getAmount());
+                        * (Recipe::getAllRecipes()[i].getRecipeIngredients()[j].getAmount() / this->recipeIngredients[k].getAmount());
                     break;
                 }
             }
@@ -53,10 +53,10 @@ Recipe Meal::findMatchingRecipe() {
 
         // Give a score to each recipe based on how similar it is to the cooking processes used in the meal
         double cookingProcessScore = 0;
-        int minStepsSize = std::min(steps.size(), recipes[i].getRecipeSteps().size());
+        int minStepsSize = std::min(steps.size(), Recipe::getAllRecipes()[i].getRecipeSteps().size());
         for (int j = 0; j < minStepsSize; j++) {
-            if (this->steps[j] == Recipe::recipes[i].getRecipeSteps()[j]) {
-                cookingProcessScore += 1.0 / Recipe::recipes[i].getRecipeSteps().size();
+            if (this->steps[j] == Recipe::getAllRecipes()[i].getRecipeSteps()[j]) {
+                cookingProcessScore += 1.0 / Recipe::getAllRecipes()[i].getRecipeSteps().size();
             }
         }
         cookingProcessScore *= 0.7; // Give this score a weight of 70% of the final score
@@ -75,8 +75,8 @@ Recipe Meal::findMatchingRecipe() {
 
     // Return the recipe with the highest score
     recipeAccuracy = recipeAccuracyArray[maxIndex];
-    std::vector<Recipe> test = Recipe::recipes;
-    return Recipe::recipes[maxIndex];
+    std::vector<Recipe> test = Recipe::getAllRecipes();
+    return Recipe::getAllRecipes()[maxIndex];
 }
 
 // Overloaded Assignment Operator

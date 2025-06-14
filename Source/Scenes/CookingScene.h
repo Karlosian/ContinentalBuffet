@@ -46,6 +46,12 @@ private:
     fairygui::GComponent* endPopUpComponent;
     std::vector<fairygui::GButton*> buttons;
 
+    fairygui::GComponent* recipeBookComponent;
+    fairygui::GList* recipeBookList;
+    fairygui::GButton* recipeBookLeftArrow;
+    fairygui::GButton* recipeBookRightArrow;
+    int recipeBookIndex = 0;
+
     // Information of meal made by player
     Meal* currentMeal;
     int actionIndex;
@@ -62,6 +68,7 @@ public:
     // Event methods
     void menuCloseCallback(ax::Object* sender);
     void renderListItems(int index, fairygui::GObject* obj);
+    void renderRecipeBookItems(int index, fairygui::GObject* obj);
     void updateElementOnActionList();
 
     // Overload toString method

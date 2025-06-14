@@ -66,8 +66,8 @@ bool MainScene::init()
     Ingredient::getIngredientList();
     Recipe::getRecipeList();
 
-    std::vector<Ingredient> ingredients = Recipe::recipes[0].getRecipeIngredients();
-    std::vector<CookingProcess> cookingProcesses = Recipe::recipes[0].getRecipeSteps();
+    std::vector<Ingredient> ingredients = Recipe::getAllRecipes()[0].getRecipeIngredients();
+    std::vector<CookingProcess> cookingProcesses = Recipe::getAllRecipes()[0].getRecipeSteps();
 
     Meal mealTest(ingredients, cookingProcesses);
     Recipe recipeTest = mealTest.findMatchingRecipe();

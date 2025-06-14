@@ -9,8 +9,9 @@ Player* Player::instance = nullptr;
 double Player::money = 100.0;  // Default money amount
 
 // Player constructor initializes the player with default values
-std::vector<Ingredient> Player::inventory; 
+std::vector<Ingredient> Player::inventory;
 std::vector<bool> Player::ingredientsChosen;
+std::vector<Recipe> Player::playerRecipes;
 
 // Returns the player instance (information) necessary when a new scene is loaded
 Player* Player::getInstance() {
@@ -34,6 +35,10 @@ std::vector<bool> Player::getIngredientsChosen() {
 // Getter for player money
 double Player::getMoney() {
     return Player::money;
+}
+
+std::vector<Recipe> Player::getPlayerRecipes() {
+    return Player::playerRecipes;
 }
 
 // Setter for the player inventory
@@ -175,4 +180,14 @@ void Player::initalizeTestInventory() {
 
     // Sort the player's inventory
     sortInventory();
+
+    // Add the first two recipes in recipes.json to the player's inventory
+    for (int i = 0; i < 8; i++) {
+        Player::addRecipeToInventory(Recipe::getAllRecipes()[i]);
+    }
+}
+
+void Player::addRecipeToInventory(Recipe recipe) {
+    // Adds an ingredient to the player's inventory
+    Player::playerRecipes.push_back(recipe);
 }
