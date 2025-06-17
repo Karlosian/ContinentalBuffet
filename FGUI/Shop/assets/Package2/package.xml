@@ -76,6 +76,7 @@
     <component id="cwzb28" name="Scroll2.xml" path="/Components/"/>
     <component id="cwzb29" name="Label1.xml" path="/"/>
     <component id="cwzb2a" name="Text.xml" path="/"/>
+    <font id="smhw2b" name="Impacted.ttf" path="/" renderMode="" samplePointSize="16"/>
   </resources>
   <publish name="Shop"/>
 </packageDescription>
