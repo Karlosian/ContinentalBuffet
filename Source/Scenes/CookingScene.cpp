@@ -92,10 +92,17 @@ void CookingScene::loadStartScreen() {
     if (actionButtonObject != nullptr && actionButtonObject->as<fairygui::GButton>() != nullptr) {
         fairygui::GButton* actionButton = actionButtonObject->as<fairygui::GButton>();
         actionButton->addClickListener([this](fairygui::EventContext* context) {
-            if (currentMeal->getCurrentStep()->getIngredients().size() > 0) {
+            //if (currentMeal->getCurrentStep()->getIngredients().size() > 0) {
                 std::vector<std::string> cookingProcesses = CookingProcess::getCookingProcesses();
                 currentMeal->addStepAction(cookingProcesses[actionIndex]);
                 currentMeal->addNewStep();
+
+                if (currentMeal->getCurrentStep()->getIngredients().size() == 0) {
+                    Ingredient placeholder ("Ensemble of used ingredients", 100, "mL");
+                    currentMeal->addIngredientToCurrentStep(placeholder);
+                    // Create a placeholder ingredient when the user just selects an ingredient
+                }
+
                 updateElementOnActionList();
 
                 // Play sound
@@ -104,7 +111,7 @@ void CookingScene::loadStartScreen() {
                     AXLOGE("ERROR: Audio file not found at: %s", fullPath.c_str());
                 else
                     int soundId = AudioEngine::play2d("sound/action.wav", false, 1.0f);
-            }
+            //}
         });
     }
 
@@ -195,6 +202,7 @@ void CookingScene::loadStartScreen() {
         bool isVisible = recipeBookComponent->isVisible();
         recipeBookComponent->setVisible(!isVisible);
         recipeBookComponent->setTouchable(!isVisible);
+        recipeBookList->setNumItems(Player::getPlayerRecipes().size());
 
         // Play sound
         std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/Select.wav");
@@ -245,8 +253,8 @@ void CookingScene::loadStartScreen() {
     recipeBookRightArrow->addClickListener([this](fairygui::EventContext* context) {
         this->recipeBookList->getScrollPane()->scrollRight(1, false);
 
-        recipeBookIndex = std::min(recipeBookIndex + 1, (int)(Player::getPlayerRecipes().size()/2) - 1);
-        if (recipeBookIndex == Player::getPlayerRecipes().size()/2 - 1) recipeBookRightArrow->setVisible(false);
+        recipeBookIndex = std::min(recipeBookIndex + 1, (int)(ceil(Player::getPlayerRecipes().size()/2.0) - 1.0));
+        if (recipeBookIndex == (int)(ceil(Player::getPlayerRecipes().size()/2.0) - 1.0)) recipeBookRightArrow->setVisible(false);
         if (recipeBookIndex != 0) recipeBookLeftArrow->setVisible(true);
 
         std::string fullPath = FileUtils::getInstance()->fullPathForFilename("sound/page_flip.mp3");
@@ -320,6 +328,11 @@ void CookingScene::renderRecipeBookItems(int index, fairygui::GObject* obj) {
         stepsText += "\n";
     }
     recipeSteps->setText(stepsText);
+}
+
+// Getter for the GList storing the recipes
+void CookingScene::updateRecipeBookList() {
+    recipeBookList->setNumItems(Player::getPlayerRecipes().size());
 }
 
 // This method is used to dynamically update the elements in the pantry GList

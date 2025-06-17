@@ -55,8 +55,10 @@ private:
     // Information of meal made by player
     Meal* currentMeal;
     int actionIndex;
-
 public:
+    // For access to the current instance of this scene
+    static CookingScene* currentInstance;
+
     // Loaders Methods
     void loadStartScreen();
     void loadEndPopUp();
@@ -64,6 +66,9 @@ public:
     // Scene initialization methods (override those provided by ax::Scene)
     bool init() override;
     void update(float delta) override;
+
+    // Getters
+    void updateRecipeBookList();
 
     // Event methods
     void menuCloseCallback(ax::Object* sender);
