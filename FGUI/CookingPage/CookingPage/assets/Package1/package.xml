@@ -111,6 +111,7 @@
     <image id="tk7z3g" name="button_recipe-book_pressed.png" path="/Assets/"/>
     <component id="tk7z3h" name="recipeButton.xml" path="/"/>
     <component id="tk7z3i" name="RecipeBookText.xml" path="/Assets/"/>
+    <font id="tk7z3b" name="BrushScriptOpti-Regular.otf" path="/Assets/" renderMode="" samplePointSize="16"/>
   </resources>
   <publish name="CookingPackage"/>
 </packageDescription>

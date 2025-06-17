@@ -7,6 +7,6 @@
     <text id="n5_j18b" name="n5" xy="65,75" size="669,104" fontSize="80" align="center" text="Congratulations !"/>
     <text id="n6_j18b" name="n6" xy="241,194" size="317,54" fontSize="40" align="center" text="You have made :"/>
     <text id="n7_j18b" name="n7" xy="148,384" size="503,42" fontSize="30" align="center" text="With an accuracy of 20% (+30.00$)."/>
-    <text id="n8_j18b" name="n8" xy="135,272" size="529,92" font="Brush Script MT" fontSize="70" align="center" text="Pizza Margherita"/>
+    <text id="n8_j18b" name="n8" xy="181,272" size="438,92" font="ui://9ah5ij39tk7z3b" fontSize="70" align="center" text="Pizza Margherita"/>
   </displayList>
 </component>

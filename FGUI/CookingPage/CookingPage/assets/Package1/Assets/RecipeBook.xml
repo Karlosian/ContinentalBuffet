@@ -4,6 +4,6 @@
     <image id="n2_tk7z" name="n2" src="tk7z3e" fileName="Assets/RecipeBackground(1).png" xy="-72,-66" size="1145,733"/>
     <component id="n3_tk7z" name="n3" src="jarbx" fileName="ButtonComponents/LeftArrow.xml" xy="4,239" size="70,115"/>
     <component id="n4_tk7z" name="n4" src="jarbx" fileName="ButtonComponents/LeftArrow.xml" xy="995,367" size="70,115" rotation="180"/>
-    <list id="n5_tk7z" name="n5" xy="104,41" size="796,524" layout="row" overflow="scroll" scroll="horizontal" colGap="20" defaultItem="ui://9ah5ij39tk7z3i"/>
+    <list id="n5_tk7z" name="n5" xy="104,41" size="796,524" touchable="false" layout="row" overflow="scroll" scroll="horizontal" colGap="20" defaultItem="ui://9ah5ij39tk7z3i"/>
   </displayList>
 </component>
