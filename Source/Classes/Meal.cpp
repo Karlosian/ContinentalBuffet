@@ -111,6 +111,9 @@ void Meal::substractUsedIngredients() {
     for (CookingProcess stepsTaken : steps) {
         for (Ingredient ingredientInStep : stepsTaken.getIngredients()) {
             std::vector<Ingredient> playerInventory = Player::getInventory();
+            // For steps where the player 
+            if (ingredientInStep.getName() == "Ensemble of used ingredients") continue;
+
             for (int i = 0; i < playerInventory.size(); i++) {
                 // Avoids having the same ingredient removed multiple times from the player's inventory
                 bool hasBeenReduced = false;

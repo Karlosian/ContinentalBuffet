@@ -5,6 +5,10 @@
 #include "GButton.h"
 #include "GObject.h"
 #include "CookingScene.h"
+#include "../Classes/Player.h"
+
+#include <iostream>
+
 USING_NS_AX;
 
 
@@ -23,7 +27,7 @@ void BubbleGame::startGame(){
     score = 0;
     updateScoreLabel();
 
-    // Start game timer (e.g., 30 seconds)
+    // Start game timer
     float gameDuration = 30.0f;
 
     this->scheduleOnce([=](float) {
@@ -66,18 +70,15 @@ void BubbleGame::endGame(){
     scoreLabel->setVisible(false);
     timerLabel->setVisible(false);
     
-    // "//" is all nodes in axmol, so call lambda to remove all nodes
-    this->enumerateChildren("//", [](Node* node) -> bool {
-        if (auto sprite = dynamic_cast<Sprite*>(node)) {
-
-            //check if is a bubble
-            if(sprite->getName() == "bubble"){
+    // search the children of BubbleGame, "//" represents all nodes
+    this->enumerateChildren("bubble", [](Node* node) -> bool {
+        auto sprite = dynamic_cast<Sprite*>(node);
             //remove
             sprite->stopAllActions();
-            sprite->removeFromParent();}
-        }
+            sprite->removeFromParent();
+        
         return false; // Continue enumeration
-    });
+});
     
     //create game over screen
     auto visibleSize = Director::getInstance()->getVisibleSize();
@@ -87,28 +88,52 @@ void BubbleGame::endGame(){
     this->addChild(overlay, 100, "game_over_overlay");
     
     auto gameOverLabel = Label::createWithTTF("GAME OVER!", "fonts/Marker Felt.ttf", 64);
-    gameOverLabel->setPosition(origin + Vec2(visibleSize.width/2, visibleSize.height/2 + 100));
+    gameOverLabel->setPosition(origin + Vec2(visibleSize.width/2, visibleSize.height/2 + 150));
     gameOverLabel->setColor(Color3B::RED);
     this->addChild(gameOverLabel, 101);
     
     //final score display
     auto finalScoreLabel = Label::createWithTTF("Final Score: " + std::to_string(score), "fonts/Marker Felt.ttf", 36);
-    finalScoreLabel->setPosition(origin + Vec2(visibleSize.width/2, visibleSize.height/2 + 20));
+    finalScoreLabel->setPosition(origin + Vec2(visibleSize.width/2, visibleSize.height/2 + 70));
     finalScoreLabel->setColor(Color3B::WHITE);
     this->addChild(finalScoreLabel, 101);
  
     //make button visible
-    comp->setPosition(visibleSize.width/2 - 75, visibleSize.height/2 +50);
+    comp->setPosition(visibleSize.width/2 - 75, visibleSize.height/2 +100);
     //add listener
     backButton->addClickListener([](fairygui::EventContext* context) {
             Director::getInstance()->replaceScene(utils::createInstance<CookingScene>());
         });
+    //add label stating what reward you got for playing
+    int rewardInfo = parsePlayerReward(score);
 
-    
+    ax::Label* rewardLabel = nullptr;
+        switch (rewardInfo)
+        {
+        case -1:
+        rewardLabel = Label::createWithTTF("Rewarded: $" + std::to_string(score), "fonts/Marker Felt.ttf", 36);
+            break;
+
+        case -2:
+            rewardLabel = Label::createWithTTF("Rewarded: $" + std::to_string(score/2.0), "fonts/Marker Felt.ttf", 36);
+
+        default:
+            rewardLabel = 
+            Label::createWithTTF("Rewarded: $" + std::to_string(score/2.0) + " and the recipe\n" + Recipe::getAllRecipes()[rewardInfo].getRecipeName(), 
+            "fonts/Marker Felt.ttf", 36);
+            break;
+        }
+
+
+    rewardLabel->setPosition(origin + Vec2(visibleSize.width/2, visibleSize.height/2));
+    rewardLabel->setColor(Color3B::WHITE);
+    this->addChild(rewardLabel, 101);
+
+
     //add  animation to the game over screen
     gameOverLabel->setScale(0.1f);
     gameOverLabel->runAction(ScaleTo::create(0.3f, 1.0f));
-    
+
     return;
 }
 
@@ -124,9 +149,9 @@ void BubbleGame::spawnBubble(){
     
 
 
-    //random X position along the screen width
+    //random X position along the screen width, with a margin of 50px
     auto visibleSize = ax::Director::getInstance()->getVisibleSize();
-    float randomX = AXRANDOM_0_1() * visibleSize.width;
+    float randomX = AXRANDOM_0_1() * (visibleSize.width - 100) + 50;
 
     //start position at y=0
     bubble->setPosition(Vec2(randomX, 0));
@@ -303,6 +328,60 @@ timerLabel->setPosition(Vec2(1200, 680));
 timerLabel->setColor(ax::Color3B::WHITE);
 this->addChild(timerLabel, 10);
 
+}
+
+//returns -1 if adding just money, -2 if all recipes are obtained, or the index of the recipe that it adds to the player's inventory
+int BubbleGame::parsePlayerReward(int score) {
+    int i = -1;
+    //add money equivalent to score if under 15
+    if (score < 15) {
+        Player::addMoney((double)score);
+        return i;
+    }
+
+    //add money half of score
+    Player::addMoney((double)score / 2.0);
+
+    bool isValidIndex = false;
+    std::vector<Recipe> allRecipes = Recipe::getAllRecipes();
+    std::vector<Recipe> playerRecipes = Player::getPlayerRecipes();
+
+    //safety check: if player has all recipes
+    if (playerRecipes.size() == allRecipes.size()) {
+            return -2;
+        }
+
+    //find valid index of recipe    
+    while (!isValidIndex) {
+        i = std::floor(AXRANDOM_0_1() * allRecipes.size());
+        Recipe potentialRecipe = allRecipes[i];
+
+        //check if the recipe is already in the player's inventory
+        bool alreadyOwned = false;
+        for (Recipe r : playerRecipes) {
+            if (r.getRecipeName() == potentialRecipe.getRecipeName()) {
+                alreadyOwned = true;
+                break;
+            }
+        }
+
+        if (!alreadyOwned) {
+            isValidIndex = true;
+            Player::addRecipeToInventory(potentialRecipe); 
+            AXLOGD("Added recipe with index {} to Player's inventory.", i);
+            
+            for(int j = 0; j < Player::getPlayerRecipes().size(); j++){
+                AXLOGD("Current Player Recipes: {}", j+1);
+            }
+
+            /*CookingScene* cookingSceneInstance = CookingScene::currentInstance;
+            cookingSceneInstance->updateRecipeBookList();*/
+        }
+
+        
+    }
+
+    return i;
 }
 
 BubbleGame::BubbleGame() : score(0), timeLeft(30), scoreLabel(nullptr), timerLabel(nullptr), root(nullptr), comp(nullptr) {

@@ -28,6 +28,7 @@ protected:
 private:
     // Static vector to hold all recipes in the game
     static std::vector<Recipe> recipes;
+    
 public:
     // Default Constructors
     Recipe();

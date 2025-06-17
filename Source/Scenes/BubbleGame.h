@@ -14,6 +14,7 @@ class BubbleGame : public ax::Scene
     void updateScoreLabel();
     void endGame();
     void spawnBubble();
+    static int parsePlayerReward(int score);
     fairygui::GRoot* root;
     int score = 0;
     int timeLeft = 30;
