@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="388,524">
   <displayList>
-    <text id="n0_tk7z" name="n0" xy="15,27" size="357,44" fontSize="32" autoSize="none" text="Pizza Margherita"/>
-    <text id="n1_tk7z" name="n1" xy="16,80" size="356,76" fontSize="16" autoSize="none" text="A classic Neapolitan pizza, simple yet flavorful."/>
-    <text id="n2_tk7z" name="n2" xy="15,199" size="356,60" fontSize="11" autoSize="none" text="Flour, Tomatoes (fresh), Cheese (mozzarella), Basil, Olive oil, Salt"/>
-    <text id="n3_tk7z" name="n3" xy="16,304" size="356,199" fontSize="11" autoSize="none" text="Mix : Flour, Water, Salt&#xA;Chop : Tomatoes (fresh)&#xA;Grate : Cheese (mozzarella)&#xA;Layer : Dough, Tomatoes (fresh), Cheese (mozzarella), Basil&#xA;Bake : Pizza Margherita"/>
-    <text id="n4_tk7z" name="n4" xy="16,165" size="148,34" fontSize="24" bold="true" text="Ingredients"/>
-    <text id="n5_tk7z" name="n5" xy="15,270" size="75,34" fontSize="24" bold="true" text="Steps"/>
+    <text id="n0_tk7z" name="n0" xy="15,27" size="357,44" font="ui://9ah5ij39no3v3j" fontSize="32" autoSize="none" text="Pizza Margherita"/>
+    <text id="n1_tk7z" name="n1" xy="16,80" size="356,76" font="ui://9ah5ij39no3v3j" fontSize="16" autoSize="none" text="A classic Neapolitan pizza, simple yet flavorful."/>
+    <text id="n2_tk7z" name="n2" xy="15,199" size="356,60" font="ui://9ah5ij39no3v3j" fontSize="14" autoSize="none" text="Flour, Tomatoes (fresh), Cheese (mozzarella), Basil, Olive oil, Salt"/>
+    <text id="n3_tk7z" name="n3" xy="16,304" size="356,199" font="ui://9ah5ij39no3v3j" fontSize="11" autoSize="none" text="Mix : Flour, Water, Salt&#xA;Chop : Tomatoes (fresh)&#xA;Grate : Cheese (mozzarella)&#xA;Layer : Dough, Tomatoes (fresh), Cheese (mozzarella), Basil&#xA;Bake : Pizza Margherita"/>
+    <text id="n4_tk7z" name="n4" xy="16,165" size="134,34" font="ui://9ah5ij39no3v3j" fontSize="24" bold="true" text="Ingredients"/>
+    <text id="n5_tk7z" name="n5" xy="15,270" size="70,34" font="ui://9ah5ij39no3v3j" fontSize="24" bold="true" text="Steps"/>
   </displayList>
 </component>

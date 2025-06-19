@@ -17,6 +17,7 @@
 #include "AudioEngine.h"
 
 #include <iostream>
+#include <iomanip>
 #include <functional>
 
 using namespace ax;
@@ -26,6 +27,9 @@ static int s_sceneID = 2000;
 
 // This method loads in all the components in the Cooking Scene
 void CookingScene::loadStartScreen() {
+    //load font 
+    std::string fontPath = FileUtils::getInstance()->fullPathForFilename("fonts/arial.ttf");
+    fairygui::UIConfig::registerFont("arial", fontPath);
     // Load the cooking scene UI package and add it to the scene
     fairygui::UIPackage::addPackage("UI/CookingPackage");
     fairygui::GComponent* cookingSceneComponent = fairygui::UIPackage::createObject("Package1", "Component1")->as<fairygui::GComponent>();
@@ -95,13 +99,13 @@ void CookingScene::loadStartScreen() {
             //if (currentMeal->getCurrentStep()->getIngredients().size() > 0) {
                 std::vector<std::string> cookingProcesses = CookingProcess::getCookingProcesses();
                 currentMeal->addStepAction(cookingProcesses[actionIndex]);
-                currentMeal->addNewStep();
 
                 if (currentMeal->getCurrentStep()->getIngredients().size() == 0) {
                     Ingredient placeholder ("Ensemble of used ingredients", 100, "mL");
                     currentMeal->addIngredientToCurrentStep(placeholder);
                     // Create a placeholder ingredient when the user just selects an ingredient
                 }
+                currentMeal->addNewStep();
 
                 updateElementOnActionList();
 

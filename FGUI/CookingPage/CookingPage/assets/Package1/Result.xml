@@ -3,9 +3,9 @@
   <displayList>
     <graph id="n4_j18b" name="n4" xy="0,0" size="799,600" type="rect"/>
     <image id="n3_j18b" name="n3" src="j5py3b" fileName="ab67616d0000b2735e6b90660ef58289d93c9ff0.jpg" xy="0,0" size="800,600" alpha="0.11" color="#993366"/>
-    <text id="n5_j18b" name="n5" xy="1,75" size="796,104" fontSize="80" align="center" autoSize="none" text="Congratulations !"/>
-    <text id="n6_j18b" name="n6" xy="0,194" size="797,54" fontSize="40" align="center" autoSize="none" text="You have made :"/>
-    <text id="n7_j18b" name="n7" xy="0,384" size="799,42" fontSize="30" align="center" autoSize="none" text="With an accuracy of 20% (+30.00$)."/>
+    <text id="n5_j18b" name="n5" xy="1,75" size="796,104" font="ui://9ah5ij39no3v3j" fontSize="80" align="center" autoSize="none" strokeColor="#000000" text="Congratulations !"/>
+    <text id="n6_j18b" name="n6" xy="0,194" size="797,54" font="ui://9ah5ij39no3v3j" fontSize="40" align="center" autoSize="none" text="You have made :"/>
+    <text id="n7_j18b" name="n7" xy="0,384" size="799,42" font="ui://9ah5ij39no3v3j" fontSize="30" align="center" autoSize="none" text="With an accuracy of 20% (+30.00$)."/>
     <text id="n8_j18b" name="n8" xy="2,272" size="797,92" font="Brush Script MT" fontSize="70" align="center" autoSize="none" text="Pizza Margherita"/>
     <component id="n9_j5py" name="n9" src="j5py37" fileName="Restart.xml" xy="225,448"/>
   </displayList>

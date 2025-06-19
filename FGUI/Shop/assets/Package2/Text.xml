@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="524,65">
   <displayList>
-    <text id="n0_cwzb" name="n0" xy="17,12" size="307,45" font="ui://8j0ektecsmhw2b" fontSize="30" autoSize="none" text=""/>
-    <text id="n1_cwzb" name="n1" xy="346,12" size="164,45" font="ui://8j0ektecsmhw2b" fontSize="30" align="right" autoSize="none" text="khj"/>
+    <text id="n0_cwzb" name="n0" xy="17,12" size="307,45" font="ui://8j0ektecdbmb2c" fontSize="30" autoSize="none" text=""/>
+    <text id="n1_cwzb" name="n1" xy="346,12" size="164,45" font="ui://8j0ektecdbmb2c" fontSize="30" align="right" autoSize="none" text="khj"/>
   </displayList>
 </component>

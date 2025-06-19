@@ -1,6 +1,6 @@
 {
-  "path": "C:\\Users\\dinhv\\ICS4U\\ContinentalBuffet\\Content\\UI",
-  "branchPath": "C:\\Users\\dinhv\\ICS4U\\ContinentalBuffet\\Content\\UI",
+  "path": "Z:\\home\\karsonmiles\\projects\\ContinentalBuffet\\Content\\UI",
+  "branchPath": "Z:\\home\\karsonmiles\\projects\\ContinentalBuffet\\Content\\UI",
   "fileExtension": "fui",
   "packageCount": 2,
   "compressDesc": true,
@@ -8,7 +8,7 @@
   "jpegQuality": 80,
   "compressPNG": false,
   "codeGeneration": {
-    "allowGenCode": true,
+    "allowGenCode": false,
     "codePath": "",
     "classNamePrefix": "UI_",
     "memberNamePrefix": "m_",

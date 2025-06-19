@@ -112,6 +112,7 @@
     <component id="tk7z3h" name="recipeButton.xml" path="/"/>
     <component id="tk7z3i" name="RecipeBookText.xml" path="/Assets/"/>
     <font id="tk7z3b" name="BrushScriptOpti-Regular.otf" path="/Assets/" renderMode="" samplePointSize="16"/>
+    <font id="no3v3j" name="arial.ttf" path="/Assets/" renderMode="" samplePointSize="16"/>
   </resources>
   <publish name="CookingPackage"/>
 </packageDescription>

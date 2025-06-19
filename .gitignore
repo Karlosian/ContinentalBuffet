@@ -9,6 +9,12 @@ compile_commands.json
 out/
 
 
+# Gradle
+gradle.properties
+proj.android/gradle.properties
+proj.android/
+/proj.android/
+
 .vscode/
 .vs/
     
@@ -22,3 +28,4 @@ build.bat
 run.bat
 run.bat.in
 run.bat.txt
+proj.android/gradle.properties
