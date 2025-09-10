@@ -6,7 +6,7 @@
   <img src="assets/game-4.png" alt="ContinentalBuffet Logo" width="100" />
 </p> -->
 
-![C++](https://img.shields.io/badge/language-C++-blue.svg)  ![Engine](https://img.shields.io/badge/engine-Axmol-green.svg)  ![License](https://img.shields.io/badge/license-MIT-orange.svg)  
+![C++](https://img.shields.io/badge/language-C++-blue.svg)  ![Engine](https://img.shields.io/badge/engine-Axmol%202.6.0-green.svg)  ![License](https://img.shields.io/badge/license-MIT-orange.svg)  
 
 ### Cook fun recipes from all over the globe in ContinentalBuffet!
 ---
