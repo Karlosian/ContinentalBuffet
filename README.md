@@ -12,10 +12,10 @@
 
 ## About the Game  
 In **ContinentalBuffet**, you can:  
-- 🥘 **Cook recipes** from all around the world  
-- 🛒 **Buy ingredients** from the in-game store  
-- 💰 **Earn money** by playing the **bubble-popping minigame** and **cooking meals** 
-- 📖 **Unlock new recipes** by reaching high scores in the minigame  
+- 🥘 Cook recipes from all around the world  
+- 🛒 Buy ingredients from the in-game store  
+- 💰 Earn money by playing the bubble-popping minigame and cooking meals
+- 📖 Unlock new recipes by reaching high scores in the minigame  
 
 ---
 
