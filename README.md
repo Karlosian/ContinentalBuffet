@@ -8,10 +8,9 @@
 
 ![C++](https://img.shields.io/badge/language-C++-blue.svg)  ![Engine](https://img.shields.io/badge/engine-Axmol%202.6.0-green.svg)  ![License](https://img.shields.io/badge/license-MIT-orange.svg)  
 
-### Cook fun recipes from all over the globe in ContinentalBuffet!
 ---
 
-## 🌍 About the Game  
+## About the Game  
 In **ContinentalBuffet**, you can:  
 - 🥘 **Cook recipes** from all around the world  
 - 🛒 **Buy ingredients** from the in-game store  
@@ -24,8 +23,7 @@ In **ContinentalBuffet**, you can:
 1. Pop bubbles in the mini-game to earn coins  
 2. Use your coins to buy ingredients  
 3. Cook international recipes  
-4. Unlock new recipes by achieving target scores  
-5. Expand your culinary journey across continents!  
+4. Unlock new recipes by achieving a high enough score in the bubble minigame
 
 ---
 
@@ -56,7 +54,7 @@ In **ContinentalBuffet**, you can:
 
 ### Developer Setup (via Axmol DevSetup)  
 If you’d like to build or contribute, follow Axmol’s official developer setup guide <br>
-You can review the detailed, step-by-step guide here: [Axmol DevSetup](https://github.com/axmolengine/axmol/blob/dev/docs/DevSetup.md)  
+You can review the guide here: [Axmol DevSetup](https://github.com/axmolengine/axmol/blob/dev/docs/DevSetup.md)  
 
 ---
 
